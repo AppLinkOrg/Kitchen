@@ -16,6 +16,13 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
   }
+  brandtap(e) {
+    //console.log(currentTarget);
+    var id = e.currentTarget.id;
+    console.log(id);
+    this.Base.setMyData({ s: id })
+  }
+
   onMyShow() {
     var that = this;
     this.Base.getAddress((location) => {
@@ -35,7 +42,7 @@ class Content extends AppBase {
 
           shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
         }
-        this.Base.setMyData({ shoplist, currentshop: shoplist[0] });
+        this.Base.setMyData({ shoplist, currentshop: shoplist[0] ,s:0});
       });
     });
   }}
@@ -43,4 +50,5 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.brandtap = content.brandtap;
 Page(body)

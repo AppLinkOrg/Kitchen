@@ -14,22 +14,80 @@
   </view>
 
 </view>
-<view>  <image src='{{uploadpath}}resource/{{res.img}}' style='width:750rpx;height:280rpx;' mode="aspectFill"></image></view>
+<view>
+  <image src='{{uploadpath}}resource/{{res.img}}' style='width:750rpx;height:280rpx;' mode="aspectFill"></image>
+</view>
 
 <view class='flex-row' style=''>
+<!-- 分类列表 -->
+  <scroll-view scroll-y class='flex-1' style='height:1104rpx;background-color:#f2f2f0;'>
+    <view class='text-left flex-row column' style=''>
+      <view class='padding-20  h5 {{s==0?"bg":""}}' bindtap='brandtap' id='0'>大师咖啡</view>
+      <view class='padding-20  h5 {{s==1?"bg":""}}' bindtap='brandtap' id='1'>零度拿铁</view>
+      <view class='padding-20  h5 {{s==2?"bg":""}}' bindtap='brandtap' id='2'>瑞纳冰</view>
+      <view class='padding-20  h5 {{s==item.id?"bg":""}}' bindtap='brandtap' id='{{item.id}}' wx:for="{{brand}}" wx:key="k">{{item.brand}}</view>
 
-<scroll-view scroll-y class='flex-1'  style='height:1104rpx;background-color:#f2f2f0;'>
-<view class='text-left flex-row column' style=''>
-<view class='padding-20  h5 {{s==0?"bg":""}}' bindtap='brandtap' id='0' >全部</view>
-<view class='padding-20  h5 {{s==0?"bg":""}}' bindtap='brandtap' id='0' >全部</view>
-<view class='padding-20  h5 {{s==0?"bg":""}}' bindtap='brandtap' id='0' >全部</view>
-<view class='padding-20  h5 {{s==item.id?"bg":""}}' bindtap='brandtap' id='{{item.id}}' wx:for="{{brand}}" wx:key="k">{{item.brand}}</view>
+    </view>
+  </scroll-view>
+<!-- 商品列表 -->
+  <scroll-view scroll-y class='flex-3   flex-row column'  style='height:1104rpx;'>
+    <view class="h5 padding-left-10 txt-black">大师咖啡</view>
+    <view class="h6 padding-left-10 ">WBC(世界咖啡师大赛) 冠军团队拼配</view>
+    <view class='padding-10   h5 ' > 
+      <view class="flex-row flex-center">
+        <view class="flex-2 ">
+          <image style='' class='icon-50   padding-30' src='{{uploadpath}}resource/{{res.sucai2}}'></image>
+        </view>
+        <view class="flex-4  margin-top-5 flex-warp">
+          <view class="txt-black">标准美式</view>
+          <view class="h6">asdasdasdsa</view>
+          <view class="h6">默认:大/无糖/无奶/热</view>
+          <view class="txt-black flex-row">
+            <view class="flex-1">￥21</view>
 
-</view>
-</scroll-view>
+            <view>
+              <image class='icon padding-20' src='{{uploadpath}}resource/{{res.zengjia}}'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+  <view class="flex-row flex-center">
+        <view class="flex-2 ">
+          <image style='' class='icon-50   padding-30' src='{{uploadpath}}resource/{{res.sucai2}}'></image>
+        </view>
+        <view class="flex-4  margin-top-5 flex-warp">
+          <view class="txt-black">标准美式</view>
+          <view class="h6">asdasdasdsa</view>
+          <view class="h6">默认:大/无糖/无奶/热</view>
+          <view class="txt-black flex-row">
+            <view class="flex-1">￥21</view>
 
-<scroll-view scroll-y class='flex-3   flex-row column' style='height:1104rpx;'>
-<navigator url='/pages/problem/problem?id={{item.id}}{{options.newphone!=undefined?"&new=Y":""}}' class='padding-30 margin-left-50  h5' wx:for='{{model}}' wx:key="k" hidden='{{s!=0&& s!=item.brand_id}}'>{{item.model_name}}</navigator>
-</scroll-view>
+            <view>
+              <image class='icon padding-20' src='{{uploadpath}}resource/{{res.zengjia}}'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+        <view class="flex-row flex-center">
+        <view class="flex-2 ">
+          <image style='' class='icon-50   padding-30' src='{{uploadpath}}resource/{{res.sucai2}}'></image>
+        </view>
+        <view class="flex-4  margin-top-5 flex-warp">
+          <view class="txt-black">标准美式</view>
+          <view class="h6">asdasdasdsa</view>
+          <view class="h6">默认:大/无糖/无奶/热</view>
+          <view class="txt-black flex-row">
+            <view class="flex-1">￥21</view>
+
+            <view>
+              <image class='icon padding-20' src='{{uploadpath}}resource/{{res.zengjia}}'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+  
+
+    </view>
+  </scroll-view>
 
 </view>

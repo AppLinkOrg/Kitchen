@@ -7,3 +7,10 @@ margin-right: 20rpx
 
 
 }
+.bg{
+
+
+
+   background: white;
+  color: black;
+}
