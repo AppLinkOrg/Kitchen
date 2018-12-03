@@ -14,7 +14,7 @@ export class AppBase {
   static UserInfo = {};
   static InstInfo = {};
   unicode = "dds";
-  needauth = false;
+  needauth = true;
   pagetitle = null;
   app = null;
   options = null;
@@ -100,7 +100,8 @@ export class AppBase {
       loadtabtype: base.loadtabtype,
       contactkefu: base.contactkefu,
       contactweixin: base.contactweixin, 
-      download: base.download
+      download: base.download,
+      checkPermission: base.checkPermission
 
 
       
@@ -190,10 +191,7 @@ export class AppBase {
 
                   console.log(AppBase.UserInfo);
                   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
-                  memberapi.info({}, (info) => {
-                    this.Base.setMyData({ memberinfo: info });
-                    that.onMyShow();
-                  });
+                  that.checkPermission();
 
                 });
 
@@ -205,7 +203,7 @@ export class AppBase {
               console.log(res);
               //that.Base.gotoOpenUserInfoSetting();
               if (this.Base.needauth == true) {
-                wx.redirectTo({
+                wx.navigateTo({
                   url: '/pages/auth/auth',
                 })
               } else {
@@ -228,12 +226,7 @@ export class AppBase {
 
       that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
-      var memberapi = new MemberApi();
-      memberapi.info({}, (info) => {
-        this.Base.setMyData({ memberinfo: info });
-        ApiUtil.renamelist = info.renamelist;
-        that.onMyShow();
-      });
+      that.checkPermission();
     }
 
   }
@@ -241,6 +234,21 @@ export class AppBase {
     console.log("loadtabtype");
     var memberapi = new MemberApi();
     memberapi.update(AppBase.UserInfo, () => {});
+  }
+  checkPermission() {
+    var memberapi = new MemberApi();
+    var that=this;
+    memberapi.info({}, (info) => {
+      if (info.mobile == "" && this.Base.needauth == true){
+        wx.navigateTo({
+          url: '/pages/auth/auth',
+        })
+      }else{
+
+        this.Base.setMyData({ memberinfo: info });
+        that.onMyShow();
+      }
+    });
   }
 
   onMyShow() {
