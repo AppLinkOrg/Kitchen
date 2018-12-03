@@ -1,2 +1,10 @@
-<!--pages/menu/menu.wxml-->
-<text>pages/menu/menu.wxml</text>
+<view class="flex-row flex-center">
+  <view class="flex-1 padding-20">12</view>
+  <view class="flex-5  padding-20 flex-wrap">
+    <view class="h5 txt-black">科技生态园</view>
+    <view class="h6">距您 869m</view>
+  </view>
+  <view class="flex-5"></view>
+  <view class="flex-3  padding-20">3</view>
+
+</view>

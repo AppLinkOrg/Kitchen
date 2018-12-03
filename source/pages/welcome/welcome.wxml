@@ -1,2 +1,31 @@
-<!--pages/welcome/welcome.wxml-->
-<text>pages/welcome/welcome.wxml</text>
+<swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:600rpx;'>
+  <swiper-item wx:for="{{memberinfo}}" wx:key="k">
+    <view>
+      <image src='{{memberinfo.avatarUrl}}' style='width:750rpx;height:600rpx;' mode="aspectFill"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="flex-wrap flex-center padding-20 ">
+  <view class=" padding-20 flex-row flex-center txt-black  padding-bottom-40 padding-top-40 " style='border-bottom:1px solid #E5E5E5'>
+    <view class="flex-1 flex-wrap">
+      <view class="txt-black ">现在下单</view>
+      <view class="h7 ">ORDER NOW</view>
+
+    </view>
+    <view class="">1</view></view>
+   <view class=" padding-20 flex-row txt-black  padding-bottom-40 padding-top-40 " style='border-bottom:1px solid #E5E5E5'>
+    <view class="flex-1 flex-wrap">
+      <view class="txt-black">咖啡钱包</view>
+      <view class="h7">COFFEE WALLET</view>
+
+    </view>
+    <view class="">1</view></view>
+   <view class=" padding-20 flex-row txt-black  padding-bottom-40 padding-top-40 " >
+    <view class="flex-1 flex-wrap">
+      <view class="txt-black">邀请得杯</view>
+      <view class="h7">SHARE & GET IT FREE</view>
+
+    </view>
+    <view class="">1</view></view>
+
+</view>

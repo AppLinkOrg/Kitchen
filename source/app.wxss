@@ -291,6 +291,14 @@ button[disabled][type=primary] {
 .padding-bottom-50{
   padding-bottom: 50rpx;
 }
+.padding-bottom-40{
+  padding-bottom: 40rpx;
+}
+.padding-top-40
+{
+
+    padding-top: 40rpx;
+}
 .padding-bottom-70{
   padding-bottom: 70rpx;
 }
