@@ -1,9 +1,16 @@
 // pages/content/content.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
 import {
- ShopApi} from "../../apis/shop.api.js";
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  ShopApi
+} from "../../apis/shop.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -35,12 +42,46 @@ class Content extends AppBase {
 
           shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
         }
-        this.Base.setMyData({ shoplist, currentshop: shoplist[0] });
+        this.Base.setMyData({ shoplist });
+        var currentshop = this.Base.getMyData().currentshop;
+        if (currentshop == null) {
+          this.setCurrent(shoplist[0].id)
+        }
       });
     });
-  }}
+  }
+  setCurrent(shop_id) {
+    var shoplist = this.Base.getMyData().shoplist;
+    for (var i = 0; i < shoplist.length; i++) {
+      if (shoplist[i].id == shop_id) {
+        this.Base.setMyData({ currentshop: shoplist[i] });
+
+        var shopapi = new ShopApi();
+        shopapi.menucat({ menu_id: shoplist[i].menu_id }, (menucat) => {
+          shopapi.menugoods({ menu_id: shoplist[i].menu_id }, (menugoods) => {
+            var ret=[];
+            for(var i=0;i<menucat.length;i++){
+              menucat[i].goods=[];
+              for (var j = 0; j < menugoods.length; j++) {
+                if(menucat[i].id==menugoods[j].cat_id){
+                  menucat[i].goods.push(menugoods[j]);
+                }
+              }
+              if(menucat[i].goods.length>0){
+                ret.push(menucat[i]);
+              }
+            }
+            this.Base.setMyData({menu:ret});
+          });
+        });
+        return;
+      }
+    }
+  }
+}
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.setCurrent = content.setCurrent;
 Page(body)
