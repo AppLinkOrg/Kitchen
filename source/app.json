@@ -19,15 +19,15 @@
     "list": [
       {
         "text": "主页",
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/welcome/welcome",
         "iconPath": "images/icons/a.png",
-        "selectedIconPath": "images/icons/b.png"
+        "selectedIconPath": "images/icons/a.png"
       },
       {
         "text": "发布",
         "pagePath": "pages/member/member",
-        "iconPath": "images/icons/b.png",
-        "selectedIconPath": "images/icons/b.png"
+        "iconPath": "images/icons/a.png",
+        "selectedIconPath": "images/icons/a.png"
       }
     ]
   }
