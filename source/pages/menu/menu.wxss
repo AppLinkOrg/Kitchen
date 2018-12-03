@@ -1,1 +1,9 @@
 /* pages/menu/menu.wxss */
+.yy{
+border-radius: 60rpx;
+border:1px solid #81A8CF;
+
+margin-right: 20rpx
+
+
+}

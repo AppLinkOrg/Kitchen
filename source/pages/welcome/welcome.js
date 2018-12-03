@@ -16,9 +16,17 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
   }
+  gomenu(){
+
+    wx.switchTab({
+      url: '../menu/menu',
+    });
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.gomenu = content.gomenu;
 Page(body)

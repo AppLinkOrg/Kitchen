@@ -1,10 +1,17 @@
 <view class="flex-row flex-center">
-  <view class="flex-1 padding-20">12</view>
+  <view class="flex-1 padding-20">
+    <image class='icon-17 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
+  </view>
   <view class="flex-5  padding-20 flex-wrap">
-    <view class="h5 txt-black">科技生态园</view>
-    <view class="h6">距您 869m</view>
+    <view class="h5 txt-black">{{currentshop.name}}</view>
+    <view class="h6 margin-top-10">距您 {{currentshop.miletxt}}m</view>
   </view>
   <view class="flex-5"></view>
-  <view class="flex-3  padding-20">3</view>
+  <view class="flex-3  padding-20  flex-row yy">
+    <view class="h5 flex-1" style=''>自提</view>
+    <view> </view>
+    <view class="h5 margin-left-10 flex-1">外送</view>
+  </view>
 
 </view>
+<view>  <image src='{{uploadpath}}resource/{{res.img}}' style='width:750rpx;height:280rpx;' mode="aspectFill"></image></view>
