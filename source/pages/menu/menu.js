@@ -1,66 +1,54 @@
-// pages/menu/menu.js
-Page({
+// pages/content/content.js
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  ShopApi
+} from "../../apis/shop.api.js";
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+class Content extends AppBase {
+  constructor() {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    super();
   }
-})
+  onLoad(options) {
+    this.Base.needauth = false;
+    this.Base.Page = this;
+    //options.id=5;
+    super.onLoad(options);
+  }
+  onMyShow() {
+    var that = this;
+    this.Base.getAddress((location) => {
+      console.log(location);
+      var mylat = location.location.lat;
+      var mylng = location.location.lng;
+      this.Base.setMyData({
+        mylocation: location.ad_info
+      });
+      var shopapi = new ShopApi();
+      shopapi.shoplist({
+        mylat,
+        mylng
+      }, (shoplist) => {
+        for(var i=0;i<shoplist.length;i++){
+          shoplist[i].mile = this.Base.util.GetDistance(mylat, mylng, shoplist[i].lat, shoplist[i].lng);
+
+          shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
+        }
+        this.Base.setMyData({ shoplist,currentshop:shoplist[0]});
+      });
+    });
+  }
+}
+var content = new Content();
+var body = content.generateBodyJson();
+body.onLoad = content.onLoad;
+body.onMyShow = content.onMyShow;
+Page(body)
