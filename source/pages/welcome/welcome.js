@@ -6,7 +6,7 @@ import { InstApi } from "../../apis/inst.api.js";
 class Content extends AppBase {
   constructor() {
     super();
-    this.needauth=false;
+    //this.needauth=false;
   }
   onLoad(options) {
     this.Base.Page = this;

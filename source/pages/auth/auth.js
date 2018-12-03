@@ -45,7 +45,7 @@ class Content extends AppBase {
     memberapi.updatemobile({mobile:data.mobile},()=>{
       wx.navigateBack({
         
-      })
+      });
     })
     //updatemobile
   }
