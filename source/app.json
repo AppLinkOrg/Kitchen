@@ -1,7 +1,10 @@
 {
   "pages":[
-    "pages/menu/menu",
     "pages/goods/goods",
+    "pages/menu/menu",
+    
+   
+    
     "pages/orderlist/orderlist",
     "pages/welcome/welcome",
     "pages/home/home",
