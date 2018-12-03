@@ -1,13 +1,13 @@
 export class ApiConfig {
 
   static GetApiUrl() {
-    return "https://cmsdev.app-link.org/alucard263096/tmcf/api/";
+    return "https://cmsdev.app-link.org/alucard263096/kitchen/api/";
   }
   static GetUploadPath() {
-    return "https://alioss.app-link.org/alucard263096/tmcf/";
+    return "https://alioss.app-link.org/alucard263096/kitchen/";
   }
   static GetFileUploadAPI() {
-    return "https://cmsdev.app-link.org/alucard263096/tmcf/fileupload";
+    return "https://cmsdev.app-link.org/alucard263096/kitchen/fileupload";
   }
 
   static GetHeader() {

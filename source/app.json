@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/welcome/welcome",
     "pages/home/home",
+    "pages/member/member",
     "pages/auth/auth"
   ],
   "window":{
@@ -8,5 +10,25 @@
     "enablePullDownRefresh": true,
     "navigationBarBackgroundColor": "white",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#4C556E",
+    "borderStyle": "#4C556E",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/icons/a.png",
+        "selectedIconPath": "images/icons/b.png"
+      },
+      {
+        "text": "发布",
+        "pagePath": "pages/member/member",
+        "iconPath": "images/icons/b.png",
+        "selectedIconPath": "images/icons/b.png"
+      }
+    ]
   }
 }
