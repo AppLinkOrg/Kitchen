@@ -225,6 +225,10 @@ button[disabled][type=primary] {
   padding-bottom:20rpx;
 }
 
+.border-bottom{
+  border-bottom:1px solid #E5E5E5
+}
+
 .padding-5{
   padding:5rpx;
 }

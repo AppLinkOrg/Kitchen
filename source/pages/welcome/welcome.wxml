@@ -1,44 +1,41 @@
 <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:600rpx;'>
-  <swiper-item wx:key="k">
+  <swiper-item wx:key="k" wx:for="{{indexbanner}}" wx:key="k">
     <view>
-
-      <image src='{{uploadpath}}resource/{{res.img1}}' style='width:750rpx;height:600rpx;' mode="aspectFill"></image>
+      <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:100vw;height:600rpx;' mode="aspectFill"></image>
     </view>
   </swiper-item>
 </swiper>
 <view class="flex-wrap flex-center padding-20 ">
-  <view class=" padding-20 flex-row flex-center txt-black  padding-bottom-40 padding-top-40 " style='border-bottom:1px solid #E5E5E5'>
+  <navigator open-type='switchTab' url='/pages/menu/menu' class=" padding-20 flex-row flex-center txt-black border-bottom" >
     <view class="flex-1 flex-wrap">
       <view class="txt-black ">现在下单</view>
       <view class="h7 ">ORDER NOW</view>
-
     </view>
-    <view  bindtap='gomenu' class=" ">
-      <image class='icon-17 yx padding-20' style='border:2px solid #DED6CE' src='{{uploadpath}}resource/{{res.kafei}}'></image>
+    <view   class=" ">
+      <image class='icon-17  padding-20 '  src='{{uploadpath}}resource/{{res.kafei}}'></image>
     </view>
-  </view>
-  <view class=" padding-20 flex-row flex-center txt-black  padding-bottom-40 padding-top-40 " style='border-bottom:1px solid #E5E5E5'>
+  </navigator>
+  <view class=" padding-20 flex-row flex-center txt-black  border-bottom " >
     <view class="flex-1 flex-wrap">
       <view class="flex-row flex-center">
-        <view class="txt-black">咖啡钱包</view>
-        <view class="h6 txt-white margin-left-10" style='background-color:#D56D2E; padding:2rpx'>充2赠1,充5赠5</view>
+        <view class="txt-black">钱包</view>
       </view>
 
       <view class="h7">COFFEE WALLET</view>
 
     </view>
     <view  class=" flex-row flex-center">
-      <image class='icon-17 yx  padding-20' style='border:2px solid #DED6CE' src='{{uploadpath}}resource/{{res.youhui}}'></image>
+      <image class='icon-17   padding-20'  src='{{uploadpath}}resource/{{res.youhui}}'></image>
     </view>
   </view>
-  <view class=" padding-20 flex-row flex-center txt-black  padding-bottom-40 padding-top-40 ">
+  <view class=" padding-20 flex-row flex-center txt-black">
     <view class="flex-1 flex-wrap">
       <view class="txt-black">邀请得杯</view>
       <view class="h7">SHARE & GET IT FREE</view>
 
     </view>
     <view class=" ">
-      <image class='icon-17 yx  padding-20' style='border:2px solid #DED6CE' src='{{uploadpath}}resource/{{res.yaoqing}}'></image>
+      <image class='icon-17   padding-20' src='{{uploadpath}}resource/{{res.yaoqing}}'></image>
     </view>
   </view>
 

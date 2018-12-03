@@ -1,12 +1,10 @@
 {
   "pages":[
+    "pages/welcome/welcome",
     "pages/goods/goods",
     "pages/menu/menu",
     
-   
-    
     "pages/orderlist/orderlist",
-    "pages/welcome/welcome",
     "pages/home/home",
     "pages/member/member",
     "pages/cart/cart",
