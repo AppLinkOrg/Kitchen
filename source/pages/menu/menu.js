@@ -50,14 +50,15 @@ class Content extends AppBase {
           shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
         }
         this.Base.setMyData({ shoplist });
-        var currentshop = this.Base.getMyData().currentshop;
-        if (currentshop == null) {
-          this.setCurrent(shoplist[0].id);
+        if (AppBase.SHOPID == 0) {
+          AppBase.SHOPID = shoplist[0].id;
         }
+        this.setCurrent();
       });
     });
   }
-  setCurrent(shop_id) {
+  setCurrent() {
+    var shop_id = AppBase.SHOPID;
     var shoplist = this.Base.getMyData().shoplist;
     for (var i = 0; i < shoplist.length; i++) {
       if (shoplist[i].id == shop_id) {
@@ -124,7 +125,12 @@ class Content extends AppBase {
   }
 
   dataReturnCallback(data) {
-    
+
+  }
+  chooseShop(){
+    wx.navigateTo({
+      url: '/pages/shopchoose/shopchoose',
+    })
   }
 }
 var content = new Content();
@@ -133,6 +139,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.setCurrent = content.setCurrent; 
 body.goodsscroll = content.goodsscroll; 
-body.gotoCat = content.gotoCat;
+body.gotoCat = content.gotoCat; 
 body.selectgoods = content.selectgoods;
+body.chooseShop = content.chooseShop;
 Page(body)

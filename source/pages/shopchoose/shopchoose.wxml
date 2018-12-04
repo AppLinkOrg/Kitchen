@@ -1,64 +1,34 @@
 <!-- 定位模块 -->
 <view class="flex-row text-center padding-20">
   <view class="flex-1"></view>
-  <view class="h5">所选城市:</view>
+  <view class="h5 margin-right">所在城市:</view>
   <view class="h5 txt-black">深圳</view>
-  <image class='icon-15 margin-left-5 padding-right-20 margin-top-5' src='{{uploadpath}}resource/{{res.xia}}'></image>
   <view class="flex-1"></view>
 </view>
 <!-- 切换模块 -->
 
 
-<view class="flex-row flex-center padding-20 text-center" style=' background-color:#FAFAFA '>
-  <view class="flex-2"></view>
-  <view id="0" class="flex-2  flex-wrap    text-center" bindtap='changetab'>
-    <view  class="{{tab==0?'aa':''}}">门店自提</view>
-    <view class="{{tab==0?'bb':''}}"></view>
-  </view>
-  <view class="flex-3"></view>
-  <view id="1" class="flex-2  flex-wrap    text-center " bindtap='changetab'>
-  
-  <view class="{{tab==1?'aa':''}}">送货上门</view>
-    <view class="{{tab==1?'bb':''}}"></view></view>
-  <view class="flex-2"></view>
-</view>
-
-
 <!-- 店铺列表 -->
-<view style=' padding-bottom:20rpx; border-bottom:1px solid #C4C4C4'>
-  <view class="txt-black padding-10">科技生态园-2店</view>
-
-  <view class=" padding-left-10 h5 flex-row">
-    <view class="flex-1 h5">
-      <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.shijian}}'></image>07.00-20:00</view>
-    <view class="h5  margin-5">距您666m</view>
+<view class='padding-20'>
+  <view class='border-bottom flex-row flex-center margin-top-10 padding-bottom-10' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" bindtap='chooseShop'>
+    <view class='margin-right' wx:if="{{SHOPID==item.id}}">
+    <image class='icon' src='{{uploadpath}}resource/{{res.ticker}}'></image>
+    </view>
+    <view class='flex-1'>
+      <view class="txt-bold padding-10">{{item.name}}</view>
+      <view class=" padding-left-10 h5 flex-row flex-center">
+        <view class="h5">
+          <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.shijian}}'></image></view>
+        <view class="flex-1 h6">
+          {{item.openningstr}}</view>
+        <view class="h5  margin-5">{{item.miletxt}}</view>
+      </view>
+      <view class=" padding-left-10 h5 flex-row flex-center">
+        <view class="h5">
+          <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.dinwei1}}'></image></view>
+        <view class="flex-1 h6">
+          {{item.address}}</view>
+      </view>
+    </view>
   </view>
-  <view class=" padding-left-10 h5">
-    <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.dinwei1}}'></image>南山区xxxxxxxxxxxxx</view>
-
-</view>
-<view style=' padding-bottom:20rpx; border-bottom:1px solid #C4C4C4'>
-  <view class="txt-black padding-10">科技生态园-2店</view>
-
-  <view class=" padding-left-10 h5 flex-row">
-    <view class="flex-1 h5">
-      <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.shijian}}'></image>07.00-20:00</view>
-    <view class="h5 margin-5">距您666m</view>
-  </view>
-  <view class=" padding-left-10 h5">
-    <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.dinwei1}}'></image>南山区xxxxxxxxxxxxx</view>
-
-</view>
-
-<view style=' padding-bottom:20rpx; border-bottom:1px solid #C4C4C4'>
-  <view class="txt-black padding-10">科技生态园-2店</view>
-
-  <view class=" padding-left-10 h5 flex-row">
-    <view class="flex-1 h5">
-      <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.shijian}}'></image>07.00-20:00</view>
-    <view class="h5 margin-5">距您666m</view>
-  </view>
-  <view class=" padding-left-10 h5">
-    <image class='icon-15 margin-left-5 padding-right-10 margin-top-5' src='{{uploadpath}}resource/{{res.dinwei1}}'></image>南山区xxxxxxxxxxxxx</view>
-
 </view>
