@@ -1,2 +1,23 @@
-<!--pages/orderlist/orderlist.wxml-->
-<text>pages/orderlist/orderlist.wxml</text>
+<view>
+<view class="flex-row padding-20 bg margin-top-5" style='border:1px solid #FAFAFA'>
+  <view class="flex-1 h5" style='color:#979797'>外卖订单:32267171656067</view>
+  <view class="h5" style='color:#b27b83'>待付款</view>
+</view>
+<view class="padding-20 bg  ">
+  <view class="flex-row">
+    <view class="txt-black flex-3">武汉大学深圳产学研大楼武汉大学深圳产学研大楼</view>
+    <view class="h7 flex-1">2018-11-30 11:17</view>
+  </view>
+  <view class="flex-row margin-top-10">
+    <view class="h5">焦糖玛奇朵等</view>
+    <view class="margin-left-20 h5"> 共1件商品</view>
+  </view>
+<view class="flex-row margin-top-20">
+<view class="flex-1 padding-top-10">￥9</view>
+<view class="qzf" style='color:#b27b83'> 去支付</view>
+</view>
+</view>
+</view>
+
+
+
