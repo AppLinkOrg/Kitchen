@@ -1,17 +1,14 @@
 {
   "pages": [
-        "pages/orderlist/orderlist",
-      "pages/welcome/welcome",
+    "pages/orderdetails/orderdetails",
+    "pages/cart/cart",
+    "pages/orderlist/orderlist",
+    "pages/welcome/welcome",
     "pages/shopchoose/shopchoose",
     "pages/home/home",
     "pages/menu/menu",
     "pages/goods/goods",
-
-    
-  
-    
     "pages/member/member",
-    "pages/cart/cart",
     "pages/auth/auth"
   ],
   "window": {
