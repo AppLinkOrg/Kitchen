@@ -22,7 +22,7 @@ import {
 } from "apis/shop.api";
 
 export class AppBase {
-  static BRANDAPPLE = 12;
+  static SHOPID = 0;
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
   static InstInfo = {};
