@@ -223,6 +223,21 @@ class Content extends AppBase {
     console.log(e);
     this.Base.setMyData({expresstype:e.detail.value?"A":"B"});
   }
+  gotoConfirm(e){
+    var cartorder = this.Base.getMyData().cartorder; 
+    var expresstype = this.Base.getMyData().expresstype;
+    var currentshop = this.Base.getMyData().currentshop;
+    var ids=[];
+    for (var i = 0; i < cartorder.length; i++) {
+      if (cartorder[i].cansales == 'Y' && cartorder[i].checked_value == 'Y'){
+        ids.push(cartorder[i].id);
+      }
+    }
+    var ids=ids.join(",");
+    wx.navigateTo({
+      url: '/pages/orderdetails/orderdetails?expresstype=' + expresstype + "&shop_id=" + AppBase.SHOPID + "&orderids=" + ids + "&menu_id="+currentshop.menu_id,
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -235,4 +250,5 @@ body.setCurrent = content.setCurrent;
 body.calc = content.calc; 
 body.chooseShop = content.chooseShop;
 body.changeExpressType = content.changeExpressType;
+body.gotoConfirm = content.gotoConfirm;
 Page(body)

@@ -175,6 +175,8 @@ export class AppBase {
 
         return;
       }
+      instinfo.expressfreeup = parseInt(instinfo.expressfreeup);
+      instinfo.expressfee = parseInt(instinfo.expressfee);
       AppBase.InstInfo = instinfo;
       this.Base.setMyData({
         instinfo: instinfo
@@ -887,6 +889,7 @@ export class AppBase {
 
   contactkefu() {
     var instinfo = this.Base.getMyData().instinfo;
+    
     console.log(instinfo);
     wx.showActionSheet({
       itemList: ["拨打热线", "添加客服"],

@@ -58,7 +58,7 @@
       <view class="flex-1  ">应付合计</view>
       <view class="flex-2 txt-bold bg">￥{{totalprice}}</view>
     </view>
-    <view class="flex-2 text-center  txt-white txt-bold xm" style='background-color:#7FA9D3'>去结算</view>
+    <view class="flex-2 text-center  txt-white txt-bold xm" style='background-color:#7FA9D3' bindtap='gotoConfirm'>去结算</view>
 
   </view>
 </view>
