@@ -1,9 +1,14 @@
 {
   "pages": [
+    "pages/orderwaiting/orderwaiting",
+    "pages/welcome/welcome",
+    
     "pages/orderdetails/orderdetails",
+   
+    
     "pages/cart/cart",
     "pages/orderlist/orderlist",
-    "pages/welcome/welcome",
+    
     "pages/shopchoose/shopchoose",
     "pages/home/home",
     "pages/menu/menu",

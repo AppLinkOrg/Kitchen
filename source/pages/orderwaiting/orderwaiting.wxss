@@ -66,3 +66,26 @@ text-overflow: ellipsis;
 /* 强制不换行 */ 
 white-space: nowrap;
 }
+.anniu{
+
+padding-top:10rpx;
+padding-bottom:10rpx;
+padding-left:5rpx;
+padding-right:5rpx;
+border:1px solid #BBBBBB;
+margin:10rpx;
+color: black;
+
+}
+
+.anniu1{
+
+padding-top:10rpx;
+padding-bottom:10rpx;
+padding-left:5rpx;
+padding-right:5rpx;
+border:1px solid orange;
+color: orange;
+margin:10rpx;
+
+}
