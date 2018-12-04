@@ -1,22 +1,42 @@
-<view class="flex-row padding-20 flex-center bg">
-  <view id="1" wx:if="{{xuanzhon==0}}" bindtap='changexz' class="flex-1">
-    <image class='icon-30 margin-left-20' src='{{uploadpath}}resource/{{res.xuanzhon}}'></image>
+<view class="flex-row flex-center" >
+  <view class=" padding-20" bindtap='chooseShop'>
+    <image class='icon-17 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
   </view>
-  <view id="0" wx:if="{{xuanzhon==1}}" bindtap='changexz' class="flex-1">
-    <image class='icon-30 margin-left-20' src='{{uploadpath}}resource/{{res.xuanzhon1}}'></image>
+  <view class=" padding-20 flex-1" bindtap='chooseShop'>
+    <view class="h5 txt-black">{{currentshop.name}}</view>
+    <view class='flex-row flex-bottom'>
+      <view class="h6 txt-gray flex-1">{{currentshop.address}}</view>
+      <view class="h6 txt-gray">距您 {{currentshop.miletxt}}m</view>
+    </view>
+  </view>
+</view>
+<view class="flex-row padding-20 flex-center bg" wx:for="{{cartorder}}" wx:key="k" >
+  <view id="{{item.id}}_N" wx:if="{{item.checked_value=='Y'}}" bindtap='changexz' class="flex-1" >
+    <image class='icon-30 margin-left-20' src='{{uploadpath}}resource/{{item.cansales=="Y"?res.xuanzhong:res.xuanzhonghui}}'></image>
+  </view>
+  <view id="{{item.id}}_Y" wx:if="{{item.checked_value!='Y'}}" bindtap='changexz' class="flex-1">
+    <image class='icon-30 margin-left-20' src='{{uploadpath}}resource/{{item.cansales=="Y"?res.buxuanzhong:res.buxuanzhonghui}}'></image>
   </view>
   <view class="flex-5">
-    <view class="txt-bold">标准美式</view>
-    <view class='h6 '>大/无糖/热</view>
-    <view class="txt-black margin-top-5 flex-row">
-
-      <view class="flex-1 txt-bold">￥21</view>
-      <view bindtap='jian'>
-        <image class='icon padding-right-20 ' src='{{uploadpath}}resource/{{res.jianshao}}'></image>
-      </view>
-      <view class="text-center" style='width:50rpx;'>{{num}}</view>
-      <view bindtap='jia'>
-        <image class='icon padding-left-20 padding-right-20 ' src='{{uploadpath}}resource/{{res.zengjia}}'></image>
+    <view class="txt-bold">{{item.goods_name}}<text wx:if="{{item.cansales!='Y'}}" class='h6 txt-red'> (没有此商品)</text></view>
+    <view class='h6 '>{{item.valstr}}</view>
+    <view class="txt-black margin-top-5 flex-row flex-bottom">
+      <block wx:if="{{item.havediscount=='Y'}}">
+        <view class=" txt-bold txt-red">￥{{item.oneprice}}</view>
+        <view class=" txt-gray h6 text-line-through margin-left">￥{{item.oldprice}}</view>
+      </block>
+      <block wx:else>
+        <view class=" txt-bold ">￥{{item.oneprice}}</view>
+      </block>
+      <view class='flex-1'></view>
+      <view class='flex-row'>
+        <view bindtap='jian' id="{{item.id}}">
+          <image class='icon padding-right-20 ' src='{{uploadpath}}resource/{{res.jianshao}}'></image>
+        </view>
+        <view class="text-center" style='width:50rpx;'>{{item.num}}</view>
+        <view bindtap='jia' id="{{item.id}}">
+          <image class='icon padding-left-20 padding-right-20 ' src='{{uploadpath}}resource/{{res.zengjia}}'></image>
+        </view>
       </view>
     </view>
 
@@ -24,11 +44,21 @@
   </view>
 
 </view>
-<view class="flex-row flex-center jiesuan">
-<view class="flex-row margin-left-20 flex-3 bg  xm ">
-  <view class="flex-1  ">应付合计</view>
-  <view class="flex-2 txt-bold bg">￥21</view>
+<view class='jiesuan'>
+  <view class="flex-row flex-center bg border-bottom" style='width:100%;'>
+    <view class="margin-left-20 xm flex-1 ">
+      是否自提
+    </view>
+    <view class="margin-right-20 xm ">
+      <switch checked='{{expresstype=="A"}}' bindchange="changeExpressType"/>
+    </view>
   </view>
-  <view class="flex-2 text-center  txt-withe xm" style='background-color:#7FA9D3'>去结算</view>
+  <view class="flex-row flex-center " style='width:100%;'>
+    <view class="flex-row margin-left-20 flex-3 bg  xm ">
+      <view class="flex-1  ">应付合计</view>
+      <view class="flex-2 txt-bold bg">￥{{totalprice}}</view>
+    </view>
+    <view class="flex-2 text-center  txt-white txt-bold xm" style='background-color:#7FA9D3'>去结算</view>
 
+  </view>
 </view>

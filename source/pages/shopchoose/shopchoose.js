@@ -44,6 +44,10 @@ class Content extends AppBase {
         }
       });
     });
+    var shopapi = new ShopApi();
+    shopapi.cartlist({}, (cartorder) => {
+      this.Base.setMyData({ cartorder });
+    });
   }
 
   changetab(e) {

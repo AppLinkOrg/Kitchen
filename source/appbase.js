@@ -281,12 +281,12 @@ export class AppBase {
         this.Base.setMyData({
           memberinfo: info
         });
-        that.onMyShow();
         var shopapi = new ShopApi();
         shopapi.cartlist({}, (cartorder) => {
           this.Base.setMyData({
             cartorder
           });
+          that.onMyShow();
           var totalnum = 0;
           for (var item of cartorder) {
             totalnum += parseInt(item["num"]);

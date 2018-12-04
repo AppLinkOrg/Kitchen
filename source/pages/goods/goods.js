@@ -114,6 +114,7 @@ body.onMyShow = content.onMyShow;
 body.jia = content.jia;
 body.jian = content.jian;
 body.selectval = content.selectval; 
-body.loadprice = content.loadprice;
+body.loadprice = content.loadprice; 
 body.addToCart = content.addToCart;
+body.chooseShop = content.chooseShop;
 Page(body)
