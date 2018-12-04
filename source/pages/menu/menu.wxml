@@ -34,7 +34,7 @@
               <view class='h6 txt-gray' >{{item.summary}}</view>
               <view class='margin-right'></view>
               <view class='flex-1 line bg-gray'></view>
-            </navigator>
+            </view>
           </view>
           <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top-10 margin-bottom-10' bindtap='selectgoods' id="{{goods.id}}">
             <view>
