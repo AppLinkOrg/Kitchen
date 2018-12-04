@@ -1,0 +1,80 @@
+<view class="bg" style='border-bottom:1px solid #BBBBBB'>
+  <view class=" flex-row flex-center  padding-20">
+    <view class="flex-1"></view>
+    <view class="margin-top-20 txt-bold">待付款</view>
+    <view class="flex-1"></view>
+  </view>
+  <view class="flex-row flex-center text-center">
+    <view class="flex-1"></view>
+    <view class="h5">请在</view>
+    <view class="h5" style='color:#7FA9D3'>3分50秒</view>
+    <view class="h5">内完成支付,过时订单将会取消</view>
+    <view class="flex-1"></view>
+  </view>
+  <view class="flex-row flex-center margin-20 text-center">
+    <view class="flex-1"></view>
+    <view class="flex-2  anniu">取消订单</view>
+    <view class="flex-2  anniu1">去支付</view>
+    <view class="flex-1"></view>
+
+  </view>
+
+</view>
+<view class="padding-20 flex-row flex-center bg  padding-top-40 padding-bottom-40" style='border-bottom:1px solid #BBBBBB'>
+  <view class="flex-1 h5    ">外卖订单:32267171656067</view>
+  <view class="h5">2018-11-30 11:17</view>
+</view>
+<view class="padding-20 bg">
+  <view style='border-bottom:1px solid #C4C4C4;padding-bottom:20rpx'>
+
+    <view class="flex-row flex-center ">
+      <view class="flex-3 flex-wrap flex-center">
+        <view class="h5 txt-bold">焦糖玛奇朵</view>
+        <view class="h5">大/单糖/冰</view>
+      </view>
+      <view class="flex-1 text-right">x1</view>
+      <view class="flex-1  text-right">￥3</view>
+
+
+    </view>
+
+
+    <view class="flex-row flex-center margin-top-10">
+      <view class="flex-3 flex-wrap flex-center">
+        <view class="h5 txt-bold">配送费</view>
+
+      </view>
+      <view class="flex-1"></view>
+      <view class="flex-1 text-right">￥6</view>
+
+
+    </view>
+
+  </view>
+  <view class="flex-row flex-bottom margin-top-20">
+    <view class="flex-1"></view>
+    <view class="margin-right-10 h6">共1件商品</view>
+
+    <view>
+      实付
+    </view>
+    <view class="txt-bold">
+      ￥33
+    </view>
+  </view>
+
+</view>
+<view class="padding-20 margin-top-5 bg">
+  <view class="flex-row flex-bottom flex-center">
+    <view class="flex-1 txt-bold">收货地址</view>
+    <text class="single h5 txt-bold" style='width:500rpx'>公司公司公司公司公司公司公司公司公司</text>
+  </view>
+  <view class="flex-row padding-20">
+    <view class="flex-1"></view>
+    <view class="h5 txt-bold">chasen胡先生</view>
+    <view class="h5 txt-bold">18002558442</view>
+  </view>
+</view>
+<view class='line-height-0 margin-top-10'>
+  <image src='{{uploadpath}}resource/{{res.img}}' style='width:100%;height:280rpx;' mode="aspectFill"></image>
+</view>
