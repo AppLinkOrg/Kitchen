@@ -1,1 +1,20 @@
-/* pages/orderlist/orderlist.wxss */
+page{
+
+
+  background-color: #FAFAFA;
+}
+.bg{
+
+
+  background-color: white;
+}
+.qzf{
+padding-left:20rpx;
+padding-right: 20rpx;
+padding-top:5rpx;
+padding-bottom: 5rpx;
+border:1px solid #B3B3B3;
+border-radius: 10rpx;
+
+
+}

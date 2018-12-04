@@ -1,12 +1,14 @@
 {
   "pages": [
+        "pages/orderlist/orderlist",
+      "pages/welcome/welcome",
     "pages/shopchoose/shopchoose",
     "pages/home/home",
     "pages/menu/menu",
     "pages/goods/goods",
-    "pages/orderlist/orderlist",
+
     
-    "pages/welcome/welcome",
+  
     
     "pages/member/member",
     "pages/cart/cart",
