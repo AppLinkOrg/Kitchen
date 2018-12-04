@@ -1,63 +1,49 @@
-<view style='height:230rpx;background:url({{uploadpath}}resource/{{res.img}});'>
-  <view class="padding-left-10" style='margin-top:100rpx'>标准美式</view>
-  <view class="padding-10 h6">amerlcano</view>
+<view style='height:230rpx;background:url({{uploadpath}}goods/{{topbanner}});'>
+  <view class="margin-left h4 txt-white txt-bold" style='margin-top:100rpx'>{{name}}</view>
+  <view class="margin-left h6 txt-white txt-bold">{{engname}}</view>
 </view>
-<view class="flex-row  margin-top-20">
-  <view class="margin-top-10 margin-left-20  flex-1 ">规格</view>
-  <view class="flex-row flex-5 text-center flex-center       " style='flex-wrap:wrap;width:100%'>
-    <view class="padding-10 xx margin-10" >大</view>
+<view class="flex-row  margin-top-20" wx:for="{{attrs}}" wx:key="k">
+  <view class="margin-top-10 margin-left-20  flex-1 ">{{item.name}}</view>
+  <view class="flex-row flex-5 text-center flex-center flex-wrap">
+    <view class="padding-10 xx-{{val.selected}} margin-10" wx:for="{{item.vals}}" wx:key="k2" wx:for-item="val" bindtap='selectval' id="{{item.id}}_{{val.id}}">{{val.name}}</view>
+  </view>
+</view>
 
-  </view>
-</view>
-<view class="flex-row   ">
-  <view class=" margin-top-10 margin-left-20  flex-1 ">温度</view>
-  <view class="flex-row flex-5 text-center flex-center       " style='flex-wrap:wrap;width:100%'>
-    <view class="padding-10 xx margin-10 margin-top-20">冰</view>
-    <view class="padding-10 xx margin-10 margin-top-20">热</view>
-
-  </view>
-</view>
-<view class="flex-row  ">
-  <view class="margin-top-10 margin-left-20 flex-1 ">糖</view>
-  <view class="flex-row flex-5 text-center flex-center       " style='flex-wrap:wrap;width:100%'>
-    <view class="padding-10 xx margin-10 margin-top-20" >无糖</view>
-    <view class="padding-10 xx margin-10 margin-top-20" >半份糖</view>
-    <view class="padding-10 xx margin-10 margin-top-20" >单份糖</view>
-    <view class="padding-10 xx margin-10 margin-top-20" >香草3元 </view>
-    <view class="padding-10 xx margin-10 margin-top-20" >辣椒3元</view>
-  </view>
-</view>
-<view class="flex-row  padding-bottom-20  " style='border-bottom:2px solid #bbbbbb'>
-  <view class="margin-top-10 margin-left-20  flex-1 ">奶</view>
-  <view class="flex-row flex-5 text-center flex-center       " style='flex-wrap:wrap;width:100%'>
-    <view class="padding-10 xx margin-10 margin-top-20">无奶</view>
-    <view class="padding-10 xx margin-10 margin-top-20" >单份奶</view>
-    <view class="padding-10 xx margin-10 margin-top-20" >双份奶</view>
-
-  </view>
-</view>
 <view class="flex-wrap  flex-center">
   <view class="flex-row flex-center">
-    <view class="padding-20 flex-1 txt-black">￥{{price}}</view>
+    <view class="padding-20 flex-1 txt-black">￥{{totalprice}}</view>
 
-    <view>
+    <view bindtap='jian'>
       <image class='icon padding-right-20 margin-top-5' src='{{uploadpath}}resource/{{res.jianshao}}'></image>
     </view>
-    <view class="">{{num}}</view>
-    <view>
+    <view class="text-center" style='width:50rpx;'>{{num}}</view>
+    <view bindtap='jia'>
       <image class='icon padding-left-20 padding-right-20 margin-top-5' src='{{uploadpath}}resource/{{res.zengjia}}'></image>
     </view>
   </view>
-  <view class="padding-20 h6">标准美式￥21+无糖￥0+无奶￥0</view>
-  <view class=" padding-20 flex-row flex-center text-center">
-    <view class="flex-1 txt-white bg1 flex-center flex-row   ">
-      <image class='icon  margin-left-40 margin-right-10' bindtap='jian' src='{{uploadpath}}resource/{{res.chonzhi}}'></image>
-      充2赠1,充5赠5</view>
-    <view class="flex-1 txt-white bg1 flex-center flex-row">
-      <image class='icon  margin-left-40 margin-right-10' bindtap='jia' src='{{uploadpath}}resource/{{res.gouwuche}}'></image>
+  <view class="padding-20 h6">{{pricemsg}}</view>
 
-      加入购物车</view>
+  
+  <view class='padding-20' >
+    <view class='border-bottom'></view>
+    <view class='h5 margin-top-10'>商品描述</view>
+    <view >
+      <text class='h6'>{{summary}}
+      图片仅供参考，请以实物为准！</text>
+    </view>
   </view>
 
+  <view class='padding-20' bindtap='addToCart'>
+    <view class="bg1  flex-row flex-center">
+      <view class='flex-1'></view>
+      <view class='line-height-0 margin-right'>
+        <image class='icon' bindtap='jia' src='{{uploadpath}}resource/{{res.gouwuche}}'></image>
+      </view>
+      <view class="txt-white">
+        加入购物车
+      </view>
+      <view class='flex-1'></view>
+    </view>
+  </view>
 
 </view>

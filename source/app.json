@@ -1,20 +1,17 @@
 {
-  "pages":[
+  "pages": [
+    "pages/home/home",
     "pages/menu/menu",
     "pages/goods/goods",
-    
-    
-   
-    
     "pages/orderlist/orderlist",
     "pages/welcome/welcome",
-    "pages/home/home",
+    
     "pages/member/member",
     "pages/cart/cart",
     "pages/auth/auth"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "enablePullDownRefresh": true,
     "navigationBarBackgroundColor": "white",
     "navigationBarTextStyle": "black"

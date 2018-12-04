@@ -6,7 +6,7 @@ import { InstApi } from "../../apis/inst.api.js";
 class Content extends AppBase {
   constructor() {
     super();
-    this.needauth=false;
+    //this.needauth=false;
   }
   onLoad(options) {
     this.Base.Page = this;
@@ -15,18 +15,14 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-  }
-  gomenu(){
-
-    wx.switchTab({
-      url: '../menu/menu',
+    var instapi = new InstApi();
+    instapi.indexbanner({}, (indexbanner)=>{
+      this.Base.setMyData({ indexbanner});
     });
-
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.gomenu = content.gomenu;
 Page(body)

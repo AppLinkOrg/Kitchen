@@ -7,6 +7,7 @@ import { ApiUtil } from "apis/apiutil.js";
 import { InstApi } from "apis/inst.api.js";
 import { MemberApi } from "apis/member.api";
 import { WechatApi } from "apis/wechat.api";
+import { ShopApi } from "apis/shop.api";
 
 export class AppBase {
   static BRANDAPPLE=12;
@@ -14,7 +15,7 @@ export class AppBase {
   static UserInfo = {};
   static InstInfo = {};
   unicode = "tmcf";
-  needauth = true;
+  needauth = false;
   pagetitle = null;
   app = null;
   options = null;
@@ -244,9 +245,25 @@ export class AppBase {
           url: '/pages/auth/auth',
         })
       }else{
-
         this.Base.setMyData({ memberinfo: info });
         that.onMyShow();
+        var shopapi=new ShopApi();
+        shopapi.cartlist({},(cartorder)=>{
+          this.Base.setMyData({ cartorder});
+          var totalnum=0;
+          for(var item of cartorder){
+            totalnum += parseInt(item["num"]);
+          }
+          if (totalnum>0){
+            
+          wx.setTabBarBadge({
+            index: 3,
+            text: totalnum.toString(),
+            })
+          }else{
+            wx.removeTabBarBadge({index:3});
+          }
+        });
       }
     });
   }

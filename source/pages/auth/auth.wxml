@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view style='margin-top:160rpx;' class='text-center' >
   <image src='{{uploadpath}}inst/{{instinfo.logo}}' style='' class='icon-75' mode='widthFix'></image>
-  <view class='txt-black'>大得森</view>
+  <view class='txt-black'>{{instinfo.name}}</view>
 </view>
 
 <view class='padding-40' >
@@ -22,6 +22,6 @@
 </checkbox-group>
 
 
-  <view class='margin-top'>    <button disabled='{{isgrantuser==false||isgrantphonenumber==false}}' type='bak_ble' class='h5 margin-top txt-white' bindtap='gotoLogin' >授权并登录</button>
+  <view class='margin-top'>    <button disabled='{{isgrantuser==false||isgrantphonenumber==false}}'  class='h5 margin-top ' bindtap='gotoLogin' >授权并登录</button>
   </view>
 </view>
