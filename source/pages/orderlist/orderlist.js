@@ -1,66 +1,41 @@
-// pages/orderlist/orderlist.js
-Page({
+// pages/content/content.js
+import { AppBase } from "../../appbase";
+import { ApiConfig } from "../../apis/apiconfig";
+import { InstApi } from "../../apis/inst.api.js";
+import {
+  ShopApi
+} from "../../apis/shop.api.js";
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+class Content extends AppBase {
+  constructor() {
+    super();
   }
-})
+  onLoad(options) {
+    this.Base.Page = this;
+    //options.id=5;
+    super.onLoad(options);
+    this.Base.setMyData({list:[]});
+  }
+  onMyShow() {
+    var that = this;
+    var shopapi=new ShopApi();
+    shopapi.orderlist({},(list)=>{
+      for(var i=0;i<list.length;i++){
+        list[i].amount = parseFloat(list[i].amount);
+        list[i].expressfee = parseFloat(list[i].expressfee);
+      }
+      this.Base.setMyData({list});
+    });
+  }
+  gotoMenu(){
+    wx.switchTab({
+      url: '/pages/menu/menu',
+    })
+  }
+}
+var content = new Content();
+var body = content.generateBodyJson();
+body.onLoad = content.onLoad;
+body.onMyShow = content.onMyShow;
+body.gotoMenu = content.gotoMenu;
+Page(body)
