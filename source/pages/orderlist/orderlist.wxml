@@ -29,4 +29,5 @@
       <navigator url='/pages/orderwaiting/orderwaiting?id={{item.id}}' class="qzf" style='color:#b27b83' wx:if="{{item.status!='P'}}"> 详情</navigator>
     </view>
   </view>
+  <view style='height:50px;'></view>
 </view>

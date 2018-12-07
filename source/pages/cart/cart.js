@@ -238,6 +238,13 @@ class Content extends AppBase {
       url: '/pages/orderdetails/orderdetails?expresstype=' + expresstype + "&shop_id=" + AppBase.SHOPID + "&orderids=" + ids + "&menu_id="+currentshop.menu_id,
     })
   }
+
+
+  gotoMenu() {
+    wx.switchTab({
+      url: '/pages/menu/menu',
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -249,6 +256,7 @@ body.changexz = content.changexz;
 body.setCurrent = content.setCurrent;
 body.calc = content.calc; 
 body.chooseShop = content.chooseShop;
-body.changeExpressType = content.changeExpressType;
+body.changeExpressType = content.changeExpressType; 
 body.gotoConfirm = content.gotoConfirm;
+body.gotoMenu = content.gotoMenu;
 Page(body)

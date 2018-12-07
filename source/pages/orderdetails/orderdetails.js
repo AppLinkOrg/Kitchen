@@ -98,8 +98,8 @@ class Content extends AppBase {
     api.prepay(this.Base.options, (ret)=>{
       console.log(ret);
       ret.complete = function (e) {
-        wx.navigateTo({
-          url: '/pages/orderresult/orderresult?id='+ret.retid,
+        wx.switchTab({
+          url: '/pages/orderlist/orderlist',
         })
       }
       wx.requestPayment(ret);

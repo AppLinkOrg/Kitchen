@@ -832,8 +832,9 @@ export class AppBase {
 
   }
   openContent(e) {
-    var title = e.target.dataset.title;
-    var keycode = e.target.dataset.keycode;
+    var title = e.currentTarget.dataset.title;
+    var keycode = e.currentTarget.dataset.keycode;
+    console.log(title);
     wx.navigateTo({
       url: '/pages/content/content?keycode=' + keycode + "&title=" + title,
     })

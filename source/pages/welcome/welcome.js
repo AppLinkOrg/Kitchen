@@ -20,9 +20,13 @@ class Content extends AppBase {
       this.Base.setMyData({ indexbanner});
     });
   }
+  comingsoon(){
+    this.Base.toast("即将开放");
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
-body.onLoad = content.onLoad;
+body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+body.comingsoon = content.comingsoon;
 Page(body)

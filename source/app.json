@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/address/address",
+    "pages/addressselect/addressselect",
+    "pages/addressmgr/addressmgr",
+    "pages/member/member",
     "pages/orderlist/orderlist",
     "pages/orderwaiting/orderwaiting",
     "pages/menu/menu",
@@ -9,7 +13,7 @@
     "pages/shopchoose/shopchoose",
     "pages/home/home",
     "pages/goods/goods",
-    "pages/member/member",
+    "pages/content/content",
     "pages/auth/auth"
   ],
   "window": {

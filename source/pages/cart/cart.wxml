@@ -1,3 +1,16 @@
+<view wx:if="{{cartorder.length==0}}" class='text-center'>
+  <view class=' margin-top-80'>
+    <image class='icon-50 margin-top-60' src='{{uploadpath}}resource/{{res.nodata}}'></image>
+  </view>
+  <view class='txt-gray h5 margin-top'>
+    您的购物车空空空空如也~
+  </view>
+  <view class='txt-gray h5 margin-top-40'>
+    <button size='mini' bindtap='gotoMenu'>去喝一杯</button>
+  </view>
+</view>
+
+<block wx:if="{{cartorder.length>0}}">
 <view class="flex-row flex-center" >
   <view class=" padding-20" bindtap='chooseShop'>
     <image class='icon-17 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
@@ -62,3 +75,4 @@
 
   </view>
 </view>
+</block>

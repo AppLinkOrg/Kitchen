@@ -220,6 +220,13 @@ button[disabled][type=primary] {
   background-color: #999db4;
 }
 
+.fixedbottom{
+  position: fixed;
+  width:100vw;
+  bottom: 0px;
+  left: 0px;
+}
+
 .input{
   border-bottom:1rpx solid #ddd;
   padding-bottom:20rpx;
@@ -433,54 +440,63 @@ button[disabled][type=primary] {
 .icon-10{
   width: 20rpx;
   height: 20rpx;
+  display:block;
 }
 .icon-15{
   width: 30rpx;
   height: 30rpx;
+  display:block;
 }
 .icon-17{
   width: 35rpx;
   height: 35rpx;
+  display:block;
 }
 .icon{
   width: 40rpx;
   height: 40rpx;
+  display:block;
 }
 .icon-25{
   width: 50rpx;
   height: 50rpx;
+  display:block;
 }
 .icon-30{
   width: 60rpx;
   height: 60rpx;
+  display:block;
 }
 .icon-40{
   width: 80rpx;
   height: 80rpx;
+  display:block;
 }
 .icon-50{
   width: 100rpx;
   height: 100rpx;
+  display:block;
 }
 .icon-60{
   width: 120rpx;
   height: 120rpx;
+  display:block;
 }
 .icon-75{
   width: 150rpx;
   height: 150rpx;
+  display:block;
 }
 .icon-100{
   width: 200rpx;
   height: 200rpx;
+  display:block;
 }
 .border-raidus-50{
   border-radius: 50%;
 }
 .line-height-0{
-  line-height: 0rpx;
 }
-
 
 
 .tabs{
