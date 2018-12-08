@@ -12,7 +12,7 @@
 </view>
 <view class='margin-top padding-20'>
   <view>
-    <view class='flex-row flex-center margin-top'>
+    <navigator url='/pages/addressmgr/addressmgr' class='flex-row flex-center margin-top'>
       <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	address}}'></image>
       </view>
@@ -20,7 +20,7 @@
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>
-    </view>
+    </navigator>
     <view class='flex-row flex-center margin-top' bindtap='contactkefu'>
       <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	service}}'></image>

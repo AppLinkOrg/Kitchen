@@ -36,7 +36,8 @@ export class AppBase {
     copyright: {
       name: "",
       website: "mecloud.com"
-    }
+    },
+    cartorder:[]
   };
   Page = null;
   util = ApiUtil;

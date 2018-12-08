@@ -3,6 +3,24 @@ page{
 background-color: #FAFAFA;
 
 }
+
+.v1{
+  border-radius: 60rpx;
+  border:2rpx solid #7FA9D3;
+  padding:2rpx;
+}
+
+.v2{
+  padding:10rpx 20rpx 10rpx 20rpx;
+}
+.avt{
+  background: #7FA9D3;
+  border-radius: 60rpx;
+  color:white;
+}
+
+
+
 .bg{
 background-color: white;
 

@@ -1,3 +1,4 @@
+<view wx:if="{{info}}">
 <view class="bg border-bottom" wx:if="{{info.status=='P'}}" >
   <view class=" flex-row flex-center  padding-20">
     <view class="flex-1"></view>
@@ -72,6 +73,17 @@
     <view class="h5 " bindtap='phoneCall' id="{{info.shop_tel}}">{{info.shop_tel}}</view>
   </view>
 </view>
+<view class="padding-20 margin-top-5 bg flex-row" wx:if="{{info.expresstype=='B'}}">
+  <view class="margin-right txt-bold">
+    送货地址
+  </view>
+  <view class="flex-1 text-right">
+    <view class="h5 "  >{{info.address_address}} {{info.address_menpai}}</view>
+    <view class="h5 "  >{{info.address_name}}</view>
+    <view class="h5 " >{{info.address_mobile}}</view>
+  </view>
+</view>
 <view class=' margin-top-10'>
   <image src='{{uploadpath}}resource/{{res.img}}' style='width:100%;height:280rpx;' mode="aspectFill"></image>
+</view>
 </view>

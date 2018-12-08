@@ -58,14 +58,6 @@
 
 </view>
 <view class='jiesuan'>
-  <view class="flex-row flex-center bg border-bottom" style='width:100%;'>
-    <view class="margin-left-20 xm flex-1 ">
-      是否自提
-    </view>
-    <view class="margin-right-20 xm ">
-      <switch checked='{{expresstype=="A"}}' bindchange="changeExpressType"/>
-    </view>
-  </view>
   <view class="flex-row flex-center " style='width:100%;'>
     <view class="flex-row margin-left-20 flex-3 bg  xm ">
       <view class="flex-1  ">应付合计</view>

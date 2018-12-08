@@ -19,7 +19,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     //options.id = 1;
-    this.Base.needauth = false;
+    this.Base.needauth = true;
     super.onLoad(options);
     this.Base.setMyData({ num:1});
   }

@@ -470,27 +470,22 @@ button[disabled][type=primary] {
 .icon-40{
   width: 80rpx;
   height: 80rpx;
-  display:block;
 }
 .icon-50{
   width: 100rpx;
   height: 100rpx;
-  display:block;
 }
 .icon-60{
   width: 120rpx;
   height: 120rpx;
-  display:block;
 }
 .icon-75{
   width: 150rpx;
   height: 150rpx;
-  display:block;
 }
 .icon-100{
   width: 200rpx;
   height: 200rpx;
-  display:block;
 }
 .border-raidus-50{
   border-radius: 50%;
