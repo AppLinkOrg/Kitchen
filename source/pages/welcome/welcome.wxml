@@ -8,34 +8,34 @@
 <view class="flex-wrap flex-center padding-20 ">
   <navigator open-type='switchTab' url='/pages/menu/menu' class=" padding-20 flex-row flex-center txt-black border-bottom" >
     <view class="flex-1 flex-wrap">
-      <view class="txt-black ">现在下单</view>
-      <view class="h7 ">ORDER NOW</view>
+      <view class="txt-bold  txt-black">现在下单</view>
+      <view class="h6 ">ORDER NOW</view>
     </view>
     <view   class=" ">
-      <image class='icon-17  padding-20 '  src='{{uploadpath}}resource/{{res.kafei}}'></image>
+      <image class='icon-25  padding-20 '  src='{{uploadpath}}resource/{{res.kafei}}'></image>
     </view>
   </navigator>
   <view class=" padding-20 flex-row flex-center txt-black  border-bottom " bindtap='comingsoon' >
     <view class="flex-1 flex-wrap">
       <view class="flex-row flex-center">
-        <view class="txt-black">钱包</view>
+        <view class="txt-bold  txt-black ">钱包</view>
       </view>
 
-      <view class="h7">COFFEE WALLET</view>
+      <view class="h6">COFFEE WALLET</view>
 
     </view>
     <view  class=" flex-row flex-center">
-      <image class='icon-17   padding-20'  src='{{uploadpath}}resource/{{res.youhui}}'></image>
+      <image class='icon-25   padding-20'  src='{{uploadpath}}resource/{{res.youhui}}'></image>
     </view>
   </view>
   <view class=" padding-20 flex-row flex-center txt-black" bindtap='comingsoon'>
     <view class="flex-1 flex-wrap">
-      <view class="txt-black">邀请得杯</view>
-      <view class="h7">SHARE & GET IT FREE</view>
+      <view class="txt-bold  txt-black ">邀请得杯</view>
+      <view class="h6">SHARE & GET IT FREE</view>
 
     </view>
     <view class=" ">
-      <image class='icon-17   padding-20' src='{{uploadpath}}resource/{{res.yaoqing}}'></image>
+      <image class='icon-25   padding-20' src='{{uploadpath}}resource/{{res.yaoqing}}'></image>
     </view>
   </view>
 

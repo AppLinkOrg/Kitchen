@@ -10,31 +10,31 @@
     <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
   </view>
 </view>
-<view class='margin-top padding-20'>
+<view class=' padding-40'>
   <view>
-    <navigator url='/pages/addressmgr/addressmgr' class='flex-row flex-center margin-top'>
+    <navigator url='/pages/addressmgr/addressmgr' class='flex-row flex-center  ' hover-class="none">
       <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	address}}'></image>
       </view>
-      <view class='flex-1 h5'>收货地址</view>
+      <view class='flex-1 ' >收货地址</view>
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>
     </navigator>
-    <view class='flex-row flex-center margin-top' bindtap='contactkefu'>
+    <view class='flex-row flex-center margin-top-60' bindtap='contactkefu'>
       <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	service}}'></image>
       </view>
-      <view class='flex-1 h5'>客户服务</view>
+      <view class='flex-1 '>客户服务</view>
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>
     </view>
-    <view bindtap='openContent' data-keycode="aboutus" data-title="关于我们" class='flex-row flex-center margin-top'>
+    <view bindtap='openContent' data-keycode="aboutus" data-title="关于我们" class='flex-row   flex-center margin-top-60 '>
       <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	about}}'></image>
       </view>
-      <view class='flex-1 h5'>关于我们</view>
+      <view class='flex-1  '>关于我们</view>
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>

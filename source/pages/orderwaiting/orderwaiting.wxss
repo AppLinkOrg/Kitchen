@@ -75,6 +75,7 @@ padding-right:5rpx;
 border:1px solid #BBBBBB;
 margin:10rpx;
 color: black;
+border-radius: 10rpx;
 
 }
 
@@ -87,5 +88,5 @@ padding-right:5rpx;
 border:1px solid orange;
 color: orange;
 margin:10rpx;
-
+border-radius: 10rpx;
 }

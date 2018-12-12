@@ -27,7 +27,7 @@ export class AppBase {
   static UserInfo = {};
   static InstInfo = {};
   unicode = "tmcf";
-  needauth = false;
+  needauth = true;
   pagetitle = null;
   app = null;
   options = null;

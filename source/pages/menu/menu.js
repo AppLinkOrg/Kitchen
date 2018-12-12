@@ -110,6 +110,7 @@ class Content extends AppBase {
       }
       if (selectcat_id != cat_id) {
         this.Base.setMyData({ selectcat_id: cat_id });
+        
       }
     }
   }

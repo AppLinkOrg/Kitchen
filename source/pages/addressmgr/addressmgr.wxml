@@ -19,8 +19,8 @@
     <view class='flex-1' bindtap='selectaddress' id="{{item.id}}">
       <view class='txt-bold h5'>{{item.address}} {{item.menpai}}</view>
       <view class='flex-row flex-center margin-top-10'>
-        <view class='default h7 bg-gray padding-10 margin-right' wx:if="{{item.isdefault_value=='Y'}}" >默认地址</view>
-        <view class='default txt-white h7 bg-primary padding-10 margin-right'>{{item.label_name}}</view>
+        <view class='default h7 bg-gray padding-10 margin-right yj1' wx:if="{{item.isdefault_value=='Y'}}" >默认地址</view>
+        <view class='default txt-white h7 bg padding-10 yj2 margin-right'>{{item.label_name}}</view>
       <view class='h6 txt-gray margin-right'>{{item.mobile}}</view>
       <view class='h6 txt-gray'>{{item.name}}</view>
       </view>
@@ -33,12 +33,12 @@
 </block>
 
 <view class='fixedbottom bg-gray'>
-  <navigator url='/pages/address/address' class='flex-row flex-center margin-top-20 margin-bottom-20'>
+  <navigator url='/pages/address/address' hover-class="none" class='flex-row flex-center margin-top-20 margin-bottom-20'>
     <view class='flex-1'></view>
     <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	add}}'></image>
       </view>
-      <view class='txt-primary'>新增地址</view>
+      <view class='txt-lv'>新增地址</view>
     <view class='flex-1'></view>
   </navigator>
 </view>

@@ -1,5 +1,11 @@
 /**app.wxss**/
 @import "wxParse/wxParse.wxss";
+ceshi{
+
+border:1px solid red;
+
+}
+
 
 page{
   background: white;
@@ -122,6 +128,9 @@ view,navigator,input,text,textarea{
 .txt-primary{
   color:#2699EC;
 }
+.txt-lv{
+  color:#5FE0A3;
+}
 .txt-black{
   color: black;
 }
@@ -211,6 +220,11 @@ button.button-hover{
 button[type=primary]{
   
   background-color: #2699EC;
+}
+
+button[type=lv]{
+  
+  background-color: #5FE0A3;
 }
 button.button-hover[type=primary]{
   
@@ -303,6 +317,9 @@ button[disabled][type=primary] {
   padding-bottom: 50rpx;
 }
 .padding-bottom-40{
+  padding-bottom: 40rpx;
+}
+.padding-bottom{
   padding-bottom: 40rpx;
 }
 .padding-top-40

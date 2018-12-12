@@ -133,6 +133,7 @@ class Content extends AppBase {
     data.eat = sdata.eat;
     data.expresstype = sdata.expresstype;
     data.address_id = sdata.address_id;
+    
     console.log(data);
     console.log(sdata);
     if(data.expresstype=="B"){

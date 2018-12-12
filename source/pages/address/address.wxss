@@ -5,6 +5,10 @@
 .f1{
   width:100rpx;
 }
+.f2{
+width:145rpx;
+
+}
 .biaoqian{
   width:100rpx;
   font-size: 28rpx;
@@ -15,6 +19,6 @@
   margin-right: 30rpx;
 }
 .bianqianavt{
-  color:#2699EC;
-  border:1rpx solid #2699EC;
+  color:#5FE0A3;
+  border:1rpx solid #5FE0A3;
 }
