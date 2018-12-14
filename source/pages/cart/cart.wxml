@@ -13,7 +13,7 @@
 <block wx:if="{{cartorder.length>0}}">
 <view class="flex-row flex-center" >
   <view class=" padding-20" bindtap='chooseShop'>
-    <image class='icon-17 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
+    <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
   </view>
   <view class=" padding-20 flex-1" bindtap='chooseShop'>
     <view class="h5 txt-black">{{currentshop.name}}</view>
@@ -63,7 +63,7 @@
       <view class="flex-1  ">应付合计</view>
       <view class="flex-2 txt-bold bg">￥{{totalprice}}</view>
     </view>
-    <view class="flex-2 text-center  txt-white txt-bold xm" style='background-color:#7FA9D3' bindtap='gotoConfirm'>去结算</view>
+    <view class="flex-2 text-center  txt-white txt-bold xm" style='background-color:#5FE0A3' bindtap='gotoConfirm'>去结算</view>
 
   </view>
 </view>

@@ -33,7 +33,7 @@
               <view class='flex-1 line bg-gray'></view>
             </view>
           </view>
-          <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top-10 margin-bottom-10' bindtap='selectgoods' id="{{goods.id}}">
+          <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top-10 margin-bottom-10' bindtap='selectgoods' id="{{goods.goods_id}}">
             <view>
               <image class="icon-75" src='{{uploadpath}}goods/{{goods.goods_photo}}'></image>
             </view>

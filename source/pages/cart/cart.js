@@ -28,6 +28,7 @@ class Content extends AppBase {
     });
   }
   jian(e) {
+    var that=this;
     var ischange = false;
     var id = e.currentTarget.id;
     var cartorder = this.Base.getMyData().cartorder;
@@ -35,7 +36,34 @@ class Content extends AppBase {
       if (id == cartorder[i].id) {
         var num = parseInt(cartorder[i].num);
         if (num > 0) {
+       
+
+
+          
+          if (num == 1) {
+
+            wx.showModal({
+              title: '提示',
+              content: '确定要放弃商品吗？',
+              success: function (sm) {
+                if (sm.confirm) {
+                  var shopapi = new ShopApi();
+                  shopapi.cartlist({}, (cartorder) => {
+                    that.Base.setMyData({
+                      cartorder
+                    });
+                  })
+                
+                } else if (sm.cancel) {
+                 
+                  that.jia(e);
+                }
+              }
+            })
+            
+          }
           num--;
+          console.log(888888888);
           cartorder[i].num = num;
           var shopapi = new ShopApi();
           shopapi.updatecartordernum({

@@ -9,11 +9,13 @@ page{
   background-color: white;
 }
 .qzf{
-padding-left:25rpx;
-padding-right: 25rpx;
-padding-top:5rpx;
-padding-bottom: 5rpx;
-border:1px solid #B3B3B3;
+
+  height: 43rpx;
+padding-left:20rpx;
+padding-right: 20rpx;
+padding-top:1rpx;
+padding-bottom: 1rpx;
+border:1px solid #FF9800;
 border-radius: 10rpx;
 
 

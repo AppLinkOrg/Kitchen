@@ -1,20 +1,21 @@
 .xx-Y{
 border-radius: 35rpx;
-background-color: #F7F7F7;
+background-color: white;
 font-size: 24rpx;
 width:25%;
-border:1px solid #bbbbbb
+border:1px solid #5FE0A3;
+color: #5FE0A3;
 }
 .xx-N{
 
 border-radius: 35rpx;
-background-color: white;
+background-color: #E6E6E6;
 font-size: 24rpx;
 width:25%;
 border:1px solid white
 }
 .bg1{
-background-color:#E56629;
+background-color:#5FE0A3;
 padding-top:20rpx;
 padding-bottom:20rpx;
 margin:10rpx;

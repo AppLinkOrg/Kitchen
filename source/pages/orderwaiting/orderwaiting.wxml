@@ -69,7 +69,7 @@
 
 
   <!-- 已取消 -->
-  <view class="bg border-bottom" wx:if="{{info.status=='G'}}">
+  <view class="bg " wx:if="{{info.status=='G'}}">
     <view class=" flex-row flex-center  padding-20">
       <view class="flex-1"></view>
       <view class="margin-top-20 txt-bold">已取消</view>
@@ -88,13 +88,14 @@
   </view>
 
 
-
-  <view class="padding-20 flex-row flex-center bg  padding-top-40 padding-bottom-40" style='border-bottom:1px solid #BBBBBB'>
-    <view class="flex-1 h5    ">{{info.status_name}}:{{info.orderno}}</view>
+<view class="padding-20 bg margin-top-5 " style=''>
+  <view class=" flex-row flex-center bg  padding-top-40 padding-bottom-40" style='border-bottom:1px solid #E6E6E6;'>
+    <view class="flex-1 h5  ">{{info.status_name}}:{{info.orderno}}</view>
     <view class="h5">{{info.submit_time_formatting}}</view>
   </view>
+  </view>
   <view class="padding-20 bg">
-    <view style='border-bottom:1px solid #C4C4C4;padding-bottom:20rpx'>
+    <view style='border-bottom:1px  solid #E6E6E6;padding-bottom:20rpx'>
 
       <view class="flex-row flex-center " wx:for="{{orderitem}}" wx:key="k">
         <view class="flex-3 flex-wrap flex-center" style='height:80rpx;'>

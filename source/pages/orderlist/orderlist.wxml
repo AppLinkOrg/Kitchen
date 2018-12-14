@@ -9,10 +9,15 @@
     <button size='mini' bindtap='gotoMenu'>去喝一杯</button>
   </view>
 </view>
+
 <view wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="k">
-  <view class="flex-row padding-20 bg margin-top-5" style='border:1px solid #FAFAFA' >
+<view class="padding-20 bg">
+  <view class="flex-row  bg margin-top-5  padding-bottom-20" style='border-bottom:1px solid #E6E6E6'  >
     <view class="flex-1 h5" style='color:#979797'>{{item.expresstype_name}} : {{item.orderno}}</view>
-    <view class="h5" style='color:#FF9800'>{{item.status_name}}</view>
+    <view  wx:if="{{item.status!='P'}}" class="h5" style='color:#979797'>{{item.status_name}}</view>
+
+       <view wx:if="{{item.status=='P'}}" class="h5" style='color:#FF9800'>{{item.status_name}}</view>
+       </view>
   </view>
 
 
@@ -45,12 +50,12 @@
     </view>
     <view class="flex-row margin-top-20">
       <view class="flex-1 padding-top-10">￥{{item.amount+item.expressfee}}</view>
-      <navigator url='/pages/orderwaiting/orderwaiting?id={{item.id}}' class="qzf" style='color:#FF9800' wx:if="{{item.status=='P'}}"> 支付</navigator>
+      <navigator url='/pages/orderwaiting/orderwaiting?id={{item.id}}' class="qzf h5" style='color:#FF9800' wx:if="{{item.status=='P'}}"> 支付</navigator>
       <!-- <navigator url='/pages/orderwaiting/orderwaiting?id={{item.id}}' class="qzf" style='color:#b27b83' wx:if="{{item.status!='P'}}"> 详情</navigator> -->
     </view>
   </view>
 
 
 
-  <view style='height:20px;'></view>
+  <view style='height:3px;'></view>
 </view>

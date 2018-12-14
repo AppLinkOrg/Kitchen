@@ -6,7 +6,7 @@
     </view>
     <view class="margin-top-10 flex-bottom flex-row flex-center">
       <view class="h5">约</view>
-      <view class="h4" style='color:#7FA9D3'>{{expresstype=='A'?shop.ziti: shop.songhuo}}</view>
+      <view class="h4" style='color:#5FE0A3'>{{expresstype=='A'?shop.ziti: shop.songhuo}}</view>
       <view class="h5">{{expresstype=='A'?'可取':'送达'}}</view>
     </view>
   </view>
@@ -15,8 +15,8 @@
   </view>
   <view>
     <view class='v1 flex-row flex-center' bindtap='changeExpress'>
-      <view class="v2 txt-primary h5 {{expresstype=='A'?'avt':''}}">自提</view>
-      <view class="v2 txt-primary h5 {{expresstype=='B'?'avt':''}}">送货</view>
+      <view class="v2   h5 {{expresstype=='A'?'avt':'hei'}}" >自提</view>
+      <view class="v2  h5 {{expresstype=='B'?'avt':'hei'}}" >送货</view>
     </view>
   </view>
 </view>
@@ -122,5 +122,5 @@
       <view class="flex-2 txt-bold bg">￥{{totalprice+((expresstype=='B'&&totalprice
         <instinfo.expressfreeup)?instinfo.expressfee:0)}}</view>
       </view>
-      <view class="flex-2 text-center  txt-white xm" style='background-color:#7FA9D3' bindtap='payment'>去支付</view>
+      <view class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
     </view>

@@ -4,7 +4,7 @@
     <image class='icon-50 radius-50 shadow ' src='{{UserInfo.avatarUrl}}'></image>
   </view>
   <view class='flex-1'>
-    {{memberinfo.mobile}}
+    {{memberinfo.nickName}}
   </view>
   <view class='margin-left' hidden='1'>
     <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
@@ -21,19 +21,25 @@
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>
     </navigator>
-    <view class='flex-row flex-center margin-top-60' bindtap='contactkefu'>
+    <button class=' clear-contact ceshi  ' style='width:750rpx;height:100rpx;' open-type='contact' ></button>
+    <view class='flex-row flex-center margin-top-60' bindtap=''>
       <view class='margin-right line-height-0' >
-        <image class='icon' src='{{uploadpath}}resource/{{res.	service}}'></image>
+        <image class='icon' src='{{uploadpath}}resource/{{res.service}}'></image>
       </view>
       <view class='flex-1 '>客户服务</view>
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>
     </view>
+
+
+
+    
     <view bindtap='openContent' data-keycode="aboutus" data-title="关于我们" class='flex-row   flex-center margin-top-60 '>
       <view class='margin-right line-height-0' >
         <image class='icon' src='{{uploadpath}}resource/{{res.	about}}'></image>
       </view>
+
       <view class='flex-1  '>关于我们</view>
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>

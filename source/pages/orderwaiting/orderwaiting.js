@@ -47,8 +47,6 @@ djs(){
   
 
   
-  
-
   var that = this;
   this.timer = setInterval(() => {
 
@@ -85,7 +83,10 @@ djs(){
   }, 1000);
 
   }
+  onUnload(){
+    clearInterval(this.timer); 
 
+  }
 
   payment(e) {
     var that=this;
