@@ -24,6 +24,9 @@ class Content extends AppBase {
     var that = this;
     var shopapi=new ShopApi();
     shopapi.shopinfo({id:this.Base.options.shop_id},(shop)=>{
+
+      var is = ApiUtil.checkInOpen(this.Base.getMyData().shop.openning);
+    
       var ziti_time =new Date( (new Date()).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
       var songhuo_time = new Date( (new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
 

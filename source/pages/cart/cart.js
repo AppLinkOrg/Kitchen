@@ -11,6 +11,9 @@ import {
 import {
   ShopApi
 } from "../../apis/shop.api.js";
+import {
+  ApiUtil
+} from "../../apis/apiutil.js";
 
 class Content extends AppBase {
   constructor() {
@@ -170,6 +173,10 @@ class Content extends AppBase {
       if (shoplist[i].id == shop_id) {
         this.Base.setMyData({
           currentshop: shoplist[i]
+        });
+        var is = ApiUtil.checkInOpen(this.Base.getMyData().currentshop.openning);
+        this.Base.setMyData({
+          is
         });
 
         var shopapi = new ShopApi();

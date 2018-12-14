@@ -37,12 +37,12 @@
         <view class="h5">可制作完成</view>
         <view class="flex-1"></view>
       </view>
-      <view class="flex-row flex-center margin-20 text-center">
-        <view class="flex-1"></view>
+       <view class="flex-row flex-center margin-20 text-center">
+        <!-- <view class="flex-1"></view>
         <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>
         <view class="flex-2  anniu1" bindtap='payment'>去支付</view>
-        <view class="flex-1"></view>
-      </view>
+        <view class="flex-1"></view> -->
+      </view> 
     </view>
 
     <view wx:if="{{info.expresstype=='B'}}">
@@ -54,14 +54,14 @@
       <view class="flex-row flex-center text-center">
         <view class="flex-1"></view>
         <view class="h5">预计</view>
-        <view class="h5" style='color:#7FA9D3'>{{fen}}分{{miao}}秒</view>
+        <view class="h5" style='color:#7FA9D3'></view>
         <view class="h5">送达,请耐心等待</view>
         <view class="flex-1"></view>
       </view>
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
         <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>
-        <view class="flex-2  anniu1" bindtap='payment'>去支付</view>
+       
         <view class="flex-1"></view>
       </view>
     </view>

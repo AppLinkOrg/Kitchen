@@ -11,6 +11,10 @@ import {
 import {
   ShopApi
 } from "../../apis/shop.api.js";
+import {
+  ApiUtil
+} from "../../apis/apiutil.js";
+
 
 class Content extends AppBase {
   constructor() {
@@ -22,6 +26,8 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+
+    
   }
   brandtap(e) {
     //console.log(currentTarget);
@@ -63,6 +69,13 @@ class Content extends AppBase {
     for (var i = 0; i < shoplist.length; i++) {
       if (shoplist[i].id == shop_id) {
         this.Base.setMyData({ currentshop: shoplist[i] });
+
+
+        
+       var is=ApiUtil.checkInOpen(this.Base.getMyData().currentshop.openning);
+   
+       
+
 
         var shopapi = new ShopApi();
         shopapi.menucat({ menu_id: shoplist[i].menu_id }, (menucat) => {

@@ -63,8 +63,9 @@
       <view class="flex-1  ">应付合计</view>
       <view class="flex-2 txt-bold bg">￥{{totalprice}}</view>
     </view>
-    <view class="flex-2 text-center  txt-white txt-bold xm" style='background-color:#5FE0A3' bindtap='gotoConfirm'>去结算</view>
-
+    <view  wx:if="{{is==false&totalprice>0}}" class="flex-2 text-center   txt-white txt-bold xm" style='background-color:#5FE0A3' bindtap='gotoConfirm'>去结算</view>
+  <view  wx:if="{{is==true||totalprice==0}}" class="flex-2 text-center   txt-white txt-bold xm" style='background-color:#B3B3B3' bindtap=''>去结算</view>
+   
   </view>
 </view>
 </block>

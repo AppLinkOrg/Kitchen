@@ -23,6 +23,7 @@ export class ApiUtil {
     return s;
   }
 
+
   static fixRename(ret) {
     var renamelist = ApiUtil.renamelist;
     console.log("rename a");
@@ -51,6 +52,7 @@ export class ApiUtil {
   static Toast(toastCtrl, msg) {
     let toast = toastCtrl.create({
       message: msg
+      
     });
     toast.present();
   }
@@ -62,6 +64,21 @@ export class ApiUtil {
   static FormatDate(val) {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
   }
+
+//判断当前时间是否在制定时间内
+  static checkInOpen(opening) {
+    var whedate = false;
+    var mydate = new Date();
+    mydate = mydate.getHours() + ":" + mydate.getMinutes();
+    var sj = opening.split(",");
+    for (var i = 0; i < sj.length; i++) {
+      sj[i] = sj[i].split("~");
+      if (sj[i][0] < mydate && sj[i][1] > mydate) {
+        whedate = true;
+      }
+      }
+    return whedate;
+}
 
   static IsMobileNo(str) {
 
