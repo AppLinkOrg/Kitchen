@@ -31,7 +31,7 @@
     <image class='icon-30 margin-left-20' src='{{uploadpath}}resource/{{item.cansales=="Y"?res.buxuanzhong:res.buxuanzhonghui}}'></image>
   </view>
   <view class="flex-5">
-    <view class="txt-bold">{{item.goods_name}}<text wx:if="{{item.cansales!='Y'}}" class='h6 txt-red'> (没有此商品)</text></view>
+    <view class="txt-bold">{{item.goods_name}}{{item.checked_value}}{{item.cansales}}<text wx:if="{{item.cansales!='Y'}}" class='h6 txt-red'> (没有此商品)</text></view>
     <view class='h6 '>{{item.valstr}}</view>
     <view class="txt-black margin-top-5 flex-row flex-bottom">
       <block wx:if="{{item.havediscount=='Y'}}">

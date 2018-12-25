@@ -284,11 +284,15 @@ export class AppBase {
         this.Base.setMyData({
           memberinfo: info
         });
+        
         var shopapi = new ShopApi();
         shopapi.cartlist({}, (cartorder) => {
-          this.Base.setMyData({
-            cartorder
-          });
+          //for (var i = 0; i < cartorder.length;i++){
+          //  cartorder[i].cansales='Y';
+          //}
+          //this.Base.setMyData({
+          //  cartorder
+          //});
           that.onMyShow();
           var totalnum = 0;
           for (var item of cartorder) {

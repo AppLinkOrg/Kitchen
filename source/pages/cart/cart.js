@@ -40,11 +40,8 @@ class Content extends AppBase {
         var num = parseInt(cartorder[i].num);
         if (num > 0) {
        
-
-
-          
           if (num == 1) {
-
+            
             wx.showModal({
               title: '提示',
               content: '确定要放弃商品吗？',
@@ -123,7 +120,7 @@ class Content extends AppBase {
     for (var i = 0; i < cartorder.length; i++) {
       if (id == cartorder[i].id) {
         console.log("a");
-        cartorder[i].checked_value = checked; 
+        cartorder[i].checked_value = checked;
         var shopapi = new ShopApi();
         shopapi.updatecartorderchecked({
           id: cartorder[i].id,
@@ -139,7 +136,14 @@ class Content extends AppBase {
   }
 
   onMyShow() {
+    var lastshop = wx.getStorageSync("lastshop_id");
+    if (shop_id == lastshop) {
+      console.log("is suppoer return");
+      //this.calc();
+      return;
+    }
     var that = this;
+    var shop_id = AppBase.SHOPID;
     this.Base.getAddress((location) => {
       console.log(location);
       var mylat = location.location.lat;
@@ -147,6 +151,11 @@ class Content extends AppBase {
       this.Base.setMyData({
         mylocation: location.ad_info
       });
+
+      wx.setStorage({
+        key: 'lastshop_id',
+        data: shop_id,
+      })
       var shopapi = new ShopApi();
       shopapi.shoplist({
         mylat,
@@ -194,12 +203,15 @@ class Content extends AppBase {
     }
   }
   calc() {
-    var cartorder = this.Base.getMyData().cartorder;
+    var shopapi = new ShopApi();
+    shopapi.cartlist({}, (cartorder) => {
+
     var menugoods = this.Base.getMyData().menugoods;
     var totalprice = 0;
     var totalnum = 0;
     var cansales = [];
     for (var i = 0; i < cartorder.length; i++) {
+      cartorder[i].cansales = 'N';
       var vallist = cartorder[i].vallist;
       var price = parseFloat(cartorder[i].goods_price);
       var valstr = [];
@@ -224,7 +236,6 @@ class Content extends AppBase {
           cartorder[i].cansales = "Y";
           break;
         }
-
       }
       cartorder[i].numprice = cartorder[i].oneprice * parseInt(cartorder[i].num);
       if (cartorder[i].checked_value == "Y" && cartorder[i].cansales == "Y"){
@@ -247,6 +258,8 @@ class Content extends AppBase {
     this.Base.setMyData({
       cartorder,
       totalprice
+    });
+
     });
   }
   chooseShop() {
