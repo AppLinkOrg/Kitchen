@@ -27,7 +27,6 @@ class Content extends AppBase {
   }
   onMyShow() {
 
-      
 
 
     var that = this;
@@ -38,6 +37,32 @@ class Content extends AppBase {
       this.Base.setMyData({info});
       shopapi.orderitem({ order_id: this.Base.options.id }, (orderitem) => {
         this.Base.setMyData({ orderitem });
+
+
+       
+        shopapi.shopinfo({ id: this.Base.options.shop_id }, (shop) => {
+
+          var sj = new Date(info.pay_time);
+          console.log((new Date()).getTime());
+          
+          console.log((new Date()));
+          console.log(sj);
+          var ziti_time = new Date((sj).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
+          var songhuo_time = new Date((sj).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
+
+          shop.ziti = ziti_time.getHours() + ":" + ziti_time.getMinutes();
+          shop.songhuo = songhuo_time.getHours() + ":" + songhuo_time.getMinutes();
+
+          this.Base.setMyData({ shop });
+          //GetDistance
+        });
+
+
+
+
+
+
+
       });
     });
 

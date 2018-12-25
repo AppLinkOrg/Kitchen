@@ -4,7 +4,7 @@
   </view>
   <view class=" padding-20 flex-wrap" bindtap='chooseShop'>
     <view class="h5 txt-black">{{currentshop.name}}</view>
-    <view class="h6 txt-gray">距您 {{currentshop.miletxt}}m</view>
+    <view class="h6 txt-gray">距您 {{currentshop.miletxt}}</view>
   </view>
   <view class="flex-1"></view>
 </view>

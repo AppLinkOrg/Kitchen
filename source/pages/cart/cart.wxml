@@ -16,10 +16,10 @@
     <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
   </view>
   <view class=" padding-20 flex-1" bindtap='chooseShop'>
-    <view class="h5 txt-black">{{currentshop.name}}<text class="h5 txt-black" wx:if="{{is}}">(本店已打烊)</text></view>
+    <view class="h5 txt-black">{{currentshop.name}}<text class="h5 txt-black" wx:if="{{!is}}">(本店已打烊)</text></view>
     <view class='flex-row flex-bottom'>
       <view class="h6 txt-gray flex-1">{{currentshop.address}}</view>
-      <view class="h6 txt-gray">距您 {{currentshop.miletxt}}m</view>
+      <view class="h6 txt-gray">距您 {{currentshop.miletxt}}</view>
     </view>
   </view>
 </view>
@@ -63,8 +63,8 @@
       <view class="flex-1  ">应付合计</view>
       <view class="flex-2 txt-bold bg">￥{{totalprice}}</view>
     </view>
-    <view  wx:if="{{is==false&totalprice>0}}" class="flex-2 text-center   txt-white txt-bold xm" style='background-color:#5FE0A3' bindtap='gotoConfirm'>去结算</view>
-  <view  wx:if="{{is==true||totalprice==0}}" class="flex-2 text-center   txt-white txt-bold xm" style='background-color:#B3B3B3' bindtap=''>去结算</view>
+    <view  wx:if="{{is==true&totalprice>0}}" class="flex-2 text-center   txt-white txt-bold xm" style='background-color:#5FE0A3' bindtap='gotoConfirm'>去结算</view>
+  <view  wx:if="{{is==false||totalprice==0}}" class="flex-2 text-center   txt-white txt-bold xm" style='background-color:#B3B3B3' bindtap=''>去结算</view>
    
   </view>
 </view>

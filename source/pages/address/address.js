@@ -16,7 +16,8 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    if(this.Base.options.id!=undefined){
+    console.log(this.Base.getMyData().address);
+    if (this.Base.options.id != undefined && this.Base.getMyData().address==""){
       var shopapi=new ShopApi();
       shopapi.addressinfo({id:this.Base.options.id},(info)=>{
         info.isdefault = info.isdefault_value;
