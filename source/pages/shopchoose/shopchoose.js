@@ -58,9 +58,9 @@ class Content extends AppBase {
   chooseShop(e){
     var id=e.currentTarget.id;
     AppBase.SHOPID = id;
-    wx.navigateBack({
-      
-    })
+   wx.navigateTo({
+     url: '/pages/menu/menu',
+   })
   }
 }
 var content = new Content();

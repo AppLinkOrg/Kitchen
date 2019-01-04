@@ -2,14 +2,14 @@
   <view class="margin-left h4 txt-white txt-bold" style='margin-top:100rpx'>{{name}}</view>
   <view class="margin-left h6 txt-white txt-bold">{{engname}}</view>
 </view>
-<view class="flex-row  margin-top-20" wx:for="{{attrs}}" wx:key="k">
+<view class="  flex-row  margin-top-20" wx:for="{{attrs}}" wx:key="k">
   <view class="margin-top-10 margin-left-20  flex-1 ">{{item.name}}</view>
   <view class="flex-row flex-5 text-center flex-center flex-wrap">
     <view class="padding-10 xx-{{val.selected}} margin-10" wx:for="{{item.vals}}" wx:key="k2" wx:for-item="val" bindtap='selectval' id="{{item.id}}_{{val.id}}">{{val.name}}</view>
   </view>
 </view>
 
-<view class="flex-wrap  flex-center">
+<view class="flex-wrap   flex-center">
   <view class="flex-row flex-center">
     <view class="padding-20 flex-1 txt-black">￥{{totalprice}}</view>
 

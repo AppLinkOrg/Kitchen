@@ -7,6 +7,59 @@ margin-right: 20rpx
 
 
 }
+.xx-Y{
+border-radius: 35rpx;
+background-color: white;
+font-size: 24rpx;
+width:25%;
+border:1px solid #5FE0A3;
+color: #5FE0A3;
+}
+.xx-N{
+
+border-radius: 35rpx;
+background-color: #E6E6E6;
+font-size: 24rpx;
+width:25%;
+border:1px solid white
+}
+.bg1 {
+  background: rgb(8, 8, 8);
+  opacity: 0.5;
+  position: fixed;
+  bottom: 0px;
+  z-index: 100;
+  width: 100%;
+}
+.under {
+  position: fixed;
+  z-index: 101;
+  width: 80%;
+  background: white;
+  left: 10%;
+  right: 10%;
+  top: 120px;
+  
+}
+.under1 {
+  position: fixed;
+  z-index: 101;
+ width: 100%;
+  background: white;
+  
+bottom:0;
+
+}
+.refuse {
+  position: fixed;
+  z-index: 101;
+  background: white;
+  
+  top: 188rpx;
+  right:5%;
+  border-radius: 50%;
+  background-color: transparent;
+}
 .bg{
 
 
@@ -14,16 +67,69 @@ margin-right: 20rpx
    background: white;
   color: black;
 }
-
+.gd{
+height: calc( 100vh - 260rpx )
+}
 .zitiwaisong{
   width:120rpx;
   height: 60rpx;
 }
 
 .menuopt{
-  height: calc( 100vh - 400rpx )
+  height: calc( 100vh - 260rpx )
 }
 
 .line{
   height:1rpx;
+}
+.xz{
+color: #5fe0a3;
+border-bottom:1px solid #5fe0a3;
+}
+.gwc{
+width:100%;
+position: fixed;
+bottom: 0;
+z-index:90;
+}
+.gwc1{
+width:95%;
+left:3%;
+right: 2%;
+position: fixed;
+bottom: 0;
+z-index:89;
+}
+.bgg{
+background-color: #e5e5e5;
+
+}
+
+.gwc2{
+width:100%;
+position: fixed;
+
+z-index:90;
+}
+.gwc3{
+width:95%;
+margin-left:3%;
+right: 2%;
+
+z-index:89;
+}
+
+.jiaru{
+
+   background-color: #f8f8f8;
+}
+.jrgwc{
+
+padding:10rpx;
+padding-left:20rpx;
+padding-right:20rpx;
+background-color: #5fe0a3;
+border-radius: 50rpx;
+
+
 }

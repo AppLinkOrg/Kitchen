@@ -1,17 +1,61 @@
 <!-- 定位模块 -->
 
 
-<view class="flex-row text-center padding-20">
-  <view class="flex-1"></view>
-  <view class="h5 margin-right">所在城市:</view>
-  <view class="h5 txt-black">深圳</view>
+<view class="flex-row  text-center padding-20" style='border-bottom:7rpx solid #e5e5e5'>
+
+  <view class="h5 margin-right ">所在城市:</view>
+  <view class="h5 txt-black">{{mylocation.city}}</view>
   <view class="flex-1"></view>
 </view>
 <!-- 切换模块 -->
-
+<view class="flex-row flex-center padding-20">
+  <view class="flex-2 h5 {{tab==0?'xz':'wxz'}} " id="0" bindtap='changetab'>综合排序</view>
+  <view class="flex-1"></view>
+  <view class="flex-2 h5 {{tab==1?'xz':'wxz'}}" id="1" bindtap='changetab'>距离最近</view>
+  <view class="flex-1 "></view>
+  <view class="flex-2 h5 {{tab==2?'xz':'wxz'}}" id="2" bindtap='changetab'>销量最多</view>
+  <view class="flex-1  "></view>
+  <view class="flex-2 h5 {{tab==3?'xz':'wxz'}}" id="3" bindtap='changetab'>评分最高</view>
+</view>
 
 <!-- 店铺列表 -->
-<view class='padding-20'>
+
+<view bindtap='chooseShop' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" class="padding-20 flex-row border-bottom  ">
+
+  <image class="yr" style='width:150rpx;height:120rpx' mode="aspectFill" src='{{uploadpath}}shop/{{item.img}}'></image>
+
+  <view class="margin-left-20 " style='width:100%'>
+    <view class="h5 txt-black">
+      {{item.name}}
+    </view>
+    <view class=" flex-row">
+      <view class="h5 ">评分:4.5</view>
+      <view class="h5  margin-left-20">月销量:220</view>
+    </view>
+    <view class=" flex-row margin-top-5 " style='width:100% '>
+      <view class="h5 ">
+        <image class="icon" mode="aspectFill" src='{{uploadpath}}resource/{{res.img1}}'></image>
+      </view>
+      <view class="h5 flex-1 margin-left-20">沙拉</view>
+      <view class="h5">{{item.miletxt}}</view>
+    </view>
+  </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class='padding-20'>
   <view class='border-bottom flex-row flex-center margin-top-10 padding-bottom-10' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" bindtap='chooseShop'>
     <view class='margin-right' wx:if="{{SHOPID==item.id}}">
     <image class='icon' src='{{uploadpath}}resource/{{res.ticker}}'></image>
@@ -33,4 +77,4 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->

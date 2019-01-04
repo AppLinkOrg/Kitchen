@@ -23,10 +23,18 @@ class Content extends AppBase {
   comingsoon(){
     this.Base.toast("即将开放");
   }
+  ssxd(){
+
+    wx.navigateTo({
+      url: '/pages/shopchoose/shopchoose',
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 body.comingsoon = content.comingsoon;
+body.ssxd=content.ssxd;
+body.ydd=content.ydd;
 Page(body)

@@ -4,3 +4,23 @@ border-radius: 50%;
 
 
 }
+.ssxd{
+ position: fixed;
+ background-color: #8dc781;
+
+opacity:0.7;
+
+}
+.ssxd1{
+ position: fixed;
+ color: white;
+ margin-left:100rpx;
+ margin-top:120rpx;
+}
+.ydd{
+ position: fixed;
+ background-color:#4a9f73;
+
+opacity:0.7;
+
+}

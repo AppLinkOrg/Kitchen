@@ -29,8 +29,10 @@ class Content extends AppBase {
     shopapi.goodsinfo({
       id: this.Base.options.id
     }, (info) => {
+      console.log(info);
       this.Base.setMyData(info);
       this.loadprice();
+      
     });
   }
   loadprice() {
@@ -42,6 +44,7 @@ class Content extends AppBase {
     var vals = [];
 
     var attrs = this.Base.getMyData().attrs;
+
     for (var i = 0; i < attrs.length; i++) {
       for (var j = 0; j < attrs[i].vals.length; j++) {
         if (attrs[i].vals[j].selected=="Y"){
@@ -69,6 +72,7 @@ class Content extends AppBase {
           var s = attrs[i].vals[j].id == val_id ? "Y" : "N";
           attrs[i].vals[j].selected = s;
           console.log(attrs[i].vals[j].selected);
+         
         }
       }
     }
