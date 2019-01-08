@@ -20,7 +20,7 @@ class Content extends AppBase {
       this.Base.setMyData({ indexbanner});
     });
   }
-  comingsoon(){
+  ydd(){
     this.Base.toast("即将开放");
   }
   ssxd(){

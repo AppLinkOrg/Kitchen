@@ -7,6 +7,27 @@ margin-right: 20rpx
 
 
 }
+.sjimg{
+ border-radius: 10rpx
+
+
+}
+.guige1{
+
+color: white;
+background-color: #5FE0A3;
+padding-left:10rpx;
+padding-right:10rpx;
+padding-top:5rpx;
+padding-bottom:5rpx;
+border-radius: 8rpx;
+
+}
+.guige{
+
+border-radius: 15rpx;
+
+}
 .xx-Y{
 border-radius: 35rpx;
 background-color: white;
@@ -90,7 +111,21 @@ border-bottom:1px solid #5fe0a3;
 width:100%;
 position: fixed;
 bottom: 0;
+z-index:999;
+}
+.gwccc{
+
+position: fixed;
+left:90rpx;
+bottom:70rpx;
 z-index:90;
+color:white;
+background-color: red;
+width:40rpx;
+height: 40rpx;
+line-height:40rpx;
+border-radius: 50%;
+text-align:center;
 }
 .gwc1{
 width:95%;

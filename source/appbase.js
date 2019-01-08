@@ -564,7 +564,7 @@ export class AppBase {
           });
         }
         if (completecallback != undefined) {
-          completecallback();
+        
         }
       }
     })
@@ -662,7 +662,7 @@ export class AppBase {
           });
         }
         if (completecallback != undefined) {
-          completecallback();
+         
         }
       }
     })

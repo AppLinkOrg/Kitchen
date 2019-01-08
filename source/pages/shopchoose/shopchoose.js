@@ -13,7 +13,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     this.Base.setMyData({
-      tab: 0
+      tab: 'null'
     });
     super.onLoad(options);
     this.Base.setMyData({ SHOPID: AppBase.SHOPID});
@@ -27,10 +27,13 @@ class Content extends AppBase {
       this.Base.setMyData({
         mylocation: location.ad_info
       });
+var orderb= this.Base.getMyData().tab;
+
       var shopapi = new ShopApi();
       shopapi.shoplist({
         mylat,
-        mylng
+        mylng,
+        orderby: orderb,
       }, (shoplist) => {
         for (var i = 0; i < shoplist.length; i++) {
           shoplist[i].mile = this.Base.util.GetDistance(mylat, mylng, shoplist[i].lat, shoplist[i].lng);
@@ -51,9 +54,34 @@ class Content extends AppBase {
   }
 
   changetab(e) {
-    this.Base.setMyData({
-      tab: e.currentTarget.id
+    this.Base.setMyData({tab: e.currentTarget.id });
+    this.Base.getAddress((location) => {
+      console.log(location);
+      var mylat = location.location.lat;
+      var mylng = location.location.lng;
+      this.Base.setMyData({
+        mylocation: location.ad_info
+      });
+      var shopapi = new ShopApi();
+      shopapi.shoplist({
+        mylat,
+        mylng,
+        orderby: e.currentTarget.id,
+      }, (shoplist) => {
+        for (var i = 0; i < shoplist.length; i++) {
+          shoplist[i].mile = this.Base.util.GetDistance(mylat, mylng, shoplist[i].lat, shoplist[i].lng);
+
+          shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
+        }
+        this.Base.setMyData({ shoplist });
+        if (AppBase.SHOPID == 0) {
+          AppBase.SHOPID = shoplist[0].id;
+          this.Base.setMyData({ SHOPID: AppBase.SHOPID });
+        }
+      });
     });
+
+
   }
   chooseShop(e){
     var id=e.currentTarget.id;

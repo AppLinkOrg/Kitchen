@@ -181,8 +181,7 @@
         实付
       </view>
       <view class="txt-bold">
-        ￥{{info.amount+((info.expresstype=='B'&&totalprice
-        <instinfo.expressfreeup)?instinfo.expressfee:0)}} </view>
+        ￥{{info.amount+((info.expresstype=='B'&& (totalprice<instinfo.expressfreeup) )?instinfo.expressfee:0)}} </view>
       </view>
 
     </view>

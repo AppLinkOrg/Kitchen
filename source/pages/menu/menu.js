@@ -62,6 +62,8 @@ class Content extends AppBase {
         this.setCurrent();
       });
     });
+   
+
   }
   setCurrent() {
     var shop_id = AppBase.SHOPID;
@@ -106,6 +108,11 @@ class Content extends AppBase {
             });
 
             this.calc();
+            shopapi.shopscorelist({ shop_id: this.Base.getMyData().currentshop.id }, (pinglunlist) => {
+
+              this.Base.setMyData({ pinglunlist });
+
+            })
           });
           return;
 
@@ -115,6 +122,7 @@ class Content extends AppBase {
       }
     }
 
+   
 
 
 
@@ -162,13 +170,15 @@ class Content extends AppBase {
     var shopapi = new ShopApi();
     shopapi.addtocart({
       goods_id: data.id,
-      vals: data.vals,
+      vals: 0,
       num: 1,
       shop_id: data.currentshop.id
     }, (ret) => {
-
+       
 
       this.calc();
+
+      
     });
 
   
@@ -258,7 +268,10 @@ class Content extends AppBase {
   }
   bindclosedetails2() {
 
+ var cartorder=this.Base.getMyData().cartorder;
+    if (cartorder.length!=0){
     this.Base.setMyData({ istrue2: false });
+    }
 
   }
   addToCart() {
@@ -278,7 +291,7 @@ class Content extends AppBase {
 
 
   calc() {
-
+     var caipinzonshu=0;
     var shopapi = new ShopApi();
     shopapi.cartlist({ shop_id: this.Base.getMyData().currentshop.id }, (cartorder) => {
 
@@ -292,11 +305,11 @@ class Content extends AppBase {
         cartorder[i].cansales = 'N';
         var vallist = cartorder[i].vallist;
         var price = parseFloat(cartorder[i].goods_price);
-       
+        caipinzonshu += parseInt(cartorder[i].num);
         var valstr = [];
         for (var a of vallist) {
           valstr.push(a.sname);
-          price += parseFloat(a.price);
+          price+= parseFloat(a.price);
          
         }
         totalnum += parseInt(cartorder[i].num);
@@ -331,9 +344,14 @@ class Content extends AppBase {
 
       this.Base.setMyData({
         cartorder,
-        totalprice1: totalprice1.toFixed(1)
+        totalprice1: totalprice1.toFixed(1),
+        caipinzonshu: caipinzonshu
       });
-
+         if(cartorder.length==0){
+           this.Base.setMyData({
+           istrue2:true
+           });
+         }
     });
   }
 
@@ -367,8 +385,8 @@ class Content extends AppBase {
     this.loadprice();
   }
   quxiaol() {
-
-    this.Base.setMyData({ istrue2: true });
+    
+    this.Base.setMyData({ istrue2: true, istrue: true, istrue1: true});
 
 
   }
@@ -397,10 +415,21 @@ class Content extends AppBase {
 
         ischange = true;
         var shopapi = new ShopApi();
+  
+
+    
 
         shopapi.updatecartordernum({
           id: cartorder[i].id,
           num: num
+        },(qwe)=>{
+
+
+          this.Base.setMyData({
+            cartorder
+          });
+          this.calc();
+
         });
       }
 
@@ -408,12 +437,7 @@ class Content extends AppBase {
 
     if (ischange) {
     
-     
-      this.Base.setMyData({
-        cartorder
-      });
-      this.calc();
-
+    
     }
   }
   jia(e) {
@@ -434,6 +458,12 @@ class Content extends AppBase {
         shopapi.updatecartordernum({
           id: cartorder[i].id,
           num: num
+        },()=>{
+          this.Base.setMyData({
+            cartorder
+          });
+          this.calc();
+
         });
         ischange = true;
       }
@@ -441,13 +471,13 @@ class Content extends AppBase {
     }
     if (ischange) {
 
-      this.Base.setMyData({
-        cartorder
-      });
-      this.calc();
+    
     }
   }
   gotoConfirm(e) {
+    if (this.Base.getMyData().totalprice1>0)
+    {
+
     var cartorder = this.Base.getMyData().cartorder;
     var expresstype = this.Base.getMyData().expresstype;
     var currentshop = this.Base.getMyData().currentshop;
@@ -460,15 +490,19 @@ class Content extends AppBase {
     var ids = ids.join(",");
     wx.navigateTo({
       url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id,
-    })
+      })
+    }
   }
   qingkon(){
     var shopapi = new ShopApi();
     shopapi.updatecartordernum1({
       member_id: this.Base.getMyData().memberinfo.id,
       shop_id: this.Base.getMyData().currentshop.id
+    },()=>{
+      this.calc();
+          
     });
-    this.calc();
+   
 
 
 
