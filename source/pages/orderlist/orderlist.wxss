@@ -1,33 +1,29 @@
-page{
-
-
-  background-color: #FAFAFA;
+page {
+  background-color: #fafafa;
 }
-.bg{
 
-
+.bg {
   background-color: white;
 }
-.pingjia{
 
+.pingjia {
+  width: 120rpx;
   height: 43rpx;
-padding-left:20rpx;
-padding-right: 20rpx;
-padding-top:1rpx;
-padding-bottom: 1rpx;
-background-color: #5fe0a3;
-border-radius: 10rpx;
- color:white;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 1rpx;
+  padding-bottom: 1rpx;
+  background-color: #5fe0a3;
+  border-radius: 10rpx;
+  color: white;
 }
-.qzf{
 
+.qzf {
   height: 43rpx;
-padding-left:20rpx;
-padding-right: 20rpx;
-padding-top:1rpx;
-padding-bottom: 1rpx;
-border:1px solid #FF9800;
-border-radius: 10rpx;
-
-
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 1rpx;
+  padding-bottom: 1rpx;
+  border: 1px solid #ff9800;
+  border-radius: 10rpx;
 }

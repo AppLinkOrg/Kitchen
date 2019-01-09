@@ -35,7 +35,12 @@
     <view class="flex-row margin-top-20">
       <view class="flex-1 padding-top-10  txt-black txt-bold">￥{{item.amount+item.expressfee}}</view>
 
-      <navigator url='/pages/comment/comment?id={{item.id}}' class="pingjia h5" wx:if="{{item.status=='S'&&item.isanwser==''}}"> 评价</navigator>
+
+<view class='flex-row flex-center'>
+<navigator url='/pages/menu/menu' class="pingjia h5 margin-right-20 text-center" wx:if="{{item.status=='S'&&item.isanwser==''}}"> 再来一单</navigator>
+
+      <navigator url='/pages/comment/comment?id={{item.id}}' class="pingjia h5 text-center" wx:if="{{item.status=='S'&&item.isanwser==''}}"> 评价</navigator>
+      </view>
       <!-- <navigator url='/pages/orderwaiting/orderwaiting?id={{item.id}}' class="qzf" style='color:#b27b83' wx:if="{{item.status!='P'}}"> 详情</navigator> -->
     </view>
   </view>

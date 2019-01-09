@@ -1,1 +1,1 @@
-applink-cli syncapi mini alucard263096 kitchen ./source/APIS
+applink-cli syncapi mini alucard263096 kitchen ./source/apis
