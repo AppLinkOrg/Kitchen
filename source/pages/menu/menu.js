@@ -62,7 +62,7 @@ class Content extends AppBase {
         this.setCurrent();
       });
     });
-   
+
 
   }
   setCurrent() {
@@ -122,7 +122,7 @@ class Content extends AppBase {
       }
     }
 
-   
+
 
 
 
@@ -164,44 +164,46 @@ class Content extends AppBase {
       console.log(info);
       this.Base.setMyData(info);
 
-  if(info.attrs.length==0){
+      if (info.attrs.length == 0) {
 
-    var data = this.Base.getMyData();
-    var shopapi = new ShopApi();
-    shopapi.addtocart({
-      goods_id: data.id,
-      vals: 0,
-      num: 1,
-      shop_id: data.currentshop.id
-    }, (ret) => {
-       
+        var data = this.Base.getMyData();
+        var shopapi = new ShopApi();
+        shopapi.addtocart({
+          goods_id: data.id,
+          vals: 0,
+          num: 1,
+          shop_id: data.currentshop.id
+        }, (ret) => {
 
-      this.calc();
 
-      
-    });
+          this.calc();
 
-  
-  
 
-  } else{
+        });
 
-      this.Base.setMyData({ istrue: false });
-      
-      this.loadprice();
-  }
+
+
+
+      } else {
+
+        this.Base.setMyData({ istrue: false });
+
+        this.loadprice();
+      }
     });
   }
 
   selectgoods1(e) {
     var id = e.currentTarget.id;
+    console.log(e);
     var shopapi = new ShopApi();
     shopapi.goodsinfo({
       id: id
     }, (info) => {
       console.log(info);
       this.Base.setMyData(info);
-      this.Base.setMyData({ istrue1: false });
+
+      this.Base.setMyData({ istrue1: false, xiaolian: e.currentTarget.dataset.id });
       this.loadprice();
 
     });
@@ -268,14 +270,18 @@ class Content extends AppBase {
   }
   bindclosedetails2() {
 
- var cartorder=this.Base.getMyData().cartorder;
-    if (cartorder.length!=0){
-    this.Base.setMyData({ istrue2: false });
+    var cartorder = this.Base.getMyData().cartorder;
+    if (cartorder.length != 0) {
+      this.Base.setMyData({ istrue2: false });
     }
 
   }
   addToCart() {
+  
+
     var data = this.Base.getMyData();
+    if(data.vals=='')
+    {
     var shopapi = new ShopApi();
     shopapi.addtocart({
       goods_id: data.id,
@@ -283,15 +289,42 @@ class Content extends AppBase {
       num: data.num,
       shop_id: data.currentshop.id
     }, (ret) => {
-
-
       this.calc();
     });
+
+    }
+    else{
+       
+      this.Base.setMyData({ istrue1: true, istrue: false });
+
+    }
+
+
+  }
+  addToCart1() {
+
+
+    var data = this.Base.getMyData();
+   
+      var shopapi = new ShopApi();
+      shopapi.addtocart({
+        goods_id: data.id,
+        vals: data.vals,
+        num: data.num,
+        shop_id: data.currentshop.id
+      }, (ret) => {
+        this.calc();
+      });
+
+
+
+
+
   }
 
 
   calc() {
-     var caipinzonshu=0;
+    var caipinzonshu = 0;
     var shopapi = new ShopApi();
     shopapi.cartlist({ shop_id: this.Base.getMyData().currentshop.id }, (cartorder) => {
 
@@ -309,15 +342,15 @@ class Content extends AppBase {
         var valstr = [];
         for (var a of vallist) {
           valstr.push(a.sname);
-          price+= parseFloat(a.price);
-         
+          price += parseFloat(a.price);
+
         }
         totalnum += parseInt(cartorder[i].num);
         cartorder[i].valstr = valstr.join("/");
-       
-        
+
+
         cartorder[i].oneprice = price;
-        
+
         for (var a of menugoods) {
           if (a.goods_id == cartorder[i].goods_id) {
             var price = cartorder[i].oneprice;
@@ -347,11 +380,11 @@ class Content extends AppBase {
         totalprice1: totalprice1.toFixed(1),
         caipinzonshu: caipinzonshu
       });
-         if(cartorder.length==0){
-           this.Base.setMyData({
-           istrue2:true
-           });
-         }
+      if (cartorder.length == 0) {
+        this.Base.setMyData({
+          istrue2: true
+        });
+      }
     });
   }
 
@@ -385,8 +418,8 @@ class Content extends AppBase {
     this.loadprice();
   }
   quxiaol() {
-    
-    this.Base.setMyData({ istrue2: true, istrue: true, istrue1: true});
+
+    this.Base.setMyData({ istrue2: true, istrue: true, istrue1: true });
 
 
   }
@@ -394,8 +427,8 @@ class Content extends AppBase {
     var that = this;
     var ischange = false;
     var id = e.currentTarget.id;
-    var num=0;
-   
+    var num = 0;
+
     var cartorder = this.Base.getMyData().cartorder;
     for (var i = 0; i < cartorder.length; i++) {
 
@@ -403,26 +436,26 @@ class Content extends AppBase {
       if (id == cartorder[i].id) {
 
         var num = parseInt(cartorder[i].num);
-           num--;
-        if(num==0){
-   
+        num--;
+        if (num == 0) {
+
 
         }
-        
-        
-        cartorder[i].num=num;
-       
+
+
+        cartorder[i].num = num;
+
 
         ischange = true;
         var shopapi = new ShopApi();
-  
 
-    
+
+
 
         shopapi.updatecartordernum({
           id: cartorder[i].id,
           num: num
-        },(qwe)=>{
+        }, (qwe) => {
 
 
           this.Base.setMyData({
@@ -436,29 +469,29 @@ class Content extends AppBase {
     }
 
     if (ischange) {
-    
-    
+
+
     }
   }
   jia(e) {
     var ischange = false;
     var id = e.currentTarget.id;
- 
+
     var cartorder = this.Base.getMyData().cartorder;
     for (var i = 0; i < cartorder.length; i++) {
       if (id == cartorder[i].id) {
         var num = parseInt(cartorder[i].num);
-      
+
 
         num++;
         cartorder[i].num = num;
-       
+
 
         var shopapi = new ShopApi();
         shopapi.updatecartordernum({
           id: cartorder[i].id,
           num: num
-        },()=>{
+        }, () => {
           this.Base.setMyData({
             cartorder
           });
@@ -471,38 +504,52 @@ class Content extends AppBase {
     }
     if (ischange) {
 
-    
+
     }
   }
   gotoConfirm(e) {
-    if (this.Base.getMyData().totalprice1>0)
-    {
+    if (this.Base.getMyData().totalprice1 > 0) {
 
-    var cartorder = this.Base.getMyData().cartorder;
-    var expresstype = this.Base.getMyData().expresstype;
-    var currentshop = this.Base.getMyData().currentshop;
-    var ids = [];
-    for (var i = 0; i < cartorder.length; i++) {
-      if (cartorder[i].cansales == 'Y' && cartorder[i].checked_value == 'Y') {
-        ids.push(cartorder[i].id);
+      var cartorder = this.Base.getMyData().cartorder;
+      var expresstype = this.Base.getMyData().expresstype;
+      var currentshop = this.Base.getMyData().currentshop;
+      var ids = [];
+      for (var i = 0; i < cartorder.length; i++) {
+        if (cartorder[i].cansales == 'Y' && cartorder[i].checked_value == 'Y') {
+          ids.push(cartorder[i].id);
+        }
       }
-    }
-    var ids = ids.join(",");
-    wx.navigateTo({
-      url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id,
+      var ids = ids.join(",");
+      wx.navigateTo({
+        url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id,
       })
     }
   }
-  qingkon(){
-    var shopapi = new ShopApi();
-    shopapi.updatecartordernum1({
-      member_id: this.Base.getMyData().memberinfo.id,
-      shop_id: this.Base.getMyData().currentshop.id
-    },()=>{
-      this.calc();
-          
-    });
-   
+  qingkon() {
+    var that=this;
+    wx.showModal({
+      title: '提示',
+      content: '是否确认清空购物车',
+      success(e) {
+        if (e.confirm) {
+          var shopapi = new ShopApi();
+          shopapi.updatecartordernum1({
+            member_id: that.Base.getMyData().memberinfo.id,
+            shop_id: that.Base.getMyData().currentshop.id
+          }, () => {
+            that.calc();
+
+          });
+
+        }
+      }
+    })
+
+
+
+
+
+
 
 
 
@@ -525,6 +572,7 @@ body.bindclosedetails = content.bindclosedetails;
 body.bindclosedetails1 = content.bindclosedetails1;
 body.selectval = content.selectval;
 body.addToCart = content.addToCart;
+body.addToCart1 = content.addToCart1;
 body.calc = content.calc;
 body.bindclosedetails2 = content.bindclosedetails2;
 body.quxiaol = content.quxiaol;

@@ -67,7 +67,7 @@
                 </view>
               </view>
               <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top-10 margin-bottom-10' id="{{goods.goods_id}}">
-                <view bindtap='selectgoods1' id="{{goods.goods_id}}">
+                <view bindtap='selectgoods1' id="{{goods.goods_id}}" data-id='{{goods.qwe}}'>
                   <image class="icon-75" mode='aspectFit' src='{{uploadpath}}goods/{{goods.goods_photo}}'></image>
                 </view>
                 <view class='margin-right'></view>
@@ -216,7 +216,7 @@
 
     <view class="flex-row flex-center padding-40 jiaru">
       <view class="txt-black  flex-1">￥{{totalprice}}</view>
-      <view bindtap='addToCart' class="  jrgwc txt-white">加入购物车</view>
+      <view bindtap='addToCart1' class="  jrgwc txt-white">加入购物车</view>
 
     </view>
 
@@ -238,9 +238,9 @@
     <view class=" padding-20 txt-blod " style='height:150rpx;'>
 
       <view class="txt-black">{{name}}</view>
-      <view class="h5">月销量:200</view>
+      <view class="h5">月销量:{{xiaolian}}</view>
 
-      <view class="h5">{{pricemsg}}</view>
+      <view class="h5">{{summary}}</view>
     </view>
 
 
