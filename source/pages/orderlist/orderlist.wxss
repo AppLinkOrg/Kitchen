@@ -1,5 +1,5 @@
 page {
-  background-color: #fafafa;
+  background-color: #e7e7e7;
 }
 
 .bg {
@@ -13,9 +13,34 @@ page {
   padding-right: 20rpx;
   padding-top: 1rpx;
   padding-bottom: 1rpx;
-  background-color: #5fe0a3;
+  /* border:1rpx solid #5fe0a3; */
+  background-color: #5fe0a3; 
   border-radius: 10rpx;
   color: white;
+}
+.topay {
+  width: 120rpx;
+  height: 43rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 1rpx;
+  padding-bottom: 1rpx;
+  /* border:1rpx solid #5fe0a3; */
+  background-color: #ff9800; 
+  border-radius: 10rpx;
+  color: white;
+}
+.again {
+  width: 120rpx;
+  height: 43rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 1rpx;
+  padding-bottom: 1rpx;
+  border:1rpx solid #5fe0a3;
+  /* background-color: #5fe0a3; */
+  border-radius: 10rpx;
+  color: #5fe0a3;
 }
 
 .qzf {

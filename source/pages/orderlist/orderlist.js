@@ -32,10 +32,22 @@ class Content extends AppBase {
       url: '/pages/menu/menu',
     })
   }
+  todetails(e){
+    var id=e.currentTarget.id;
+    var shop_id = e.currentTarget.dataset.shop_id;
+
+
+    console.log(id+"2222"+shop_id+"55555")
+    //return;
+   wx.navigateTo({
+     url: '/pages/orderwaiting/orderwaiting?id=' + id+'&shop_id='+shop_id,
+   })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.gotoMenu = content.gotoMenu;
+body.gotoMenu = content.gotoMenu; 
+body.todetails = content.todetails; 
 Page(body)

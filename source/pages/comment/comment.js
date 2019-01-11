@@ -49,25 +49,60 @@ class Content extends AppBase {
     var that = this;
     var id = e.currentTarget.id;
     var start_photo = [];
-    this.Base.uploadImage("photo", (ret) => {
+    this.Base.uploadImage("shop", (ret) => {
       start_photo.push(ret);
       that.Base.setMyData({
         start_photo
       });
     }, () => { }, 3);
   }
+
+  uploadimgone(e) {
+    var that = this;
+    var id = e.currentTarget.id;
+    this.Base.uploadImage("shop", (ret) => {
+      that.Base.setMyData({
+        photo: ret
+      });
+    }, 1);
+  }
+  uploadimgtwo(e) {
+    var that = this;
+    var id = e.currentTarget.id;
+    this.Base.uploadImage("shop", (ret) => {
+      that.Base.setMyData({
+        photo2: ret
+      });
+    }, 1);
+  }
+  uploadimgthree(e) {
+    var that = this;
+    var id = e.currentTarget.id;
+    this.Base.uploadImage("shop", (ret) => {
+      that.Base.setMyData({
+        photo3: ret
+      });
+    }, 1);
+  }
+
+
+
   tijiao() {
 
     var fenshu = this.Base.getMyData().fenshu;
     var pinglun = this.Base.getMyData().inputVal;
-    var zhaopian = this.Base.getMyData().start_photo;
+
+    var photo = this.Base.getMyData().start_photo[0];
+    var photo2 = this.Base.getMyData().start_photo[1];
+    var photo3 = this.Base.getMyData().start_photo[2];
+
     var dianpu = this.Base.getMyData().info.shop_id;
     var member = this.Base.getMyData().memberinfo.id;
     var ordergroup	=this.Base.options.id;
     if (fenshu != 0 && pinglun != "") {
       var shopapi = new ShopApi();
       shopapi.addshopscore({
-        shop_id: dianpu, member_id: member, score: fenshu, content: pinglun, picture: zhaopian,
+        shop_id: dianpu, member_id: member, score: fenshu, content: pinglun, picture: photo, picture2: photo2, picture3: photo3, 
         ordergroup_id: ordergroup
 
       }, (huidiao) => {
@@ -100,5 +135,8 @@ body.onMyShow = content.onMyShow;
 body.pingfen = content.pingfen;
 body.startuploadimg = content.startuploadimg;
 body.tijiao = content.tijiao;
-body.shuru = content.shuru;
+body.shuru = content.shuru; 
+body.uploadimgone = content.uploadimgone;
+body.uploadimgtwo = content.uploadimgtwo;
+body.uploadimgthree = content.uploadimgthree;
 Page(body)

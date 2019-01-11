@@ -110,7 +110,10 @@ view,navigator,input,text,textarea{
   background: white;
 }
 .bg-primary{
-  background: #2699EC;
+  background: #5EF0A3;
+}
+.bg-primary-1{
+  background: rgb(149, 255, 198);
 }
 .bg-green{
   background: #23AC38;
@@ -405,7 +408,7 @@ button[disabled][type=primary] {
   height: 150rpx;
 }
 .margin-top-10{
-  margin-top:20rpx;
+  margin-top:10rpx;
 }
 .margin-top-5{
   margin-top:10rpx;

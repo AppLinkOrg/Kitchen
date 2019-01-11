@@ -16,8 +16,8 @@ margin-right: 20rpx
 
 color: white;
 background-color: #5FE0A3;
-padding-left:10rpx;
-padding-right:10rpx;
+padding-left:20rpx;
+padding-right:20rpx;
 padding-top:5rpx;
 padding-bottom:5rpx;
 border-radius: 8rpx;
@@ -97,7 +97,8 @@ height: calc( 100vh - 260rpx )
 }
 
 .menuopt{
-  height: calc( 100vh - 260rpx )
+  height: calc( 100vh - 260rpx );
+  
 }
 
 .line{
@@ -105,7 +106,7 @@ height: calc( 100vh - 260rpx )
 }
 .xz{
 color: #5fe0a3;
-border-bottom:1px solid #5fe0a3;
+border-bottom:4rpx solid #5fe0a3;
 }
 .gwc{
 width:100%;
@@ -114,7 +115,6 @@ bottom: 0;
 z-index:999;
 }
 .gwccc{
-
 position: fixed;
 left:90rpx;
 bottom:70rpx;
@@ -128,13 +128,16 @@ border-radius: 50%;
 text-align:center;
 }
 .gwc1{
+
 width:95%;
 left:3%;
 right: 2%;
 position: fixed;
-bottom: 0;
+bottom: 20rpx;
 z-index:89;
 }
+
+
 .bgg{
 background-color: #e5e5e5;
 
@@ -143,15 +146,16 @@ background-color: #e5e5e5;
 .gwc2{
 width:100%;
 position: fixed;
-
+padding-bottom: 9rpx;
 z-index:90;
 }
 .gwc3{
 width:95%;
 margin-left:3%;
 right: 2%;
-
+bottom: 30rpx;
 z-index:89;
+padding-bottom: 9rpx;
 }
 
 .jiaru{
@@ -167,4 +171,8 @@ background-color: #5fe0a3;
 border-radius: 50rpx;
 
 
+}
+.img{
+  height: 0;
+  width: 0; 
 }

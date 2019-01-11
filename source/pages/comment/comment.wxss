@@ -14,3 +14,7 @@ width:700rpx
 .place-holder{
  text-align: center;
 }
+.img{
+  height: 0;
+  width: 0;
+}

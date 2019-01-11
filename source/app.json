@@ -2,10 +2,10 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/feedback/feedback",
+    "pages/orderwaiting/orderwaiting",
     "pages/comment/comment",
     "pages/menu/menu",
     "pages/shopchoose/shopchoose",
-    "pages/orderwaiting/orderwaiting",
     "pages/cart/cart",
     "pages/orderdetails/orderdetails",
     "pages/addressmgr/addressmgr",

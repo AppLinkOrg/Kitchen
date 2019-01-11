@@ -9,15 +9,17 @@
   <textarea class='bg-gray padding-10 h5' name='yuanyin' maxlength='300' style='border-radius:10rpx;width:97%;'></textarea>
 </view>
 
-<view class='padding-20' style='border-bottom:4rpx solid #E8E8E8'>
-  <view class='padding-10'>联系方式</view>
+<view class='padding-20' >
+  <view class='padding-10 txt-black'>联系方式</view>
   <view class='txt-gray h5 padding-10'>请留下您的手机号码，以便我们回复您。</view>
   <view class='padding-10'>
     <input class='bg-gray padding-5 h5' name='wechat' style='border-radius:10rpx;height:70rpx;'></input>
   </view>
 </view>
 
-<view class='padding-20'>
+<view class='padding-20 btn'>
 <button class='text-center bg-primary txt-white ' form-type='submit' hover-class='bg-primary-1'  style='border-radius:10rpx;'>提交</button>
 </view>
+
+
 </form>

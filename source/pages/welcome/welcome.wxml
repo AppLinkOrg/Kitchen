@@ -42,16 +42,16 @@
 </view> -->
 
 
-<view bindtap='ssxd ' class="ssxd flex-row flex-center padding-top-20 " style='width:15%;height:230rpx'>
+<view bindtap='ssxd ' class="ssxd flex-row flex-center padding-top-20 margin-top-10" style='width:15%;height:230rpx'>
   <image style='margin-left:10rpx;margin-top:35rpx' class='icon-30  padding-20 ' src='{{uploadpath}}resource/{{res.kafei}}'></image>
 </view>
 
-<view bindtap='ssxd' class="ssxd1 ">
+<view bindtap='ssxd' class="ssxd1 margin-top-10">
   <view class="txt-white"> 实时下单</view>
   <view class="h5 txt-white">重新定义新美食,健康好品质</view>
 </view>
 
-<image bindtap='ssxd' class="" mode="aspectFill" style='width:100%;height:250rpx' src="{{uploadpath}}resource/{{res.ssxd}}">
+<image bindtap='ssxd' class="margin-top-10" mode="aspectFill" style='width:100%;height:250rpx' src="{{uploadpath}}resource/{{res.ssxd}}">
 </image>
 
 

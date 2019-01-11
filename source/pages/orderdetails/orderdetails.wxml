@@ -58,7 +58,7 @@
     </view>
   </view>
 
-  <view class='flex-row margin-top'>
+  <!-- <view class='flex-row margin-top'>
     <view class='flex-1 flex-row flex-center'>
       <view class='flex-1'></view>
       <view class='margin-right' bindtap='selecteat' id="1">
@@ -75,8 +75,7 @@
       <view class='f1 h5'>打包带走</view>
       <view class='flex-1'></view>
     </view>
-  </view>
-
+  </view> -->
 
 </view>
 <!-- 订单信息部分 -->

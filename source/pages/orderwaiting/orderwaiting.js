@@ -15,7 +15,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=35;
+    //options.order_id=11;
    
     
 
@@ -101,8 +101,6 @@ djs(){
       fen: fen,
       miao: miao,
       
-
-
     })
 }
   }, 1000);

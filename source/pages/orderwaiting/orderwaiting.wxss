@@ -85,8 +85,9 @@ padding-top:10rpx;
 padding-bottom:10rpx;
 padding-left:5rpx;
 padding-right:5rpx;
-border:1px solid #7FA9D3;
-color: #7FA9D3;
+/* border:1px solid #7FA9D3; */
+background: #5FE0A3;
+color: white;
 margin:10rpx;
 border-radius: 10rpx;
 }

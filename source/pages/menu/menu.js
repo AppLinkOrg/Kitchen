@@ -25,8 +25,9 @@ class Content extends AppBase {
     this.Base.needauth = false;
     this.Base.Page = this;
     //options.id=5;
+    this.Base.setMyData({ num: 1, xz: 0, istrue: true, istrue1: true, istrue2: true,qweqwe:true })
     super.onLoad(options);
-    this.Base.setMyData({ num: 1, xz: 0, istrue: true, istrue1: true, istrue2: true })
+  
 
   }
   brandtap(e) {
@@ -127,30 +128,30 @@ class Content extends AppBase {
 
 
   }
-  goodsscroll(e) {
-    console.log(e);
-    console.log(e.detail);
+   goodsscroll(e) {
+     console.log(e);
+     console.log(e.detail);
 
-    var isgoto = this.Base.getMyData().isgoto;
-    if (isgoto == true) {
-      this.Base.setMyData({ isgoto: false });
-    } else {
-      var top = e.detail.scrollTop;
-      var menu = this.Base.getMyData().menu;
-      var selectcat_id = this.Base.getMyData().selectcat_id;
-      var cat_id = 0;
-      for (var item of menu) {
+     var isgoto = this.Base.getMyData().isgoto;
+     if (isgoto == true) {
+       this.Base.setMyData({ isgoto: false });
+     } else {
+       var top = e.detail.scrollTop;
+       var menu = this.Base.getMyData().menu;
+       var selectcat_id = this.Base.getMyData().selectcat_id;
+       var cat_id = 0;
+       for (var item of menu) {
         if (item.scrollstart <= top && top < item.scrollend) {
-          cat_id = item.id;
+           cat_id = item.id;
           break;
-        }
-      }
-      if (selectcat_id != cat_id) {
-        this.Base.setMyData({ selectcat_id: cat_id });
+         }
+       }
+       if (selectcat_id != cat_id) {
+         this.Base.setMyData({ selectcat_id: cat_id });
 
       }
-    }
-  }
+     }
+   }
   gotoCat(e) {
     var id = e.currentTarget.id;
     this.Base.setMyData({ "intocat_id": "cat_" + id, selectcat_id: id, isgoto: true });
@@ -219,16 +220,39 @@ class Content extends AppBase {
     })
   }
   huadon(e) {
-    this.Base.setMyData({ xz: e.detail.current });
+    
+
+    var xz = e.detail.current;
+    if (xz == 0) {
+
+      this.Base.setMyData({
+        xz: xz, qweqwe: true
+      });
+    }
+    else {
+
+      this.Base.setMyData({
+        xz: xz, qweqwe: false
+      });
+    }
 
   }
 
   changetab(e) {
+    var xz = e.currentTarget.id;
+    if(xz==0){
+     
+      this.Base.setMyData({
+        xz: xz, qweqwe: true
+      });
+    }
+    else{
+
     this.Base.setMyData({
-      xz: e.currentTarget.id
+      xz: xz,qweqwe:false
     });
   }
-
+  }
 
 
 
