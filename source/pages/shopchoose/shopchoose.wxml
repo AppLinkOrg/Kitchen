@@ -29,14 +29,15 @@
       {{item.name}}
     </view>
     <view class=" flex-row">
-      <view class="h5 ">评分:{{item.pinfen}}</view>
+      <view class="h5 " >评分:{{item.pinfen}}</view>
+      
       <view class="h5  margin-left-20">月销量:{{item.count1}}</view>
     </view>
     <view class=" flex-row margin-top-5 " style='width:100% '>
       <view class="h5 ">
         <image class="icon" mode="aspectFill" src='{{uploadpath}}resource/{{res.img1}}'></image>
       </view>
-      <view class="h5 flex-1 margin-left-20">沙拉</view>
+      <view class="h5 flex-1 margin-left-20">{{item.cat}}</view>
       <view class="h5">{{item.miletxt}}</view>
     </view>
   </view>

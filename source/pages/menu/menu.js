@@ -25,9 +25,9 @@ class Content extends AppBase {
     this.Base.needauth = false;
     this.Base.Page = this;
     //options.id=5;
-    this.Base.setMyData({ num: 1, xz: 0, istrue: true, istrue1: true, istrue2: true,qweqwe:true })
+    this.Base.setMyData({ num: 1, xz: 0, istrue: true, istrue1: true, istrue2: true, qweqwe: true, })
     super.onLoad(options);
-  
+
 
   }
   brandtap(e) {
@@ -73,13 +73,7 @@ class Content extends AppBase {
       if (shoplist[i].id == shop_id) {
         this.Base.setMyData({ currentshop: shoplist[i] });
 
-
-
         var is = ApiUtil.checkInOpen(this.Base.getMyData().currentshop.openning);
-
-
-
-
         var shopapi = new ShopApi();
         shopapi.menucat({ menu_id: shoplist[i].menu_id }, (menucat) => {
           shopapi.menugoods({ menu_id: shoplist[i].menu_id }, (menugoods) => {
@@ -87,11 +81,16 @@ class Content extends AppBase {
             var loc = 0;
             for (var i = 0; i < menucat.length; i++) {
               menucat[i].goods = [];
+              menucat[i].asd = 0;
               for (var j = 0; j < menugoods.length; j++) {
                 if (menucat[i].id == menugoods[j].cat_id) {
                   menucat[i].goods.push(menugoods[j]);
+                  menucat[i].asd += parseInt(menugoods[j].ifnum);
                 }
+
+
               }
+
               if (menucat[i].goods.length > 0) {
                 menucat[i].scrollstart = loc;
                 menucat[i].scrollend = loc + 37 + 110 * menucat[i].goods.length;
@@ -128,30 +127,30 @@ class Content extends AppBase {
 
 
   }
-   goodsscroll(e) {
-     console.log(e);
-     console.log(e.detail);
+  goodsscroll(e) {
+    console.log(e);
+    console.log(e.detail);
 
-     var isgoto = this.Base.getMyData().isgoto;
-     if (isgoto == true) {
-       this.Base.setMyData({ isgoto: false });
-     } else {
-       var top = e.detail.scrollTop;
-       var menu = this.Base.getMyData().menu;
-       var selectcat_id = this.Base.getMyData().selectcat_id;
-       var cat_id = 0;
-       for (var item of menu) {
+    var isgoto = this.Base.getMyData().isgoto;
+    if (isgoto == true) {
+      this.Base.setMyData({ isgoto: false });
+    } else {
+      var top = e.detail.scrollTop;
+      var menu = this.Base.getMyData().menu;
+      var selectcat_id = this.Base.getMyData().selectcat_id;
+      var cat_id = 0;
+      for (var item of menu) {
         if (item.scrollstart <= top && top < item.scrollend) {
-           cat_id = item.id;
+          cat_id = item.id;
           break;
-         }
-       }
-       if (selectcat_id != cat_id) {
-         this.Base.setMyData({ selectcat_id: cat_id });
+        }
+      }
+      if (selectcat_id != cat_id) {
+        this.Base.setMyData({ selectcat_id: cat_id });
 
       }
-     }
-   }
+    }
+  }
   gotoCat(e) {
     var id = e.currentTarget.id;
     this.Base.setMyData({ "intocat_id": "cat_" + id, selectcat_id: id, isgoto: true });
@@ -220,7 +219,7 @@ class Content extends AppBase {
     })
   }
   huadon(e) {
-    
+
 
     var xz = e.detail.current;
     if (xz == 0) {
@@ -240,18 +239,18 @@ class Content extends AppBase {
 
   changetab(e) {
     var xz = e.currentTarget.id;
-    if(xz==0){
-     
+    if (xz == 0) {
+
       this.Base.setMyData({
         xz: xz, qweqwe: true
       });
     }
-    else{
+    else {
 
-    this.Base.setMyData({
-      xz: xz,qweqwe:false
-    });
-  }
+      this.Base.setMyData({
+        xz: xz, qweqwe: false
+      });
+    }
   }
 
 
@@ -301,35 +300,10 @@ class Content extends AppBase {
 
   }
   addToCart() {
-  
-
-    var data = this.Base.getMyData();
-    if(data.vals=='')
-    {
-    var shopapi = new ShopApi();
-    shopapi.addtocart({
-      goods_id: data.id,
-      vals: data.vals,
-      num: data.num,
-      shop_id: data.currentshop.id
-    }, (ret) => {
-      this.calc();
-    });
-
-    }
-    else{
-       
-      this.Base.setMyData({ istrue1: true, istrue: false });
-
-    }
-
-
-  }
-  addToCart1() {
 
 
     var data = this.Base.getMyData();
-   
+    if (data.vals == '') {
       var shopapi = new ShopApi();
       shopapi.addtocart({
         goods_id: data.id,
@@ -340,6 +314,30 @@ class Content extends AppBase {
         this.calc();
       });
 
+    }
+    else {
+
+      this.Base.setMyData({ istrue1: true, istrue: false });
+
+    }
+
+
+  }
+  addToCart1() {
+
+
+    var data = this.Base.getMyData();
+
+    var shopapi = new ShopApi();
+    shopapi.addtocart({
+      goods_id: data.id,
+      vals: data.vals,
+      num: data.num,
+      shop_id: data.currentshop.id
+    }, (ret) => {
+      this.calc();
+    });
+
 
 
 
@@ -348,59 +346,84 @@ class Content extends AppBase {
 
 
   calc() {
-    var caipinzonshu = 0;
+   
     var shopapi = new ShopApi();
     shopapi.cartlist({ shop_id: this.Base.getMyData().currentshop.id }, (cartorder) => {
 
       var menugoods = this.Base.getMyData().menugoods;
+      var menu = this.Base.getMyData().menu;
 
+     
+    //  for (var q = 0; q < menu.length; q++) {
+      
+      //  for (var b = 0; b < goods.length; b++) {
+          var caipinzonshu = 0;
+          var totalprice1 = 0;
+          var totalnum = 0;
+          var cansales = [];
+      var shuzu =new Array(menu.length).fill(0);
+          for (var i = 0; i < cartorder.length; i++) {
+            
+            for (var q = 0; q < menu.length; q++) {
+               
+              var goods = menu[q].goods;
+              for (var b = 0; b < goods.length; b++) {
 
-      var totalprice1 = 0;
-      var totalnum = 0;
-      var cansales = [];
-      for (var i = 0; i < cartorder.length; i++) {
-        cartorder[i].cansales = 'N';
-        var vallist = cartorder[i].vallist;
-        var price = parseFloat(cartorder[i].goods_price);
-        caipinzonshu += parseInt(cartorder[i].num);
-        var valstr = [];
-        for (var a of vallist) {
-          valstr.push(a.sname);
-          price += parseFloat(a.price);
+                if (cartorder[i].goods_id == goods[b].goods_id) {
+                
+                  shuzu[q] += parseInt(cartorder[i].num);
+                 
+                }
 
-        }
-        totalnum += parseInt(cartorder[i].num);
-        cartorder[i].valstr = valstr.join("/");
+              }
+              
 
-
-        cartorder[i].oneprice = price;
-
-        for (var a of menugoods) {
-          if (a.goods_id == cartorder[i].goods_id) {
-            var price = cartorder[i].oneprice;
-            console.log(a.discount);
-            if (a.discount > 0) {
-              console.log("jkk");
-              cartorder[i].oldprice = cartorder[i].oneprice;
-              cartorder[i].oneprice = parseFloat((cartorder[i].oneprice * parseFloat(a.discount / 10.0)).toFixed(2));
-              cartorder[i].havediscount = "Y";
             }
-            cartorder[i].cansales = "Y";
-            break;
-          }
-        }
-        cartorder[i].numprice = cartorder[i].oneprice * parseInt(cartorder[i].num);
 
-        if (cartorder[i].checked_value == "Y" && cartorder[i].cansales == "Y") {
-          totalprice1 += cartorder[i].numprice;
+           
+            cartorder[i].cansales = 'N';
+            var vallist = cartorder[i].vallist;
+            var price = parseFloat(cartorder[i].goods_price);
+            caipinzonshu += parseInt(cartorder[i].num);
+            var valstr = [];
+            for (var a of vallist) {
+              valstr.push(a.sname);
+              price += parseFloat(a.price);
 
-        }
+            }
+            totalnum += parseInt(cartorder[i].num);
+            cartorder[i].valstr = valstr.join("/");
+
+
+            cartorder[i].oneprice = price;
+
+            for (var a of menugoods) {
+              if (a.goods_id == cartorder[i].goods_id) {
+                var price = cartorder[i].oneprice;
+                console.log(a.discount);
+                if (a.discount > 0) {
+                  console.log("jkk");
+                  cartorder[i].oldprice = cartorder[i].oneprice;
+                  cartorder[i].oneprice = parseFloat((cartorder[i].oneprice * parseFloat(a.discount / 10.0)).toFixed(2));
+                  cartorder[i].havediscount = "Y";
+                }
+                cartorder[i].cansales = "Y";
+                break;
+              }
+            }
+            cartorder[i].numprice = cartorder[i].oneprice * parseInt(cartorder[i].num);
+
+            if (cartorder[i].checked_value == "Y" && cartorder[i].cansales == "Y") {
+              totalprice1 += cartorder[i].numprice;
+
+            }
+         
       }
-
 
 
       this.Base.setMyData({
         cartorder,
+        shuzu:shuzu,
         totalprice1: totalprice1.toFixed(1),
         caipinzonshu: caipinzonshu
       });
@@ -410,6 +433,7 @@ class Content extends AppBase {
         });
       }
     });
+
   }
 
 
@@ -462,26 +486,15 @@ class Content extends AppBase {
         var num = parseInt(cartorder[i].num);
         num--;
         if (num == 0) {
-
-
         }
-
-
         cartorder[i].num = num;
-
 
         ischange = true;
         var shopapi = new ShopApi();
-
-
-
-
         shopapi.updatecartordernum({
           id: cartorder[i].id,
           num: num
         }, (qwe) => {
-
-
           this.Base.setMyData({
             cartorder
           });
@@ -550,7 +563,7 @@ class Content extends AppBase {
     }
   }
   qingkon() {
-    var that=this;
+    var that = this;
     wx.showModal({
       title: '提示',
       content: '是否确认清空购物车',

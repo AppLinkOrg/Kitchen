@@ -8,7 +8,7 @@
       <view style='width:60rpx;'>
         <image class='icon-25   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
       </view>
-      <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%'>全新上市,一律打八折</view>
+      <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%'>{{currentshop.activity}}</view>
     </view>
   </view>
   <view class="flex-1"></view>
@@ -29,30 +29,38 @@
 
 <swiper bindchange="huadon" current="{{xz}}" duration="200" class="bg gd " style='margin-top:5rpx'>
   <swiper-item>
-  <block wx:if="{{qweqwe}}">
-    <view  class="gwc " style='height:123rpx;'>
-      <view class="flex-row flex-center margin-left   ">
-        <view class="gwccc" bindtap='bindclosedetails2' wx:if="{{caipinzonshu!=0&&caipinzonshu!=''&&caipinzonshu!=undefind}}">{{caipinzonshu}}</view>
-        <view class="margin-left" bindtap='bindclosedetails2'>
-          <image class='icon-40' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:10rpx'></image>
+    <block wx:if="{{qweqwe}}">
+      <view class="gwc " style='height:123rpx;'>
+        <view class="flex-row flex-center margin-left   ">
+          <view class="gwccc" bindtap='bindclosedetails2' wx:if="{{caipinzonshu!=0&&caipinzonshu!=''&&caipinzonshu!=undefind}}">{{caipinzonshu}}</view>
+          <view class="margin-left" bindtap='bindclosedetails2'>
+            <image class='icon-40' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:10rpx'></image>
+          </view>
+          <view class="margin-left-50    " style=''>
+            <view class="h4 txt-white">￥{{totalprice1}}</view>
+            <view class="h5 " style='color:#a7a4a9'>另需配送费￥5</view>
+          </view>
+          <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:233rpx'>去结算</view>
         </view>
-        <view class="margin-left-50    " style=''>
-          <view class="h4 txt-white">￥{{totalprice1}}</view>
-          <view class="h5 " style='color:#a7a4a9'>另需配送费￥5</view>
-        </view>
-        <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:233rpx'>去结算</view>
       </view>
-    </view>
- 
-    <image class="gwc1 " mode='' style='height:113rpx;' src='{{uploadpath}}resource/{{res.gouwuche}}'></image>
-</block>
+
+      <image class="gwc1 " mode='' style='height:113rpx;' src='{{uploadpath}}resource/{{res.gouwuche}}'></image>
+    </block>
     <scroll-view class='menuopt'>
 
       <view class='flex-row' style='height:100%'>
         <!-- 分类列表 -->
         <scroll-view scroll-y class='flex-1 bg-gray' style='height:100%;'>
-          <view wx:for="{{menu}}" wx:key="k" class='h5 text-center padding  {{item.id==selectcat_id?"white-block":"txt-gray"}}' id="{{item.id}}" bindtap='gotoCat'>
+          <view wx:for="{{menu}}" wx:key="k" class='h5 text-center padding  {{item.id==selectcat_id?"white-block":"txt-gray"}}' id="{{item.id}}" wx:for-index='idx' bindtap='gotoCat' style='position: relative'>
             {{item.name}}
+             <view wx:if="{{shuzu[idx]>0}}" class="hondian h5">{{shuzu[idx]}}</view>  
+            <!-- <view wx:for="{{item.goods}}" wx:key="k1" wx:for-item="item1" wx:for-index='idx' >
+              <view wx:if="{{item1.goods_id==car1.goods_id}}" wx:for="{{cartorder}}" wx:key="k2" wx:for-item="car1">
+                <view>
+                  {{car1.qwe}}
+                </view>
+              </view>
+            </view>  -->
           </view>
         </scroll-view>
         <!-- 商品列表 -->
@@ -80,8 +88,23 @@
 
                     <view class='flex-row flex-center'>
                       <view class='flex-1 txt-bold'>¥{{goods.goods_price}}</view>
+                      <!-- <view wx:if="{{goods.ifnum>0}}">
+                        <image class='icon-25 padding-right-20 ' src='{{uploadpath}}resource/{{res.jianshao}}'></image>
+                      </view> -->
+
+                      <view wx:for="{{cartorder}}" wx:key="k3" wx:for-item="car" wx:for-index="caridx">
+
+
+                        <view bindtap='jian' id="{{car.id}}" wx:if="{{goods.goods_id==car.goods_id&&goods.haveattr==0}}" class="flex-row ">
+                          <image class='icon-25 padding-right-20 ' src='{{uploadpath}}resource/{{res.jianshao}}'></image>
+                          <view style='margin-top:5rpx'>{{car.num}}</view>
+
+                        </view>
+
+                      </view>
+                      <!-- <view wx:if="{{goods.ifnum>0}}">{{goods.ifnum}}</view> -->
                       <view wx:if="{{goods.haveattr==0}}" bindtap='selectgoods' id="{{goods.goods_id}}">
-                        <image class="icon-25" src='{{uploadpath}}resource/{{res.zengjia}}'></image>
+                        <image class="icon-25 padding-left-20" src='{{uploadpath}}resource/{{res.zengjia}}'></image>
                       </view>
 
                       <view wx:if="{{goods.haveattr!=0}}" class="guige1 h5" bindtap='selectgoods' id="{{goods.goods_id}}">
@@ -198,7 +221,7 @@
         <view style='width:60rpx;'>
           <image class='icon-25   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
         </view>
-        <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>全新上市,一律打八折</view>
+        <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.activity}}</view>
       </view>
       <view class="flex-row flex-center ">
         <view style='width:60rpx;'>
