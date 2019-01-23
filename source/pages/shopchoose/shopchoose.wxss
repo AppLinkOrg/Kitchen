@@ -9,9 +9,10 @@ width:80%;border:1px solid #9baac6;margin-top:10rpx;margin-left:8rpx
 }
 .wxz{
 
-  color: #b8b6ba
+  color: #b8b6ba;
 }
 .xz{
+  font-weight: bolder;
   color: black;
   
 }

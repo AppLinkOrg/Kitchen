@@ -1,6 +1,6 @@
 <view class="flex-row flex-center" style='height:170rpx;'>
   <view class=" padding-20" bindtap=''>
-    <image style='width:120rpx;height:120rpx' class='sjimg  margin-left-20' src='{{uploadpath}}shop/{{currentshop.img}}'></image>
+    <image style='width:120rpx;height:120rpx' mode="aspectFill" class='sjimg  margin-left-20' src='{{uploadpath}}shop/{{currentshop.img}}'></image>
   </view>
   <view class=" padding-20 flex-wrap" bindtap=''>
     <view class=" txt-black txt-bold">{{currentshop.name}}</view>
@@ -15,11 +15,11 @@
 </view>
 <view style='border-top:5rpx solid #BBBBBB;' class="flex-row padding-top-20 flex-center">
   <view class="flex-1"></view>
-  <view class="flex-1 text-center txt-bold padding-bottom-20 {{xz==0?'xz':'wxz'}}" bindtap='changetab' id="0">菜品</view>
+  <view class="flex-1 text-center txt-bold txt-black padding-bottom-20 {{xz==0?'xz':'wxz'}}" bindtap='changetab' id="0">菜品</view>
   <view class="flex-1"></view>
-  <view class="flex-1 text-center txt-bold padding-bottom-20 {{xz==1?'xz':'wxz'}}" bindtap='changetab' id="1">评价</view>
+  <view class="flex-1 text-center txt-bold txt-black padding-bottom-20 {{xz==1?'xz':'wxz'}}" bindtap='changetab' id="1">评价</view>
   <view class="flex-1"></view>
-  <view class="flex-1 text-center txt-bold padding-bottom-20 {{xz==2?'xz':'wxz'}}" bindtap='changetab' id="2">商家</view>
+  <view class="flex-1 text-center txt-bold txt-black padding-bottom-20 {{xz==2?'xz':'wxz'}}" bindtap='changetab' id="2">商家</view>
   <view class="flex-1"></view>
 </view>
 
@@ -38,9 +38,9 @@
           </view>
           <view class="margin-left-50    " style=''>
             <view class="h4 txt-white">￥{{totalprice1}}</view>
-            <view class="h5 " style='color:#a7a4a9'>另需配送费￥5</view>
+            <view class="h6 " style='color:#a7a4a9'>另需配送费￥5</view>
           </view>
-          <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:233rpx'>去结算</view>
+          <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:243rpx'>去结算</view>
         </view>
       </view>
 
@@ -51,9 +51,9 @@
       <view class='flex-row' style='height:100%'>
         <!-- 分类列表 -->
         <scroll-view scroll-y class='flex-1 bg-gray' style='height:100%;'>
-          <view wx:for="{{menu}}" wx:key="k" class='h5 text-center padding  {{item.id==selectcat_id?"white-block":"txt-gray"}}' id="{{item.id}}" wx:for-index='idx' bindtap='gotoCat' style='position: relative'>
+          <view wx:for="{{menu}}" wx:key="k" class='h5 text-center padding  {{item.id==selectcat_id?"xuanzhon":"txt-gray"}}' id="{{item.id}}" wx:for-index='idx' bindtap='gotoCat' style='position: relative'>
             {{item.name}}
-             <view wx:if="{{shuzu[idx]>0}}" class="hondian h5">{{shuzu[idx]}}</view>  
+            <view wx:if="{{shuzu[idx]>0}}" class="hondian h5">{{shuzu[idx]}}</view>
             <!-- <view wx:for="{{item.goods}}" wx:key="k1" wx:for-item="item1" wx:for-index='idx' >
               <view wx:if="{{item1.goods_id==car1.goods_id}}" wx:for="{{cartorder}}" wx:key="k2" wx:for-item="car1">
                 <view>
@@ -77,9 +77,9 @@
               </view>
 
               <view style=''>
-                <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top-10 margin-bottom-10' id="{{goods.goods_id}}" style=''>
+                <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top margin-bottom-20' id="{{goods.goods_id}}" style=''>
                   <view bindtap='selectgoods1' id="{{goods.goods_id}}" data-id='{{goods.qwe}}'>
-                    <image class="icon-75" mode='aspectFit' src='{{uploadpath}}goods/{{goods.goods_photo}}'></image>
+                    <image class="zhaopian" src='{{uploadpath}}goods/{{goods.goods_photo}}'></image>
                   </view>
                   <view class='margin-right'></view>
                   <view class='flex-1'>
@@ -92,7 +92,7 @@
                         <image class='icon-25 padding-right-20 ' src='{{uploadpath}}resource/{{res.jianshao}}'></image>
                       </view> -->
 
-                      <view wx:for="{{cartorder}}" wx:key="k3" wx:for-item="car" wx:for-index="caridx">
+                      <view wx:for="{{cartorder}}"  wx:key="k3" wx:for-item="car" wx:for-index="caridx">
 
 
                         <view bindtap='jian' id="{{car.id}}" wx:if="{{goods.goods_id==car.goods_id&&goods.haveattr==0}}" class="flex-row ">
@@ -216,8 +216,8 @@
 
     </view>
     <view class="padding-20">
-      <view>商家活动</view>
-      <view class="flex-row flex-center ">
+      <view class="txt-bold">商家活动</view>
+      <view class="flex-row flex-center margin-top-20 ">
         <view style='width:60rpx;'>
           <image class='icon-25   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
         </view>
@@ -244,7 +244,7 @@
 </swiper>
 
 <view class='' animation='{{animationData}}' hidden='{{istrue==true}}'>
-  <view bindtap='quxiaol' class='bg1' style='height:100%'>
+   <view bindtap='quxiaol' class='bg1' style='height:100%'> 
   </view>
   <view class=' under guige'>
     <view class="text-center margin-top-10  txt-blod">{{name}}</view>
@@ -268,16 +268,16 @@
 
 
   </view>
-  <image class=' refuse icon-25 ' bindtap='bindclosedetails' src='{{uploadpath}}resource/{{res.refuse}}'></image>
+  <!-- <image class=' refuse icon-25 ' bindtap='bindclosedetails' src='{{uploadpath}}resource/{{res.refuse}}'></image> -->
 
 </view>
 <block hidden='{{istrue1==true}}'>
   <view class='' animation='{{animationData}}' hidden='{{istrue1==true}}'>
-    <view bindtap='quxiaol' class='bg1' style='height:100%'>
-    </view>
+     <view bindtap='quxiaol' class='bg1' style='height:100%'>
+    </view> 
     <view class=' under guige'>
-      <view class="height:350rpx">
-        <image style='width:100%;height:350rpx' mode="aspectFill" src='{{uploadpath}}goods/{{topbanner}}'></image>
+      <view class="height:350rpx " style='width:100%'>
+        <image style='width:100%;height:450rpx' class="" mode="" src='{{uploadpath}}goods/{{topbanner}}'></image>
 
       </view>
 
@@ -298,7 +298,7 @@
 
 
     </view>
-    <image class=' refuse icon-25 ' bindtap='bindclosedetails1' src='{{uploadpath}}resource/{{res.refuse}}'></image>
+    <!-- <image class=' refuse icon-25 ' bindtap='bindclosedetails1' src='{{uploadpath}}resource/{{res.refuse}}'></image> -->
 
   </view>
 </block>
@@ -326,20 +326,20 @@
 
           <view class="txt-black margin-top-5 flex-row   flex-center">
             <view>
-              <view class="txt-bold" style='width:200rpx;'>
+              <view class="txt-bold txt-black  h5" style='width:300rpx;'>
                 {{item.goods_name}}
               </view>
-              <view class='h5 '>{{item.valstr}}</view>
+              <view class='h6 ' style='width:300rpx;margin-left:10rpx'>{{item.valstr}}</view>
             </view>
 
             <view class='flex-1 flex-row    flex-center' style=''>
-              <view class="flex-1"></view>
+              <view class="flex-1 "></view>
               <block wx:if="{{item.havediscount=='Y'}}">
-                <view class="  txt-bold txt-red">￥{{item.oneprice}}</view>
+                <view class="  txt-bold txt-red "  >￥{{item.oneprice}}</view>
                 <view class="  txt-gray h5 text-line-through margin-left">￥{{item.oldprice}}</view>
               </block>
               <block wx:else>
-                <view class=" txt-bold ">￥{{item.oneprice}}</view>
+                <view class=" txt-bold  " >￥{{item.oneprice}}</view>
               </block>
               <view class="flex-1"></view>
             </view>
@@ -369,11 +369,11 @@
             <view class="gwccc" wx:if="{{caipinzonshu!=0&&caipinzonshu!=''&&caipinzonshu!=undefind}}">{{caipinzonshu}}</view>
             <image class='icon-40' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:25rpx'></image>
           </view>
-          <view class="margin-left-50 " style='margin-top:15rpx'>
+          <view class="margin-left-50 " style='margin-top:12rpx'>
             <view class="h4 txt-white">￥{{totalprice1}}</view>
-            <view class="h5" style='color:#a7a4a9'>另需配送费￥5</view>
+            <view class="h6" style='color:#a7a4a9'>另需配送费￥5</view>
           </view>
-          <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:235rpx;margin-top:15rpx'>去结算</view>
+          <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:245rpx;margin-top:15rpx'>去结算</view>
         </view>
       </view>
 

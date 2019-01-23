@@ -39,7 +39,7 @@
       </view>
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
-        <!-- <view class="flex-2  anniu" bindtap='payment'>取消订单</view> -->
+         <!-- <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>  -->
         <view class="flex-2  anniu1" bindtap=''>取餐码</view>
         <view class="flex-1"></view>
       </view>
@@ -92,7 +92,7 @@
       </view>
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
-        <!-- <view class="flex-2  anniu" bindtap='payment'>取消订单</view> -->
+         <view class="flex-2  anniu" bindtap='cancel'>取消订单</view> 
         <view class="flex-2  anniu1" bindtap=''>取餐码</view>
         <view class="flex-1"></view>
       </view>
@@ -125,7 +125,7 @@
 
 
   <!-- 已取消 -->
-  <view class="bg " wx:if="{{info.status=='G'||info.status=='C'}}">
+  <view class="bg " wx:if="{{info.status=='G'}}">
     <view class=" flex-row flex-center  padding-20">
       <view class="flex-1"></view>
       <view class="margin-top-20 txt-bold">已取消</view>
@@ -134,6 +134,42 @@
     <view class="flex-row flex-center text-center">
       <view class="flex-1"></view>
       <view class="h5">期待您再次光临.</view>
+      <view class="flex-1"></view>
+    </view>
+    <view class="flex-row flex-center margin-20 text-center">
+      <view class="flex-1"></view>
+
+      <view class="flex-1"></view>
+    </view>
+  </view>
+  <view class="bg " wx:if="{{info.status=='C'}}">
+    <view class=" flex-row flex-center  padding-20">
+      <view class="flex-1"></view>
+      <view class="margin-top-20 txt-bold">已退款</view>
+      <view class="flex-1"></view>
+    </view>
+    <view class="flex-row flex-center text-center">
+      <view class="flex-1"></view>
+      <view class="h5">期待您再次光临.</view>
+      <view class="flex-1"></view>
+    </view>
+    <view class="flex-row flex-center margin-20 text-center">
+      <view class="flex-1"></view>
+
+      <view class="flex-1"></view>
+    </view>
+  </view>
+  
+  <!-- 退款审核中 -->
+  <view class="bg " wx:if="{{info.status=='T'}}">
+    <view class=" flex-row flex-center  padding-20">
+      <view class="flex-1"></view>
+      <view class="margin-top-20 txt-bold">审核中</view>
+      <view class="flex-1"></view>
+    </view>
+    <view class="flex-row flex-center text-center">
+      <view class="flex-1"></view>
+      <view class="h5">工作人员正在审核,请耐心等待.</view>
       <view class="flex-1"></view>
     </view>
     <view class="flex-row flex-center margin-20 text-center">

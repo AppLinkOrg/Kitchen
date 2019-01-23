@@ -9,23 +9,23 @@
 </view>
 <!-- 切换模块 -->
 <view class="flex-row flex-center padding-20">
-  <view class="flex-2 h5 {{tab=='null'?'xz':'wxz'}} "  id="null" bindtap='changetab'>综合排序</view>
+  <view class="flex-2  {{tab=='null'?'xz':'wxz'}} "  id="null" bindtap='changetab'>综合排序</view>
   <view class="flex-1"></view>
-  <view class="flex-2 h5 {{tab=='distance'?'xz':'wxz'}}" id="distance" bindtap='changetab'>距离最近</view>
+  <view class="flex-2  {{tab=='distance'?'xz':'wxz'}}" id="distance" bindtap='changetab'>距离最近</view>
   <view class="flex-1 "></view>
-  <view class="flex-2 h5 {{tab=='count1 desc'?'xz':'wxz'}}" id="count1 desc" bindtap='changetab'>销量最多</view>
+  <view class="flex-2  {{tab=='count1 desc'?'xz':'wxz'}}" id="count1 desc" bindtap='changetab'>销量最多</view>
   <view class="flex-1  "></view>
-  <view class="flex-2 h5 {{tab=='pinfen desc'?'xz':'wxz'}}" id="pinfen desc" bindtap='changetab'>评分最高</view>
+  <view class="flex-2  {{tab=='pinfen desc'?'xz':'wxz'}}" id="pinfen desc" bindtap='changetab'>评分最高</view>
 </view>
 
 <!-- 店铺列表 -->
 
-<view  bindtap='chooseShop' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" class="padding-20 flex-row border-bottom  ">
+<view  bindtap='chooseShop' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" class="padding-20 margin-top-20  flex-row border-bottom  ">
 
   <image class="yr" style='width:150rpx;height:120rpx' mode="aspectFill" src='{{uploadpath}}shop/{{item.img}}'></image>
 
   <view class="margin-left-20 " style='width:100%'>
-    <view class="h5 txt-black">
+    <view class=" txt-black txt-bold">
       {{item.name}}
     </view>
     <view class=" flex-row">

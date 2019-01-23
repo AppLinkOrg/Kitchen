@@ -419,12 +419,13 @@ class Content extends AppBase {
             }
          
       }
-
+      console.log(totalprice1);
+      console.log("进而");
 
       this.Base.setMyData({
         cartorder,
         shuzu:shuzu,
-        totalprice1: totalprice1.toFixed(1),
+        totalprice1: totalprice1.toFixed(2),
         caipinzonshu: caipinzonshu
       });
       if (cartorder.length == 0) {

@@ -32,6 +32,7 @@ class Content extends AppBase {
     var that = this;
     var shopapi = new ShopApi();
     shopapi.orderinfo({id:this.Base.options.id},(info)=>{
+    console.log("465465464"+info.amount);
       info.amount = parseFloat(info.amount);
      
       this.Base.setMyData({info});

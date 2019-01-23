@@ -7,6 +7,11 @@ margin-right: 20rpx
 
 
 }
+.zhaopian{
+ border-radius: 10rpx;
+  width: 175rpx;
+  height: 130rpx;
+}
 .sjimg{
  border-radius: 10rpx
 
@@ -66,13 +71,19 @@ border:1px solid white
   z-index: 100;
   width: 100%;
 }
+.xuanzhon{
+
+  background-color: white;
+  font-weight: bolder;
+}
+
 .under {
   position: fixed;
   z-index: 101;
-  width: 80%;
+  width: 90%;
   background: white;
-  left: 10%;
-  right: 10%;
+  left: 5%;
+  right: 5%;
   top: 120px;
   
 }
@@ -111,7 +122,7 @@ height: calc( 100vh - 260rpx )
 }
 
 .menuopt{
-  height: calc( 100vh - 260rpx );
+  height: calc( 100vh - 400rpx );
   
 }
 
