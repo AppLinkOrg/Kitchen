@@ -15,8 +15,8 @@
   </view>
   <view>
     <view class='v1 flex-row flex-center' bindtap='changeExpress'>
-      <view class="v2   h5 {{expresstype=='A'?'avt':'hei'}}" >自提</view>
-      <view class="v2  h5 {{expresstype=='B'?'avt':'hei'}}" >送货</view>
+      <view class="v2   h5 {{expresstype=='A'?'avt':'hei'}}">自提</view>
+      <view class="v2  h5 {{expresstype=='B'?'avt':'hei'}}">送货</view>
     </view>
   </view>
 </view>
@@ -24,10 +24,10 @@
 <view class="padding-20 margin-top-5 bg" wx:if="{{expresstype=='B'}}">
   <view class="h5 txt-bold">配送信息</view>
 
-  <navigator url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-row margin-top-10 flex-center' >
+  <navigator url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-row margin-top-10 flex-center'>
     <view class='flex-1' wx:if="{{address_id>0}}">
       <view class='h5'>
-        {{addressinfo.address}} {{addressinfo.menpai}} 
+        {{addressinfo.address}} {{addressinfo.menpai}}
       </view>
       <view class='h6 txt-gray'>
         {{addressinfo.mobile}} {{addressinfo.name}}
@@ -37,7 +37,7 @@
       请选择送货地址
     </view>
     <view url='/pages/addressmgr/addressmgr?needreturn=Y' class='margin-left'>
-      <image class='icon '  src='{{uploadpath}}resource/{{res.you}}'></image>
+      <image class='icon ' src='{{uploadpath}}resource/{{res.you}}'></image>
     </view>
   </navigator>
 </view>
@@ -113,7 +113,14 @@
     </view>
 
   </view>
-
+  <view class="padding-20">
+    <view>备注:</view>
+    <view class="flex-row flex-center">
+      <view class="flex-1"></view>
+      <textarea placeholder='暂无备注（限制字数140字）' bindinput='bindremark' name='remark' style='height:100rpx;width:500rpx; border-radius:10rpx;margin-bottom:150rpx;' class='h5 bg-gray padding-20 txt-black  '></textarea>
+      <view class="flex-1"></view>
+    </view>
+  </view>
   <!-- 底部 -->
   <view class="flex-row flex-center jiesuan">
     <view class="flex-row  flex-3 bg  xm ">

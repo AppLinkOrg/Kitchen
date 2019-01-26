@@ -18,7 +18,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat:1});
+    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat:1,beizhu:""});
   }
   onMyShow() {
     var that = this;
@@ -136,9 +136,10 @@ class Content extends AppBase {
     data.eat = sdata.eat;
     data.expresstype = sdata.expresstype;
     data.address_id = sdata.address_id;
-    
+    data.beizhu = sdata.beizhu;
     console.log(data);
     console.log(sdata);
+    console.log("牛逼");
     if(data.expresstype=="B"){
       if (data.address_id == 0){
         this.Base.info("请选择送货地址");
@@ -167,7 +168,10 @@ class Content extends AppBase {
 
 
   }
-
+  bindremark(e){
+    
+    this.Base.setMyData({beizhu:e.detail.value})
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -178,4 +182,5 @@ body.setCurrent = content.setCurrent;
 body.payment = content.payment;
 body.changeExpress = content.changeExpress;
 body.selecteat = content.selecteat;
+body.bindremark = content.bindremark;
 Page(body)
