@@ -5,6 +5,7 @@ import {
 export class ApiUtil {
 
   static renamelist = [];
+
   static HtmlDecode(str) {
     var s = "";
     if (str.length == 0) return "";
@@ -17,7 +18,7 @@ export class ApiUtil {
 
 
     s = s.replace(new RegExp("</p>", "gm"), "</p><br />");
-    s = s.replace(new RegExp("\"/alucard263096/carpost/upload/", "gm"), "\"" + "https://cmsdev.app-link.org/alucard263096/carpost/upload/");
+    s = s.replace(new RegExp("\"/alucard263096/kitchen/upload/", "gm"), "\"" + "https://cmsdev.app-link.org/alucard263096/kitchen/upload/");
 
 
     return s;
@@ -37,7 +38,7 @@ export class ApiUtil {
         }
       }
     } else {
-      console.log("rename b");
+      console.log("rename b"); 
       if (ret.member_id != undefined && renamelist[ret.member_id] != undefined && renamelist[ret.member_id] != "") {
         ret.member_nickName = renamelist[ret.member_id].nickName;
       }

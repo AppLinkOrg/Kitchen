@@ -6,7 +6,7 @@
     您还没有订单哦
   </view>
   <view class='txt-gray h5 margin-top-40'>
-    <button size='mini' bindtap='gotoMenu'>去喝一杯</button>
+    <button size='mini' bindtap='gotoMenu'>去点个餐</button>
   </view>
 </view>
 
@@ -30,7 +30,7 @@
           <image class='icon-40' src='{{uploadpath}}shop/{{item.shop_img}}'></image>
         </view>
         <view class="txt-black txt-bold flex-1 margin-left-20">{{item.shop_name}}</view>
-        <view class="h7 ">{{item.submit_time_formatting}}</view>
+        <view class="h5 ">{{item.submit_time_formatting}}</view>
       </view>
 
       <view style='border-top:1rpx solid #E6E6E6;border-bottom:1rpx solid #E6E6E6;padding-top:15rpx;padding-bottom:15rpx;' class="flex-row flex-center margin-top-10">

@@ -31,9 +31,9 @@
   },
   "tabBar": {
     "color": "#bfbfbf",
-    "selectedColor": "#000000",
-    "borderStyle": "#000000",
-    "backgroundColor": "#ffffff",
+    "selectedColor": "black",
+    "borderStyle": "black",
+    "backgroundColor": "white",
     "list": [
       {
         "text": "首页",

@@ -137,6 +137,7 @@ class Content extends AppBase {
     data.expresstype = sdata.expresstype;
     data.address_id = sdata.address_id;
     data.beizhu = sdata.beizhu;
+    data.delivery_time = sdata.delivery_time;
     console.log(data);
     console.log(sdata);
     console.log("牛逼");

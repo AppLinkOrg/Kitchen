@@ -39,7 +39,7 @@
       </view>
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
-         <!-- <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>  -->
+        <!-- <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>  -->
         <view class="flex-2  anniu1" bindtap=''>取餐码</view>
         <view class="flex-1"></view>
       </view>
@@ -66,11 +66,11 @@
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
         <!-- <view class="flex-2  anniu" bindtap='payment'>取消订单</view> -->
-        <navigator url='/pages/menu/menu?shop_id={{shop.id}}' class="flex-2  anniu1" >再来一单</navigator>
+        <navigator url='/pages/menu/menu?shop_id={{shop.id}}' class="flex-2  anniu1">再来一单</navigator>
         <view class="flex-1"></view>
       </view>
     </view>
-    
+
 
 
   </view>
@@ -92,7 +92,7 @@
       </view>
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
-         <view class="flex-2  anniu" bindtap='cancel'>取消订单</view> 
+        <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>
         <view class="flex-2  anniu1" bindtap=''>取餐码</view>
         <view class="flex-1"></view>
       </view>
@@ -159,7 +159,7 @@
       <view class="flex-1"></view>
     </view>
   </view>
-  
+
   <!-- 退款审核中 -->
   <view class="bg " wx:if="{{info.status=='T'}}">
     <view class=" flex-row flex-center  padding-20">
@@ -179,8 +179,8 @@
     </view>
   </view>
 
-<!--送餐中-->
-<view class="bg padding-bottom-20" wx:if="{{info.status=='V'}}">
+  <!--送餐中-->
+  <view class="bg padding-bottom-20" wx:if="{{info.status=='V'}}">
     <view class=" flex-row flex-center  padding-20">
       <view class="flex-1"></view>
       <view class="margin-top-20 txt-bold">送餐中</view>
@@ -191,12 +191,12 @@
       <view class="h5">请等待送达.</view>
       <view class="flex-1"></view>
     </view>
-</view>
+  </view>
 
 
 
- <view class="padding-20 bg margin-top-5 " style=''>
-    
+  <view class="padding-20 bg margin-top-5 " style=''>
+
     <view class=" flex-row flex-center bg  padding-top-40 padding-bottom-40" style='border-bottom:1px solid #E6E6E6;'>
       <view class="flex-1 h5  ">{{info.expresstype_name}}:{{info.orderno}}</view>
       <view class="h5">{{info.submit_time_formatting}}</view>
@@ -244,6 +244,14 @@
         <instinfo.expressfreeup) )?instinfo.expressfee:0)}} </view>
       </view>
 
+    </view>
+    <view wx:if="{{info.beizhu!=''}}" class="padding-20">
+
+      <view class="flex-row ">
+        <view class="margin-right">备注:</view>
+        <view placeholder='暂无备注（限制字数140字）' bindinput='bindremark' name='remark' style='height:100rpx;width:500rpx; border-radius:10rpx;' class='h5 bg-gray padding-20 txt-black flex-1  '>{{info.beizhu}}</view>
+
+      </view>
     </view>
     <view class="padding-20 margin-top-5 bg flex-row" wx:if="{{info.expresstype=='A'}}">
       <view class="margin-right txt-bold">

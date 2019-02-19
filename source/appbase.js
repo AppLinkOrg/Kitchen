@@ -176,6 +176,12 @@ export class AppBase {
 
         return;
       }
+      if (instinfo.priceswitch == '否') {
+        wx.reLaunch({
+          url: '/pages/content/content?keycode=kaiguan',
+        })
+
+      }
       instinfo.expressfreeup = parseInt(instinfo.expressfreeup);
       instinfo.expressfee = parseInt(instinfo.expressfee);
       AppBase.InstInfo = instinfo;
