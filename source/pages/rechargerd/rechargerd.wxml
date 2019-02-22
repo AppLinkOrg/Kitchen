@@ -2,11 +2,12 @@
 <view class="flex-1 padding-10 txt-white" >日期</view>
 <view class="flex-1  padding-10 txt-white">充值金额</view>
 </view>
+
+<block wx:for="{{czjl}}" wx:key="k">
 <view class="flex-row flex-center text-center  ">
-<view class="flex-1 padding-10 " >20180801</view>
-<view class="flex-1  padding-10 ">500</view>
+<view class="flex-1 padding-10 " >{{item.rechargedate}}</view>
+<view class="flex-1  padding-10 ">{{item.amount}}</view>
 </view>
-<view class="flex-row flex-center text-center sj ">
-<view class="flex-1 padding-10 " >20180801</view>
-<view class="flex-1  padding-10 ">500</view>
-</view>
+</block>
+
+

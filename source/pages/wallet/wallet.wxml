@@ -1,7 +1,8 @@
 <view class="padding-40 txt-black">我的余额</view>
 <view class="text-center txt-black h1 padding-40">
-427.20元
+{{memberinfo.balance}}元
 </view>
+
 <view class=' padding-40'>
   <view>
     <navigator url='/pages/customerd/customerd'  class='flex-row flex-center  ' hover-class="none">

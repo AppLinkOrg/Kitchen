@@ -4,7 +4,7 @@
     <image class='icon-50 radius-50 shadow ' src='{{UserInfo.avatarUrl}}'></image>
   </view>
   <view class='flex-1'>
-    {{memberinfo.nickName}}
+    {{memberinfo.nickName}}({{memberinfo.memberlevel_name}})
   </view>
   <view class='margin-left' hidden='1'>
     <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>

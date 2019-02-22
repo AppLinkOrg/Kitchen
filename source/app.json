@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/advanceorder/advanceorder",
+   
     "pages/welcome/welcome",
+    "pages/advanceorder/advanceorder",
     "pages/customerd/customerd",
     "pages/rechargerd/rechargerd",
     "pages/recharge/recharge",
