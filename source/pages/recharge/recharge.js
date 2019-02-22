@@ -11,8 +11,21 @@ class Content extends AppBase {
     this.Base.Page = this;
   
     super.onLoad(options);
+    var api=new InstApi();
+    api.getuplist({},(uplist)=>{
+       
+       for( var i in uplist)
+       {
+
+         uplist[i].amount = parseInt(uplist[i].amount);
+       }
+      this.Base.setMyData({
+
+      uplist:uplist
+      })
+    })
     this.Base.setMyData({
-      checked:1
+      checked:2
     
     })
   }
@@ -27,6 +40,11 @@ class Content extends AppBase {
    
   }
 
+ chonzhi(){
+
+
+   
+ }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -34,4 +52,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.gotowallet = content.gotowallet;
 body.xuanze = content.xuanze;
+body.chonzhi = content.chonzhi;
 Page(body)

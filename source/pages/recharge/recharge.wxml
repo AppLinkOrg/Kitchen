@@ -1,17 +1,25 @@
 <view class="padding-20 txt-black">定额充值</view>
 <view class="  flex-row text-center flex-center">
-  <view id="1" bindtap='xuanze' class="flex-1 margin-10  {{checked==1?'ischecked':'notchecked'}} ">
+  <!-- <view id="1" bindtap='xuanze' class="flex-1 margin-10  {{checked==1?'ischecked':'notchecked'}} ">
     <view class="h2 {{checked==1?'ischeckedsize':''}}" >500元</view>
-    <view class="margin-top-10 {{checked==1?'ischeckedsize':''}}" >点餐7折</view>
+    <view class="margin-10 {{checked==1?'ischeckedsize':''}}" >点餐7折</view>
   </view>
   <view id="2" bindtap='xuanze' class="flex-1 margin-10  {{checked==2?'ischecked':'notchecked'}} ">
     <view class="h2 {{checked==2?'ischeckedsize':''}}" >1000元</view>
-    <view class="margin-top-10 {{checked==2?'ischeckedsize':''}}">点餐6折</view>
+    <view class="margin-10 {{checked==2?'ischeckedsize':''}}">点餐6折</view>
   </view>
   <view id="3" bindtap='xuanze' class="flex-1 margin-10  {{checked==3?'ischecked':'notchecked'}} ">
     <view class="h2 {{checked==3?'ischeckedsize':''}}">2000元</view>
-    <view class="margin-top-10 {{checked==3?'ischeckedsize':''}}">点餐5折</view>
+    <view class="margin-10 {{checked==3?'ischeckedsize':''}}">点餐5折</view>
+  </view> -->
+
+   <block wx:for="{{uplist}}" wx:key='k'>
+   
+     <view id="{{item.id}}" bindtap='xuanze' class="flex-1 margin-10  {{checked==item.id?'ischecked':'notchecked'}} ">
+    <view class="h2 {{checked==item.id?'ischeckedsize':''}}" >{{item.amount}}元</view>
+    <view class="margin-10 {{checked==item.id?'ischeckedsize':''}}" >点餐{{item.discountname}}</view>
   </view>
+   </block>
 </view>
 <view class="padding-20 h6 txt-black">充值说明:</view>
 <view class="padding-20 h6 txt-black">充值不同金额,可享受不同优惠.充值500元即可成为铂金会员,享受点餐7折优惠;充值1000元即可成为钻石会员,享受点餐6折优惠;充值2000元即可成为至尊会员,享受点餐5折优惠;</view>
@@ -20,5 +28,5 @@
 点击立即充值，即表示您已经同意 <text style='color:#5fe0a3'>《充值协议》</text>
 </view>
 <view class="padding-20 btn">
-<button class='text-center bg-primary txt-white ' form-type='submit' hover-class='bg-primary-1'  style='border-radius:10rpx;'>立即充值</button>
+<button class='text-center bg-primary txt-white' bindtap='chonzhi' form-type='submit' hover-class='bg-primary-1'  style='border-radius:10rpx;'>立即充值</button>
 </view>
