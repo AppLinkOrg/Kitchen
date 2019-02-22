@@ -1,0 +1,19 @@
+.ischecked{
+
+  border:1px solid #5fe0a3;
+  border-radius: 10rpx;
+  
+}
+.ischeckedsize{
+ color: #5fe0a3;
+}
+
+.notchecked{
+ border-radius: 10rpx;
+  border:1px solid black;
+  }
+  .btn{
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+}

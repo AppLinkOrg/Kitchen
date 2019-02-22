@@ -1,0 +1,24 @@
+.sj1{
+border:1px solid black;
+height:50rpx;
+border-radius: 10rpx;
+}
+.sj2{
+border:1px solid black;
+height:50rpx;
+border-radius: 10rpx;
+}
+  .btn{
+
+  width: 60%;
+}
+.db{
+
+  background-color: #4c556e;
+
+
+}
+.sj{
+ background-color: #f2f2f2;
+
+}

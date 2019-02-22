@@ -1,6 +1,13 @@
 {
   "pages": [
     "pages/welcome/welcome",
+      "pages/customerd/customerd",
+     
+  
+    
+    "pages/rechargerd/rechargerd",
+    "pages/recharge/recharge",
+    "pages/wallet/wallet",
     "pages/feedback/feedback",
     "pages/orderwaiting/orderwaiting",
     "pages/comment/comment",

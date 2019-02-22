@@ -1,0 +1,32 @@
+<view class="padding-20 txt-black">
+  选择时间:
+</view>
+<view class="padding-20 flex-row flex-center">
+  <view class="flex-1 sj1"></view>
+  <view class="padding-20">至</view>
+  <view class="flex-1 sj2"></view>
+</view>
+<view class="padding-20  flex-row ">
+  <view class="flex-1"></view>
+  <button class='text-center bg-primary btn txt-white ' form-type='submit' hover-class='bg-primary-1' style='border-radius:10rpx;'>立即充值</button>
+  <view class="flex-1"></view>
+</view>
+<!-- adasdsadas -->
+<view class="flex-row flex-center text-center db ">
+<view class="flex-1 padding-10 txt-white" >门店</view>
+<view class="flex-1  padding-10 txt-white">日期</view>
+<view class="flex-1 padding-10 txt-white" >消费金额</view>
+<view class="flex-1  padding-10 txt-white">余额</view>
+</view>
+<view class="flex-row flex-center text-center  ">
+<view class="flex-1 padding-10 " >荔山店</view>
+<view class="flex-1  padding-10 ">20190221</view>
+<view class="flex-1 padding-10 " >66</view>
+<view class="flex-1  padding-10 ">2050</view>
+</view>
+<view class="flex-row flex-center text-center sj ">
+<view class="flex-1 padding-10 " >荔山店</view>
+<view class="flex-1  padding-10 ">20190221</view>
+<view class="flex-1 padding-10 " >66</view>
+<view class="flex-1  padding-10 ">2050</view>
+</view>

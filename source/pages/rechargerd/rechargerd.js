@@ -6,7 +6,6 @@ import { InstApi } from "../../apis/inst.api.js";
 class Content extends AppBase {
   constructor() {
     super();
-    //this.needauth=false;
   }
   onLoad(options) {
     this.Base.Page = this;
@@ -15,28 +14,12 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var instapi = new InstApi();
-    instapi.indexbanner({}, (indexbanner)=>{
-      this.Base.setMyData({ indexbanner});
-    });
   }
-  ydd(){
-    wx.navigateTo({
-      url: '/pages/shopchoose/shopchoose?ydd=1',
-    })
-  }
-  ssxd(){
 
-    wx.navigateTo({
-      url: '/pages/shopchoose/shopchoose',
-    })
-  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
-body.onLoad = content.onLoad; 
+body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.comingsoon = content.comingsoon;
-body.ssxd=content.ssxd;
-body.ydd=content.ydd;
+body.gotowallet = content.gotowallet;
 Page(body)

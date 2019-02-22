@@ -1,4 +1,4 @@
-// pages/content/content.js
+  // pages/content/content.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -87,7 +87,7 @@ var orderb= this.Base.getMyData().tab;
     var id=e.currentTarget.id;
     AppBase.SHOPID = id;
    wx.navigateTo({
-     url: '/pages/menu/menu',
+     url: '/pages/menu/menu?ydd='+this.Base.options.ydd,
    })
   }
 }

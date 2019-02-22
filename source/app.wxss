@@ -173,7 +173,7 @@ white-space:nowrap;          /* 不换行 */
 overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
 }
 .h1{
-  font-size: 120rpx !important;
+  font-size: 88rpx !important;
 }
 .h2{
   font-size: 56rpx !important;

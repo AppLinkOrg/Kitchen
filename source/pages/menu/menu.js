@@ -559,7 +559,8 @@ class Content extends AppBase {
       }
       var ids = ids.join(",");
       wx.navigateTo({
-        url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id,
+        url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id
+        +"&ydd="+this.Base.options.ydd,
       })
     }
   }

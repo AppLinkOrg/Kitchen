@@ -1,0 +1,12 @@
+<view class="flex-row flex-center text-center db ">
+<view class="flex-1 padding-10 txt-white" >日期</view>
+<view class="flex-1  padding-10 txt-white">充值金额</view>
+</view>
+<view class="flex-row flex-center text-center  ">
+<view class="flex-1 padding-10 " >20180801</view>
+<view class="flex-1  padding-10 ">500</view>
+</view>
+<view class="flex-row flex-center text-center sj ">
+<view class="flex-1 padding-10 " >20180801</view>
+<view class="flex-1  padding-10 ">500</view>
+</view>

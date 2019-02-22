@@ -15,9 +15,16 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
   }
+  gotowallet(){
+wx.navigateTo({
+  url: '/pages/wallet/wallet',
+})
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.gotowallet = content.gotowallet;
 Page(body)
