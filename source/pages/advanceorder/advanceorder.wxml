@@ -1,0 +1,56 @@
+<!--pages/advanceorder/advanceorder.wxml-->
+<view class='flex-row flex-center padding' style='border-bottom:1rpx solid #EAEAEA'>
+  <view class='txt-bold'>预约送达时间</view>
+  <view class='txt-Theme margin-left-20 txt-bold'>今天（周四）</view>
+  <view class='txt-Theme txt-bold'>11:20</view>
+</view>
+
+<view class='flex-row ' style='border-bottom:1rpx solid #EAEAEA'>
+
+  <view class='flex-row column flex-1 '>
+    <scroll-view scroll-y style='height:900rpx;'>
+      <view class='padding-20 txt-bold text-center border_btm'>今天（周四）</view>
+      <view class='padding-20 txt-bold text-center border_btm'>次日（周五）</view>
+    </scroll-view>
+  </view>
+
+  <view class='flex-row column flex-1 border'>
+    <scroll-view scroll-y style='height:900rpx;'>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+    </scroll-view>
+  </view>
+
+  <view class='flex-row column flex-1 border'>
+    <scroll-view scroll-y style='height:900rpx;'>
+      <view class='padding-20 txt-bold border_btm text-center'>00:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>00:20</view>
+      <view class='padding-20 txt-bold border_btm text-center'>00:40</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+      <view class='padding-20 txt-bold border_btm text-center'>06:00</view>
+    </scroll-view>
+  </view>
+
+</view>
+
+
+<view class='padding-40 flex-row  btm'>
+  <button class=' txt-white btn_order h5'>去点餐</button>
+</view>

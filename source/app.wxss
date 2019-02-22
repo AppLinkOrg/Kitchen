@@ -167,6 +167,9 @@ view,navigator,input,text,textarea{
 .txt-bold{
   font-weight: bolder;
 }
+.txt-Theme{
+  color:#5FE0A3;
+}
 .nowrap{
   word-break:keep-all;           /* 不换行 */
 white-space:nowrap;          /* 不换行 */
