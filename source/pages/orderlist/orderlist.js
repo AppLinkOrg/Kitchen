@@ -28,9 +28,10 @@ class Content extends AppBase {
     });
   }
   gotoMenu(){
-    wx.switchTab({
-      url: '/pages/menu/menu',
+    wx.navigateTo({
+      url: '/pages/shopchoose/shopchoose',
     })
+  
   }
   todetails(e){
     var id=e.currentTarget.id;

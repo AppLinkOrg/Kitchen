@@ -22,7 +22,7 @@ class Content extends AppBase {
   }
   ydd(){
     wx.navigateTo({
-      url: '/pages/shopchoose/shopchoose?ydd=1',
+      url: '/pages/advanceorder/advanceorder?ydd=1',
     })
   }
   ssxd(){

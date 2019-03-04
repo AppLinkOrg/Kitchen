@@ -108,7 +108,7 @@ class Content extends AppBase {
             });
 
             this.calc();
-            shopapi.shopscorelist({ shop_id: this.Base.getMyData().currentshop.id }, (pinglunlist) => {
+            shopapi.shopscorelist({ shop_id: this.Base.getMyData().currentshop.id, onshow:'Y' }, (pinglunlist) => {
 
               this.Base.setMyData({ pinglunlist });
 
@@ -263,7 +263,7 @@ class Content extends AppBase {
 
     var pricemsg = data.name + "¥" + data.price;
     var vals = [];
-
+    var attr_img="";
     var attrs = this.Base.getMyData().attrs;
 
     for (var i = 0; i < attrs.length; i++) {
@@ -271,14 +271,17 @@ class Content extends AppBase {
         if (attrs[i].vals[j].selected == "Y") {
           if (attrs[i].isshow == 'Y') {
             pricemsg += "+" + attrs[i].vals[j].sname + "¥" + attrs[i].vals[j].price;
+            
+            
           }
           vals.push(parseInt(attrs[i].vals[j].id));
+          attr_img = attrs[i].vals[j].attr_img;
           price = price + parseFloat(attrs[i].vals[j].price);
         }
       }
     }
     vals.sort();
-    this.Base.setMyData({ pricemsg, totalprice: price, vals: vals.join(",") });
+    this.Base.setMyData({ pricemsg, totalprice: price, vals: vals.join(","), attr_img: attr_img });
   }
   bindclosedetails() {
 

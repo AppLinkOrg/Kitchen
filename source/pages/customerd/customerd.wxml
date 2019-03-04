@@ -1,4 +1,4 @@
-<view class="padding-20 txt-black">
+<!-- <view class="padding-20 txt-black">
   选择时间:
 </view>
 <view class="padding-20 flex-row flex-center">
@@ -10,23 +10,19 @@
   <view class="flex-1"></view>
   <button class='text-center bg-primary btn txt-white ' form-type='submit' hover-class='bg-primary-1' style='border-radius:10rpx;'>查询</button>
   <view class="flex-1"></view>
-</view>
+</view> -->
 <!-- adasdsadas -->
 <view class="flex-row flex-center text-center db ">
-<view class="flex-1 padding-10 txt-white" >门店</view>
-<view class="flex-1  padding-10 txt-white">日期</view>
-<view class="flex-1 padding-10 txt-white" >消费金额</view>
-<view class="flex-1  padding-10 txt-white">余额</view>
+  <view class="flex-2 padding-10 txt-white">门店</view>
+  <view class="flex-3  padding-10 txt-white">日期</view>
+  <view class="flex-2 padding-10 txt-white">消费金额</view>
+  <view class="flex-2  padding-10 txt-white">余额</view>
 </view>
+<block wx:for="{{xflist}}" wx:key='k'>
 <view class="flex-row flex-center text-center  ">
-<view class="flex-1 padding-10 " >荔山店</view>
-<view class="flex-1  padding-10 ">20190221</view>
-<view class="flex-1 padding-10 " >66</view>
-<view class="flex-1  padding-10 ">2050</view>
+  <view class="flex-2 padding-10 ">{{item.shop_name}}</view>
+  <view class="flex-3  padding-10 ">{{item.walletdate}}</view>
+  <view class="flex-2 padding-10 ">{{item.amount}}</view>
+  <view class="flex-2  padding-10 ">{{item.balance}}</view>
 </view>
-<view class="flex-row flex-center text-center sj ">
-<view class="flex-1 padding-10 " >荔山店</view>
-<view class="flex-1  padding-10 ">20190221</view>
-<view class="flex-1 padding-10 " >66</view>
-<view class="flex-1  padding-10 ">2050</view>
-</view>
+</block>

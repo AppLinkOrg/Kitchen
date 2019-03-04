@@ -11,7 +11,7 @@ import {
   MemberApi
 } from '../../apis/member.api';
 import {
-  ShopApinotify
+  ShopApi
 } from "../../apis/shop.api.js";
 class Content extends AppBase {
   constructor() {

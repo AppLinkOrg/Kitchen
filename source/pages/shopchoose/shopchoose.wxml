@@ -37,7 +37,7 @@
       <view class="h5 ">
         <image class="icon" mode="aspectFill" src='{{uploadpath}}resource/{{res.img1}}'></image>
       </view>
-      <view class="h5 flex-1 margin-left-20">{{item.cat}}</view>
+      <view class="h5 flex-1 margin-left-20">{{item.cat}}  人均消费:{{item.avgxf}}元</view>
       <view class="h5">{{item.miletxt}}</view>
     </view>
   </view>

@@ -1,8 +1,9 @@
 {
   "pages": [
-   
     "pages/welcome/welcome",
-    "pages/advanceorder/advanceorder",
+   "pages/advanceorder/advanceorder",
+   
+    
     "pages/customerd/customerd",
     "pages/rechargerd/rechargerd",
     "pages/recharge/recharge",
@@ -36,10 +37,10 @@
     }
   },
   "tabBar": {
-    "color": "#bfbfbf",
-    "selectedColor": "black",
-    "borderStyle": "black",
-    "backgroundColor": "white",
+    "color": "#84817E",
+    "selectedColor": "#090909",
+    "borderStyle": "white",
+    "backgroundColor": "#FFFFFF",
     "list": [
       {
         "text": "首页",

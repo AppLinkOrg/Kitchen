@@ -103,6 +103,7 @@
 
   </view>
   <view class="flex-row margin-top-20">
+  
     <view class="flex-1"></view>
     <view>
       合计

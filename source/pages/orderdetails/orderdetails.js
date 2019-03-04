@@ -8,7 +8,9 @@ import {
 import {
   WechatApi
 } from "../../apis/wechat.api.js";
-
+import {
+  ApiUtil
+} from "../../apis/apiutil.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -18,22 +20,40 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat:1,beizhu:""});
+    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time:""});
   }
   onMyShow() {
     var that = this;
     var shopapi=new ShopApi();
     shopapi.shopinfo({id:this.Base.options.shop_id},(shop)=>{
 
-    
-    
-      var ziti_time =new Date( (new Date()).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
-      var songhuo_time = new Date( (new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
-
-      shop.ziti = ziti_time.getHours() + ":" + ziti_time.getMinutes();
-      shop.songhuo = songhuo_time.getHours() + ":" + songhuo_time.getMinutes();
-
-      this.Base.setMyData({ shop });
+     
+      var ydd = this.Base.options.ydd;
+      
+      
+      if (ydd != "undefined")
+     {
+        var ydd = new Date(ydd);
+      
+       var ziti_time = new Date((ydd).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
+        
+       var songhuo_time = new Date((ydd).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
+        var sondasj = this.Base.util.FormatDateTime(songhuo_time);
+        var zitisj = this.Base.util.FormatDateTime(ziti_time);
+     }
+     else{
+      
+       
+        var ziti_time = new Date((new Date()).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
+        var songhuo_time = new Date((new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
+        var sondasj=this.Base.util.FormatDateTime(songhuo_time);
+        var zitisj = this.Base.util.FormatDateTime(ziti_time);
+        
+     }
+      shop.ziti = ziti_time.getHours() + ":" + (ziti_time.getMinutes() > 10 ? ziti_time.getMinutes() : "0" + ziti_time.getMinutes());
+      shop.songhuo = songhuo_time.getHours() + ":" + (songhuo_time.getMinutes() > 10 ? songhuo_time.getMinutes() : "0" + songhuo_time.getMinutes());
+      
+      this.Base.setMyData({ shop, zitisj: zitisj, sondasj: sondasj });
       //GetDistance
     });
     this.setCurrent();
@@ -115,10 +135,10 @@ class Content extends AppBase {
         }
 
       }
-      orderitem[i].numprice = orderitem[i].oneprice * parseInt(orderitem[i].num);
-      
-      totalprice += orderitem[i].numprice;
-
+      orderitem[i].numprice = parseFloat((orderitem[i].oneprice * parseInt(orderitem[i].num)).toFixed(2));
+    
+      totalprice += parseFloat((orderitem[i].numprice).toFixed(2));
+      totalprice = parseFloat(totalprice.toFixed(2));
     }
     
 
@@ -142,7 +162,9 @@ class Content extends AppBase {
     console.log(sdata);
     console.log("牛逼");
     if(data.expresstype=="B"){
+      data.delivery_time = sdata.sondasj;
       if (data.address_id == 0){
+       
         this.Base.info("请选择送货地址");
         return;
       }else{
@@ -153,6 +175,10 @@ class Content extends AppBase {
           return;
         }
       }
+    }
+    else{
+
+      data.delivery_time = sdata.zitisj;
     }
     
     

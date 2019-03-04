@@ -40,7 +40,7 @@
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
         <!-- <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>  -->
-        <view class="flex-2  anniu1" bindtap=''>取餐码</view>
+        <!-- <view class="flex-2  anniu1" bindtap=''>取餐码</view> -->
         <view class="flex-1"></view>
       </view>
     </view>
@@ -88,12 +88,19 @@
         <view class="h5">正在制作您的餐品,预计</view>
         <view class="h5" style='color:#7FA9D3'>{{shop.ziti}}</view>
         <view class="h5">可制作完成</view>
+
+        <view class="flex-1"></view>
+
+      </view>
+      <view class="flex-row flex-center text-center">
+        <view class="flex-1"></view>
+        <view class="h4 margin-top-10 txt-bold">取餐码:4005</view>
         <view class="flex-1"></view>
       </view>
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
         <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>
-        <view class="flex-2  anniu1" bindtap=''>取餐码</view>
+        <!-- <view class="flex-2  anniu1" bindtap=''>取餐码</view> -->
         <view class="flex-1"></view>
       </view>
     </view>
@@ -114,7 +121,7 @@
       <view class="flex-row flex-center margin-20 text-center">
         <view class="flex-1"></view>
         <view class="flex-2  anniu" bindtap='cancel'>取消订单</view>
-        <view class="flex-2  anniu1" bindtap=''>取餐码</view>
+        <!-- <view class="flex-2  anniu1" bindtap=''>取餐码</view> -->
         <view class="flex-1"></view>
       </view>
     </view>

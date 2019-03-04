@@ -176,7 +176,7 @@ export class AppBase {
 
         return;
       }
-      if (instinfo.priceswitch == '否') {
+      if (instinfo.priceswitch == '否'&&1!=1) {
         wx.reLaunch({
           url: '/pages/content/content?keycode=kaiguan',
         })
