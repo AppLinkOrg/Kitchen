@@ -5,7 +5,7 @@ import { InstApi } from "../../apis/inst.api.js";
 import {
   ShopApi
 } from "../../apis/shop.api.js";
-
+                                
 class Content extends AppBase {
   constructor() {
     super();

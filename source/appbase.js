@@ -118,7 +118,8 @@ export class AppBase {
       contactkefu: base.contactkefu,
       contactweixin: base.contactweixin,
       download: base.download,
-      checkPermission: base.checkPermission
+      checkPermission: base.checkPermission,
+      dadianhua: base.dadianhua
 
 
 
@@ -182,8 +183,8 @@ export class AppBase {
         })
 
       }
-      instinfo.expressfreeup = parseInt(instinfo.expressfreeup);
-      instinfo.expressfee = parseInt(instinfo.expressfee);
+      instinfo.expressfreeup = Number(instinfo.expressfreeup);
+      instinfo.expressfee = Number(instinfo.expressfee);
       AppBase.InstInfo = instinfo;
       this.Base.setMyData({
         instinfo: instinfo
@@ -898,7 +899,13 @@ export class AppBase {
       }
     })
   }
+dadianhua(e){
+  var dianhua = e.currentTarget.id;
+  wx.makePhoneCall({
+    phoneNumber: dianhua
+  })
 
+}
   contactkefu() {
     var instinfo = this.Base.getMyData().instinfo;
     

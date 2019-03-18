@@ -1,0 +1,27 @@
+/* pages/test/test.wxss */
+.fei{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10;
+  height: 10;
+  background: red;
+    animation-name: test2;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+}
+@keyframes test2{
+       0%{
+  top: 0;
+  left: 0;
+       }
+
+       99%{
+  top: 100px;
+  left: 100px;
+       }
+       100%{
+
+  opacity: 0;
+       }
+}

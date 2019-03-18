@@ -16,10 +16,11 @@ class Content extends AppBase {
     var that = this;
   }
   gotowallet(){
-wx.navigateTo({
-  url: '/pages/wallet/wallet',
-})
+// wx.navigateTo({
+//   url: '/pages/wallet/wallet',
+// })
 
+    this.Base.info("暂未开放");
   }
 }
 var content = new Content();

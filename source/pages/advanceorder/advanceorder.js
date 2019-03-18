@@ -86,9 +86,14 @@ class Content extends AppBase {
       s = s.replace(/-/g, "/");
       var date = new Date(s);
     
-        wx.navigateTo({
-          url: '/pages/shopchoose/shopchoose?ydd=' + s,
-       })
+      //   wx.navigateTo({
+      //     url: '/pages/shopchoose/shopchoose?ydd=' + s,
+          
+      //  })
+      wx.navigateTo({
+        url: '/pages/orderdetails/orderdetails?shop_id=' + this.Base.options.shop_id + "&orderids=" + this.Base.options.orderids + "&menu_id=" + this.Base.options.menu_id
+          + "&ydd=" +s,
+      })
     }
 
   }

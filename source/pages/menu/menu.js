@@ -25,7 +25,7 @@ class Content extends AppBase {
     this.Base.needauth = false;
     this.Base.Page = this;
     //options.id=5;
-    this.Base.setMyData({ num: 1, xz: 0, istrue: true, istrue1: true, istrue2: true, qweqwe: true, })
+    this.Base.setMyData({ num: 1, xz: 0,istrue: true, istrue1: true, istrue2: true, qweqwe: true, })
     super.onLoad(options);
 
 
@@ -44,7 +44,8 @@ class Content extends AppBase {
       var mylat = location.location.lat;
       var mylng = location.location.lng;
       this.Base.setMyData({
-        mylocation: location.ad_info
+        mylocation: location.ad_info, 
+         psf: this.Base.getMyData().instinfo.expressfee
       });
       var shopapi = new ShopApi();
       shopapi.shoplist({
@@ -74,9 +75,18 @@ class Content extends AppBase {
         this.Base.setMyData({ currentshop: shoplist[i] });
 
         var is = ApiUtil.checkInOpen(this.Base.getMyData().currentshop.openning);
+        var qwe555=this.Base.options.ydd;
+        var canshu555='';
+        if (qwe555 == 1) {
+          canshu555 = shoplist[i].ydd_menu_id;
+        }
+        else{
+          canshu555 = shoplist[i].menu_id;
+        }
         var shopapi = new ShopApi();
-        shopapi.menucat({ menu_id: shoplist[i].menu_id }, (menucat) => {
-          shopapi.menugoods({ menu_id: shoplist[i].menu_id }, (menugoods) => {
+        shopapi.menucat({ menu_id: canshu555 }, (menucat) => {
+
+          shopapi.menugoods({ menu_id: canshu555 }, (menugoods) => {
             var ret = [];
             var loc = 0;
             for (var i = 0; i < menucat.length; i++) {
@@ -197,6 +207,8 @@ class Content extends AppBase {
     var id = e.currentTarget.id;
     console.log(e);
     var shopapi = new ShopApi();
+    var menugoods = this.Base.getMyData().menugoods;
+    
     shopapi.goodsinfo({
       id: id
     }, (info) => {
@@ -260,28 +272,30 @@ class Content extends AppBase {
     var data = this.Base.getMyData();
     var price = parseFloat(data.price);
     console.log(price);
-
+    
     var pricemsg = data.name + "¥" + data.price;
     var vals = [];
     var attr_img="";
     var attrs = this.Base.getMyData().attrs;
-
+    
+    
     for (var i = 0; i < attrs.length; i++) {
       for (var j = 0; j < attrs[i].vals.length; j++) {
         if (attrs[i].vals[j].selected == "Y") {
           if (attrs[i].isshow == 'Y') {
             pricemsg += "+" + attrs[i].vals[j].sname + "¥" + attrs[i].vals[j].price;
             
-            
+          
           }
           vals.push(parseInt(attrs[i].vals[j].id));
           attr_img = attrs[i].vals[j].attr_img;
           price = price + parseFloat(attrs[i].vals[j].price);
+         
         }
       }
     }
     vals.sort();
-    this.Base.setMyData({ pricemsg, totalprice: price, vals: vals.join(","), attr_img: attr_img });
+    this.Base.setMyData({ pricemsg, totalprice: price, vals: vals.join(","), attr_img: attr_img});
   }
   bindclosedetails() {
 
@@ -328,7 +342,7 @@ class Content extends AppBase {
   }
   addToCart1() {
 
-
+this.tiaodon();
     var data = this.Base.getMyData();
 
     var shopapi = new ShopApi();
@@ -338,7 +352,14 @@ class Content extends AppBase {
       num: data.num,
       shop_id: data.currentshop.id
     }, (ret) => {
+      wx.showToast({
+        title: '添加成功',
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
       this.calc();
+
     });
 
 
@@ -561,12 +582,23 @@ class Content extends AppBase {
         }
       }
       var ids = ids.join(",");
+      var ydd=this.Base.options.ydd;
+      if(ydd==1)
+      {
+wx.navigateTo({
+  url: '/pages/advanceorder/advanceorder?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id
+    + "&ydd=" + this.Base.options.ydd,
+})
+      }
+      else{
       wx.navigateTo({
         url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id
         +"&ydd="+this.Base.options.ydd,
       })
+      }
     }
   }
+  
   qingkon() {
     var that = this;
     wx.showModal({
@@ -596,9 +628,21 @@ class Content extends AppBase {
 
 
   }
+  tiaodon(){
+var that=this;
+this.Base.setMyData({tiaodon:1});
+
+    setTimeout(function(){
+
+      that.Base.setMyData({ tiaodon: 0 });
+
+    },1000)
+  
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
+body.tiaodon=content.tiaodon;
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.setCurrent = content.setCurrent;

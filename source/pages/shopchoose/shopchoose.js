@@ -35,9 +35,11 @@ var orderb= this.Base.getMyData().tab;
         mylng,
         orderby: orderb,
       }, (shoplist) => {
+        console.log(shoplist);
         for (var i = 0; i < shoplist.length; i++) {
           shoplist[i].mile = this.Base.util.GetDistance(mylat, mylng, shoplist[i].lat, shoplist[i].lng);
-
+          
+          shoplist[i].shop_score = (parseFloat(shoplist[i].shop_score).toFixed(1)); 
           shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
         }
         this.Base.setMyData({ shoplist }); 

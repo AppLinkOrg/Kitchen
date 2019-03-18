@@ -20,39 +20,38 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time:""});
+    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "" });
   }
   onMyShow() {
     var that = this;
-    var shopapi=new ShopApi();
-    shopapi.shopinfo({id:this.Base.options.shop_id},(shop)=>{
+    var shopapi = new ShopApi();
+    shopapi.shopinfo({ id: this.Base.options.shop_id }, (shop) => {
 
-     
+
       var ydd = this.Base.options.ydd;
-      
-      
-      if (ydd != "undefined")
-     {
+
+
+      if (ydd != "undefined") {
         var ydd = new Date(ydd);
-      
-       var ziti_time = new Date((ydd).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
-        
-       var songhuo_time = new Date((ydd).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
+
+        var ziti_time = new Date((ydd).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
+
+        var songhuo_time = new Date((ydd).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
         var sondasj = this.Base.util.FormatDateTime(songhuo_time);
         var zitisj = this.Base.util.FormatDateTime(ziti_time);
-     }
-     else{
-      
-       
+      }
+      else {
+
+
         var ziti_time = new Date((new Date()).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
         var songhuo_time = new Date((new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
-        var sondasj=this.Base.util.FormatDateTime(songhuo_time);
+        var sondasj = this.Base.util.FormatDateTime(songhuo_time);
         var zitisj = this.Base.util.FormatDateTime(ziti_time);
-        
-     }
-      shop.ziti = ziti_time.getHours() + ":" + (ziti_time.getMinutes() > 10 ? ziti_time.getMinutes() : "0" + ziti_time.getMinutes());
-      shop.songhuo = songhuo_time.getHours() + ":" + (songhuo_time.getMinutes() > 10 ? songhuo_time.getMinutes() : "0" + songhuo_time.getMinutes());
-      
+
+      }
+      shop.ziti = ziti_time.getHours() + ":" + (ziti_time.getMinutes() > 9 ? ziti_time.getMinutes() : "0" + ziti_time.getMinutes());
+      shop.songhuo = songhuo_time.getHours() + ":" + (songhuo_time.getMinutes() > 9 ? songhuo_time.getMinutes() : "0" + songhuo_time.getMinutes());
+
       this.Base.setMyData({ shop, zitisj: zitisj, sondasj: sondasj });
       //GetDistance
     });
@@ -60,31 +59,31 @@ class Content extends AppBase {
 
     var address_id = this.Base.getMyData().address_id;
     var memberinfo = this.Base.getMyData().memberinfo;
-    if(address_id==undefined){
-      this.Base.setMyData({ address_id: memberinfo.defaultaddress})
+    if (address_id == undefined) {
+      this.Base.setMyData({ address_id: memberinfo.defaultaddress })
       address_id = memberinfo.defaultaddress;
     }
     var shopapi = new ShopApi();
-    shopapi.addressinfo({id:address_id},(info)=>{
-      this.Base.setMyData({addressinfo:info});
+    shopapi.addressinfo({ id: address_id }, (info) => {
+      this.Base.setMyData({ addressinfo: info });
     });
-    
+
 
   }
 
-  changeExpress(){
-    var expresstype=this.Base.getMyData().expresstype;
-    expresstype = expresstype== "A" ? "B" : "A";
-    this.Base.setMyData({  expresstype });
+  changeExpress() {
+    var expresstype = this.Base.getMyData().expresstype;
+    expresstype = expresstype == "A" ? "B" : "A";
+    this.Base.setMyData({ expresstype });
   }
 
   dataReturnCallback(callid, data) {
     this.Base.setMyData({ address_id: data });
   }
 
-  selecteat(e){
+  selecteat(e) {
 
-    this.Base.setMyData({ eat:e.currentTarget.id });
+    this.Base.setMyData({ eat: e.currentTarget.id });
   }
 
   setCurrent() {
@@ -97,8 +96,8 @@ class Content extends AppBase {
         menugoods
       });
       var shopapi = new ShopApi();
-      shopapi.cartlist({ orderids: this.Base.options.orderids}, (orderitem) => {
-        this.Base.setMyData({ orderitem});
+      shopapi.cartlist({ orderids: this.Base.options.orderids }, (orderitem) => {
+        this.Base.setMyData({ orderitem });
         this.calc();
       });
     });
@@ -136,23 +135,23 @@ class Content extends AppBase {
 
       }
       orderitem[i].numprice = parseFloat((orderitem[i].oneprice * parseInt(orderitem[i].num)).toFixed(2));
-    
-      totalprice += parseFloat((orderitem[i].numprice).toFixed(2));
-      totalprice = parseFloat(totalprice.toFixed(2));
+
+     totalprice += Number((orderitem[i].numprice).toFixed(2));
+      totalprice = Number(totalprice.toFixed(2));
     }
-    
+
 
 
     this.Base.setMyData({
-      orderitem,
-      totalprice
+      orderitem: orderitem,
+      totalprice: Number(totalprice)
     });
   }
-  payment(e){
+  payment(e) {
 
     var api = new WechatApi();
-    var data=this.Base.options;
-    var sdata=this.Base.getMyData();
+    var data = this.Base.options;
+    var sdata = this.Base.getMyData();
     data.eat = sdata.eat;
     data.expresstype = sdata.expresstype;
     data.address_id = sdata.address_id;
@@ -161,29 +160,47 @@ class Content extends AppBase {
     console.log(data);
     console.log(sdata);
     console.log("牛逼");
-    if(data.expresstype=="B"){
+    if (data.expresstype == "B") {
       data.delivery_time = sdata.sondasj;
-      if (data.address_id == 0){
-       
+      if (data.address_id == 0) {
+
         this.Base.info("请选择送货地址");
         return;
-      }else{
+      } else {
         var meter = this.Base.util.GetDistance(sdata.shop.lat, sdata.shop.lng, sdata.addressinfo.lat, sdata.addressinfo.lng);
         console.log(meter);
-        if (meter > parseInt(sdata.shop.deliverymeter)){
+        if (meter > parseInt(sdata.shop.deliverymeter)) {
           this.Base.info("送货地址超出了范围");
           return;
         }
       }
     }
-    else{
+    else {
+      // if (data.address_id == 0) {
+      //   wx.showModal({
+      //     title: '提示',
+      //     content: '请完善地址信息',
+      //     success: function (res) {
+      //       if (res.confirm) {
+      //         wx.navigateTo({
+      //           url: '/pages/addressmgr/addressmgr',
+      //         })
+      //       } else {
+              
+      //       }
+      //     }
+      //   })
 
+        
+       
+      //   return;
+      // }
       data.delivery_time = sdata.zitisj;
     }
-    
-    
 
-    api.prepay(data, (ret)=>{
+
+
+    api.prepay(data, (ret) => {
       console.log(ret);
       ret.complete = function (e) {
         wx.switchTab({
@@ -195,16 +212,16 @@ class Content extends AppBase {
 
 
   }
-  bindremark(e){
-    
-    this.Base.setMyData({beizhu:e.detail.value})
+  bindremark(e) {
+
+    this.Base.setMyData({ beizhu: e.detail.value })
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.calc = content.calc; 
+body.calc = content.calc;
 body.setCurrent = content.setCurrent;
 body.payment = content.payment;
 body.changeExpress = content.changeExpress;

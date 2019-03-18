@@ -1,4 +1,19 @@
 /* pages/menu/menu.wxss */
+@keyframes myfirst {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            50% {
+                transform: translate(0px, -10px);
+            }
+            100% {
+                transform: translate(0px, 0px);
+            }
+}
+.tiaodon {
+            animation: myfirst 1s infinite;
+        }
+
 .yy{
 border-radius: 60rpx;
 border:1px solid #81A8CF;
@@ -42,6 +57,17 @@ padding-bottom:5rpx;
 border-radius: 8rpx;
 
 }
+.guqin{
+
+color: white;
+background-color: gray;
+padding-left:20rpx;
+padding-right:20rpx;
+padding-top:5rpx;
+padding-bottom:5rpx;
+border-radius: 8rpx;
+
+}
 .guige{
 
 border-radius: 15rpx;
@@ -51,7 +77,7 @@ border-radius: 15rpx;
 border-radius: 35rpx;
 background-color: white;
 font-size: 24rpx;
-width:25%;
+min-width:25%;
 border:1px solid #5FE0A3;
 color: #5FE0A3;
 }
@@ -60,7 +86,7 @@ color: #5FE0A3;
 border-radius: 35rpx;
 background-color: #E6E6E6;
 font-size: 24rpx;
-width:25%;
+min-width:25%;
 border:1px solid white
 }
 .bg1 {
@@ -84,7 +110,7 @@ border:1px solid white
   background: white;
   left: 5%;
   right: 5%;
-  top: 120px;
+  top: 80px;
   
 }
 .under1 {

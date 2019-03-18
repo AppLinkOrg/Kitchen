@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<view wx:for="{{v}}" wx:key='a'  class='fei'>
+{{item}}
+</view>
+<button bindtap='click'>aa</button>

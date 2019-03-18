@@ -25,20 +25,24 @@
   <image class="yr" style='width:150rpx;height:120rpx' mode="aspectFill" src='{{uploadpath}}shop/{{item.img}}'></image>
 
   <view class="margin-left-20 " style='width:100%'>
-    <view class=" txt-black txt-bold">
+  <view class="flex-row ">
+    <view class=" flex-1 txt-black txt-bold">
       {{item.name}}
     </view>
-    <view class=" flex-row">
-      <view class="h5 " >评分:{{item.pinfen}}</view>
+    <view class="h5">{{item.miletxt}}</view>
+    </view>
+    <view class=" flex-row margin-top-10">
+      <view class="h5 " >评分:{{item.shop_score}}</view>
       
-      <view class="h5  margin-left-20">月销量:{{item.count1}}</view>
+      <view class="h5  margin-left-20">月销量:{{item.sales}}</view>
+      <view class="h5  margin-left-20">人均消费:{{item.avgxf}}元</view>
     </view>
     <view class=" flex-row margin-top-5 " style='width:100% '>
       <view class="h5 ">
         <image class="icon" mode="aspectFill" src='{{uploadpath}}resource/{{res.img1}}'></image>
       </view>
-      <view class="h5 flex-1 margin-left-20">{{item.cat}}  人均消费:{{item.avgxf}}元</view>
-      <view class="h5">{{item.miletxt}}</view>
+      <view class="h5 flex-1 margin-left-20">{{item.cat}}  </view>
+      
     </view>
   </view>
 

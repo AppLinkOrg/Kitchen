@@ -3,12 +3,13 @@
     <image style='width:120rpx;height:120rpx' mode="aspectFill" class='sjimg  margin-left-20' src='{{uploadpath}}shop/{{currentshop.img}}'></image>
   </view>
   <view class=" padding-20 flex-wrap" bindtap=''>
-    <view class=" txt-black txt-bold">{{currentshop.name}}<text class="h6">配送时间:{{currentshop.avgsj}}分钟</text></view>
+    <view class=" txt-black txt-bold">{{currentshop.name}}</view>
+    <text class="h6">配送时间:{{currentshop.avgsj}}分钟        满99元免配送费 </text>
     <view class="flex-row flex-center ">
       <view style='width:60rpx;'>
-        <image class='icon-25   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
+        <image class='icon   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
       </view>
-      <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%'>{{currentshop.activity}}</view>
+      <view class="padding-top-10  padding-bottom-20 margin-left-10 " style='width:100%'>{{currentshop.activity}}</view>
     </view>
   </view>
   <view class="flex-1"></view>
@@ -34,11 +35,11 @@
         <view class="flex-row flex-center margin-left   ">
           <view class="gwccc" bindtap='bindclosedetails2' wx:if="{{caipinzonshu!=0&&caipinzonshu!=''&&caipinzonshu!=undefind}}">{{caipinzonshu}}</view>
           <view class="margin-left" bindtap='bindclosedetails2'>
-            <image class='icon-40' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:10rpx'></image>
+            <image  class='icon-40 {{tiaodon==1?"tiaodon":""}}' bindtap='tiaodon' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:10rpx'></image>
           </view>
           <view class="margin-left-50    " style=''>
             <view class="h4 txt-white">￥{{totalprice1}}</view>
-            <view class="h6 " style='color:#a7a4a9'>另需配送费￥5</view>
+            <view class="h6 " style='color:#a7a4a9'>另需配送费￥{{psf}}</view>
           </view>
           <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:243rpx'>去结算</view>
         </view>
@@ -78,14 +79,14 @@
 
               <view style=''>
                 <view wx:for="{{item.goods}}" wx:key="k2" wx:for-item="goods" wx:for-index="idx" class='flex-row flex-center margin-top margin-bottom-20' id="{{goods.goods_id}}" style=''>
-                  <view bindtap='selectgoods1' id="{{goods.goods_id}}" data-id='{{goods.qwe}}'>
+                  <view bindtap='{{goods.shelves_value=="Y"?"":"selectgoods1"}}' id="{{goods.goods_id}}" data-id='{{goods.qwe}}'>
                     <image class="zhaopian" src='{{uploadpath}}goods/{{goods.goods_photo}}'></image>
                   </view>
                   <view class='margin-right'></view>
                   <view class='flex-1'>
                     <view class=' txt-bold'>{{goods.goods_name}}</view>
 
-                    <view style='' class='h5 txt-gray margin-top-10 margin-bottom-10'>月销量:{{goods.qwe}}</view>
+                    <view style='' class='h5 txt-gray margin-top-10 margin-bottom-10'>月销量:{{goods.sales}}</view>
 
                     <view class='flex-row flex-center'>
                       <view class='flex-1 txt-bold'>¥{{goods.goods_price}}
@@ -107,13 +108,14 @@
 
                       </view>
                       <!-- <view wx:if="{{goods.ifnum>0}}">{{goods.ifnum}}</view> -->
-                      <view wx:if="{{goods.haveattr==0}}" bindtap='selectgoods' id="{{goods.goods_id}}">
+                      <view wx:if="{{goods.haveattr==0&&goods.shelves_value!='Y'}}" bindtap='selectgoods' id="{{goods.goods_id}}">
                         <image class="icon-25 padding-left-20" src='{{uploadpath}}resource/{{res.zengjia}}'></image>
                       </view>
 
-                      <view wx:if="{{goods.haveattr!=0}}" class="guige1 h5" bindtap='selectgoods' id="{{goods.goods_id}}">
+                      <view wx:if="{{goods.haveattr!=0&&goods.shelves_value!='Y'}}" class="guige1 h5" bindtap='selectgoods' id="{{goods.goods_id}}">
                         规格
                       </view>
+                    <view wx:if="{{goods.shelves_value=='Y'}}" class="guqin h5">估清</view>
 
                     </view>
                   </view>
@@ -211,9 +213,9 @@
       </view>
       <view class="flex-row flex-center ">
         <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.dianhua}}'></image>
+          <image class='icon-25 '  src='{{uploadpath}}resource/{{res.dianhua}}'></image>
         </view>
-        <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.tel}}</view>
+        <view  id="{{currentshop.tel}}" bindtap='dadianhua' class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.tel}}</view>
       </view>
       <view class="flex-row flex-center ">
         <view style='width:60rpx;'>
@@ -393,7 +395,7 @@
           </view>
           <view class="margin-left-50 " style='margin-top:12rpx'>
             <view class="h4 txt-white">￥{{totalprice1}}</view>
-            <view class="h6" style='color:#a7a4a9'>另需配送费￥5</view>
+            <view class="h6" style='color:#a7a4a9'>另需配送费￥{{psf}}</view>
           </view>
           <view bindtap='gotoConfirm' class=" txt-white" style='margin-left:245rpx;margin-top:15rpx'>去结算</view>
         </view>

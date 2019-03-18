@@ -49,9 +49,15 @@
       <view class=''>
         {{shop.name}}
       </view>
+
+<view></view>
+
+         <!-- <view>预留电话</view>
+      <view >姓名</view> -->
       <view class='h6 txt-gray'>
         {{shop.address}}
       </view>
+   
     </view>
     <view>
       <image class='icon ' bindtap='openMap' id="{{shop.address}}" src='{{uploadpath}}resource/{{res.dinwei}}'></image>
@@ -77,6 +83,9 @@
     </view>
   </view> -->
 
+     
+     
+ 
 </view>
 <!-- 订单信息部分 -->
 <view class="padding-20 margin-top-5 bg">
@@ -95,7 +104,7 @@
     <view class="flex-row flex-center margin-top-10" wx:if="{{expresstype=='B'}}">
       <view class="flex-3 flex-wrap flex-center">
         <view class="h5 txt-bold">配送费</view>
-        <view class="h6 txt-orange">面价满{{instinfo.expressfreeup}}元免配送费</view>
+        <view class="h6 txt-orange">价格满{{instinfo.expressfreeup}}元免配送费</view>
       </view>
       <view class="flex-1"></view>
       <view class="flex-1 text-right">￥{{totalprice>=instinfo.expressfreeup?0:instinfo.expressfee}}</view>
@@ -103,7 +112,7 @@
 
   </view>
   <view class="flex-row margin-top-20">
-  
+
     <view class="flex-1"></view>
     <view>
       合计
@@ -115,6 +124,10 @@
 
   </view>
   <view class="padding-20">
+
+   
+
+
     <view>备注:</view>
     <view class="flex-row flex-center">
       <view class="flex-1"></view>
@@ -129,5 +142,6 @@
       <view class="flex-2 txt-bold bg">￥{{totalprice+((expresstype=='B'&&totalprice
         <instinfo.expressfreeup)?instinfo.expressfee:0)}}</view>
       </view>
-      <view class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
+      <view wx:if="{{shop.theamount<=totalprice}}" class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
+      <view wx:if="{{shop.theamount>totalprice}}" class="flex-2 text-center  txt-white xm" style='background-color:#B3B3B3'>去支付</view>
     </view>

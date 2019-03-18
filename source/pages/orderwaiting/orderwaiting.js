@@ -26,53 +26,93 @@ class Content extends AppBase {
     super.onLoad(options);
   }
   onMyShow() {
+    wx.getLocation({
+      type: 'wgs84',
+      success: (res) => {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy
+        var that = this;
+        var shopapi = new ShopApi();
+        shopapi.orderinfo({ id: this.Base.options.id }, (info) => {
+
+          info.amount = parseFloat(info.amount);
+
+          this.Base.setMyData({ info });
+          shopapi.orderitem({ order_id: this.Base.options.id }, (orderitem) => {
+            this.Base.setMyData({ orderitem });
 
 
 
-    var that = this;
-    var shopapi = new ShopApi();
-    shopapi.orderinfo({id:this.Base.options.id},(info)=>{
-    console.log("465465464"+info.amount);
-      info.amount = parseFloat(info.amount);
-     
-      this.Base.setMyData({info});
-      shopapi.orderitem({ order_id: this.Base.options.id }, (orderitem) => {
-        this.Base.setMyData({ orderitem });
+            shopapi.shopinfo({ id: this.Base.options.shop_id }, (shop) => {
 
 
-       
-        shopapi.shopinfo({ id: this.Base.options.shop_id }, (shop) => {
 
-          var sj = new Date(info.pay_time);
-          console.log((new Date()).getTime());
+
+
+              var didian = [];
+              var didian1 = {};
+              var didian2 = {};
+              info.pay_time = info.pay_time.replace(/-/g, '/');
+              var sj = new Date(info.pay_time);
+              console.log(info.pay_time);
           
-          console.log((new Date()));
-          console.log(sj);
-          var ziti_time = new Date((sj).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
-          var songhuo_time = new Date((sj).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
+              var ziti_time = new Date((sj).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
+              var songhuo_time = new Date((sj).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
 
-          shop.ziti = ziti_time.getHours() + ":" + ziti_time.getMinutes();
-          shop.songhuo = songhuo_time.getHours() + ":" + songhuo_time.getMinutes();
 
-          this.Base.setMyData({ shop });
-          //GetDistance
+              console.log(ziti_time);
+              
+
+              shop.ziti = ziti_time.getHours() + ":" + ziti_time.getMinutes();
+              shop.songhuo = songhuo_time.getHours() + ":" + songhuo_time.getMinutes();
+              didian1.longitude = shop.lng;
+              didian1.latitude = shop.lat;
+              didian1.width = 30;
+              didian1.height = 30;
+              didian1.iconPath = "/images/icons/dinwei.png",
+                didian1.color = '#FF0000DD';
+              didian1.label =  {
+                content: "商家",
+                  
+                    display: 'ALWAYS',
+                      textAlign: 'center',
+              }
+              didian2.label = {
+                content: "我的",
+
+                display: 'ALWAYS',
+                textAlign: 'center',
+              }
+
+                   
+
+
+              didian2.longitude = res.longitude;
+              didian2.latitude = res.latitude;
+              didian2.width = 30;
+              didian2.height = 30;
+              didian2.iconPath = "/images/icons/wode.png",
+                didian2.color = '#FF0000DD';
+              didian.push(didian1);
+              didian.push(didian2);
+
+              this.Base.setMyData({ shop, didian });
+              //GetDistance
+            });
+          });
         });
 
+      }
+
+    })
+   
 
 
-
-
-
-
-      });
-    });
-
+   
   }
 djs(){
-
-  
-
-  
   var that = this;
   this.timer = setInterval(() => {
 
