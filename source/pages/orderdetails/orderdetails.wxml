@@ -16,7 +16,7 @@
   <view>
     <view class='v1 flex-row flex-center' bindtap='changeExpress'>
       <view class="v2   h5 {{expresstype=='A'?'avt':'hei'}}">自提</view>
-      <view class="v2  h5 {{expresstype=='B'?'avt':'hei'}}">送货</view>
+      <view class="v2  h5 {{expresstype=='B'?'avt':'hei'}}">送餐</view>
     </view>
   </view>
 </view>

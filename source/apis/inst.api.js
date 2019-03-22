@@ -49,6 +49,7 @@ export class InstApi{
         var header = ApiConfig.GetHeader();
         console.log(header);
         console.log(json);
+        
         wx.request({
             url: ApiConfig.GetApiUrl() + 'inst/indexbanner',
             data: json,

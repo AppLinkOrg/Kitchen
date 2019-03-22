@@ -33,13 +33,15 @@ class Content extends AppBase {
         var longitude = res.longitude
         var speed = res.speed
         var accuracy = res.accuracy
+        var zitima=0;
         var that = this;
         var shopapi = new ShopApi();
         shopapi.orderinfo({ id: this.Base.options.id }, (info) => {
-
+          var aaaa = info.orderno;
+          zitima = aaaa.substr(aaaa.length - 4);
           info.amount = parseFloat(info.amount);
-
-          this.Base.setMyData({ info });
+          
+          this.Base.setMyData({ info,zitima:zitima });
           shopapi.orderitem({ order_id: this.Base.options.id }, (orderitem) => {
             this.Base.setMyData({ orderitem });
 

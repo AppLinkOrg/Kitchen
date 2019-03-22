@@ -22,7 +22,7 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    this.Base.needauth = false;
+    this.Base.needauth = true;
     this.Base.Page = this;
     //options.id=5;
     this.Base.setMyData({ num: 1, xz: 0,istrue: true, istrue1: true, istrue2: true, qweqwe: true, })
@@ -78,7 +78,7 @@ class Content extends AppBase {
         var qwe555=this.Base.options.ydd;
         var canshu555='';
         if (qwe555 == 1) {
-          canshu555 = shoplist[i].ydd_menu_id;
+          canshu555 = shoplist[i].menu_id;
         }
         else{
           canshu555 = shoplist[i].menu_id;
@@ -586,7 +586,7 @@ this.tiaodon();
       if(ydd==1)
       {
 wx.navigateTo({
-  url: '/pages/advanceorder/advanceorder?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id
+  url: '/pages/orderdetails/orderdetails?shop_id=' + AppBase.SHOPID + "&orderids=" + ids + "&menu_id=" + currentshop.menu_id
     + "&ydd=" + this.Base.options.ydd,
 })
       }

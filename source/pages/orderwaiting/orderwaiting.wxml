@@ -103,7 +103,7 @@
       </view>
       <view class="flex-row flex-center text-center">
         <view class="flex-1"></view>
-        <view class="h4 margin-top-10 txt-bold">取餐码:4005</view>
+        <view class="h4 margin-top-10 txt-bold">取餐码:{{zitima}}</view>
         <view class="flex-1"></view>
       </view>
       <view class="flex-row flex-center margin-20 text-center">

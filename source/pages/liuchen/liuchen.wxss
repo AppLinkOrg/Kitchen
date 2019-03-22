@@ -1,0 +1,10 @@
+.yc{
+z-index: -1;
+  position: absolute;
+}
+.qqq{
+
+   position: absolute;
+  bottom: 20rpx;
+  width:100%;
+}

@@ -59,7 +59,7 @@ class Content extends AppBase {
 
     var address_id = this.Base.getMyData().address_id;
     var memberinfo = this.Base.getMyData().memberinfo;
-    if (address_id == undefined) {
+    if (address_id == undefined || address_id==0) {
       this.Base.setMyData({ address_id: memberinfo.defaultaddress })
       address_id = memberinfo.defaultaddress;
     }
@@ -176,25 +176,25 @@ class Content extends AppBase {
       }
     }
     else {
-      // if (data.address_id == 0) {
-      //   wx.showModal({
-      //     title: '提示',
-      //     content: '请完善地址信息',
-      //     success: function (res) {
-      //       if (res.confirm) {
-      //         wx.navigateTo({
-      //           url: '/pages/addressmgr/addressmgr',
-      //         })
-      //       } else {
+      if (data.address_id == 0) {
+        wx.showModal({
+          title: '提示',
+          content: '请选择一个默认地址',
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/addressmgr/addressmgr',
+              })
+            } else {
               
-      //       }
-      //     }
-      //   })
+            }
+          }
+        })
 
         
        
-      //   return;
-      // }
+        return;
+      }
       data.delivery_time = sdata.zitisj;
     }
 

@@ -4,7 +4,7 @@
 
 
 <view class='padding-20' >
-  <view class='padding-10 txt-black'>您的建议使我们前进的方向，有您的帮助我们才能走的更远</view>
+  <view class='padding-10 txt-black'>您的建议是我们前进的方向，有您的帮助我们才能走的更远</view>
   <view class='txt-gray h5 padding-10'>请仔细写下您的宝贵意见</view>
   <textarea class='bg-gray padding-10 h5' name='yuanyin' maxlength='300' style='border-radius:10rpx;width:97%;'></textarea>
 </view>

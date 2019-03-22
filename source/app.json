@@ -1,8 +1,9 @@
 {
   "pages": [
+
     "pages/welcome/welcome",
     "pages/test/test",
-   
+   "pages/liuchen/liuchen",
    "pages/advanceorder/advanceorder",
    
     

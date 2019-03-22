@@ -24,8 +24,10 @@ class Content extends AppBase {
     // wx.navigateTo({
     //   url: '/pages/advanceorder/advanceorder?ydd=1',
     // })
-
-    this.Base.info("敬请期待");
+wx.navigateTo({
+  url: '/pages/liuchen/liuchen?ydd=1',
+})
+ 
     // wx.navigateTo({
     //   url: '/pages/shopchoose/shopchoose?ydd=1',
     // })
