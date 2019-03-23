@@ -75,6 +75,7 @@ export class ApiUtil {
   }
 
   static FormatDateTime(date){
+    console.log("FormatDateTime"+date);
     var year = ApiUtil.ten2(date.getFullYear());
     var month = ApiUtil.ten2(date.getMonth() + 1);
     var datec = ApiUtil.ten2(date.getDate());
@@ -82,7 +83,10 @@ export class ApiUtil {
     var minute = ApiUtil.ten2(date.getMinutes());
     var second = ApiUtil.ten2(date.getSeconds());
 
-    return year + "-" + month + "-" + datec+" "+hour+":"+minute+":"+second;
+    var v= year + "-" + month + "-" + datec+" "+hour+":"+minute+":"+second;
+
+    console.log("FormatDateTime=" + v);
+    return v;
   }
 
   static ten2(i){

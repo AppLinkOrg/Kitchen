@@ -49,14 +49,16 @@ class Content extends AppBase {
       var ydd = this.Base.options.ydd;
 
 
-      if (ydd != undefined) {
+      if (ydd != undefined&&ydd!='undefined') {
+        console.log("ydd" + ydd);
         var ydd = new Date(ydd);
 
         var ziti_time = new Date((ydd).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
         var songhuo_time = new Date((ydd).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
       }
       else {
-        
+
+        console.log("ziti_time" + ziti_time);
 
         var ziti_time = new Date((new Date()).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
         var songhuo_time = new Date((new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000); 
