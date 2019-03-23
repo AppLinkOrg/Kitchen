@@ -1,28 +1,25 @@
 {
   "pages": [
-
     "pages/welcome/welcome",
+    "pages/orderwaiting/orderwaiting",
+    "pages/orderlist/orderlist",
     "pages/test/test",
-   "pages/liuchen/liuchen",
-   "pages/advanceorder/advanceorder",
-   
-    
+    "pages/liuchen/liuchen",
+    "pages/advanceorder/advanceorder",
+    "pages/orderdetails/orderdetails",
     "pages/customerd/customerd",
     "pages/rechargerd/rechargerd",
     "pages/recharge/recharge",
     "pages/wallet/wallet",
     "pages/feedback/feedback",
-    "pages/orderwaiting/orderwaiting",
     "pages/comment/comment",
     "pages/menu/menu",
     "pages/shopchoose/shopchoose",
     "pages/cart/cart",
-    "pages/orderdetails/orderdetails",
     "pages/addressmgr/addressmgr",
     "pages/address/address",
     "pages/addressselect/addressselect",
     "pages/member/member",
-    "pages/orderlist/orderlist",
     "pages/goods/goods",
     "pages/home/home",
     "pages/content/content",

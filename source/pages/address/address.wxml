@@ -6,7 +6,7 @@
 <input type='hidden' value='{{label}}' name="label" hidden='1'></input>
 <input type='hidden' value='{{id}}' name="primary_id" hidden='1'></input>
 <input type='hidden' value='{{isdefault}}' name="isdefault" hidden='1'></input>
-      <input class='h5' name="address" value='{{address}}' placeholder='请输入收货地址' disabled='{{true}}' hidden='1' />
+      <input class='h5' name="address" value='{{address}}' placeholder='请输入送餐地址' disabled='{{true}}' hidden='1' />
 <view class='padding-20'>
   <view class='flex-row flex-center padding-bottom border-bottom'>
     <view class='f txt-gray h5'>联系人</view>

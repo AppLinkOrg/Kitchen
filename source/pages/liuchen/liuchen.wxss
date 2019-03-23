@@ -5,6 +5,6 @@ z-index: -1;
 .qqq{
 
    position: absolute;
-  bottom: 20rpx;
-  width:100%;
+  bottom: 0rpx;
+  width:100vw;
 }

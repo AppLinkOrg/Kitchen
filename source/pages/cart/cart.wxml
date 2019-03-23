@@ -16,7 +16,7 @@
     <image class='icon-25 margin-left-20' src='{{uploadpath}}resource/{{res.dinwei}}'></image>
   </view>
   <view class=" padding-20 flex-1" bindtap='chooseShop'>
-    <view class="h5 txt-black">{{currentshop.name}}<text class="h5 txt-black" wx:if="{{!is}}">(本店已打烊)</text></view>
+    <view class="h5 txt-black">{{currentshop.name}}<text class="h5 txt-black" wx:if="{{!is}}">非营业时间 {{currentshop.openningstr}}</text></view>
     <view class='flex-row flex-bottom'>
       <view class="h6 txt-gray flex-1">{{currentshop.address}}</view>
       <view class="h6 txt-gray">距您 {{currentshop.miletxt}}</view>

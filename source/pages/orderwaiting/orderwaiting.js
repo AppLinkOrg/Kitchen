@@ -15,7 +15,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.order_id=11;
+    //options.id = 32;
    
     
 
@@ -38,6 +38,7 @@ class Content extends AppBase {
         var shopapi = new ShopApi();
         shopapi.orderinfo({ id: this.Base.options.id }, (info) => {
           var aaaa = info.orderno;
+          //info.status='K';
           zitima = aaaa.substr(aaaa.length - 4);
           info.amount = parseFloat(info.amount);
           

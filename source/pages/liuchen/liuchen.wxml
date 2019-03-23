@@ -1,7 +1,15 @@
 <image class="yc" style="width:750rpx;height:1334rpx" src="{{uploadpath}}resource/{{res.liuchen}}"></image>
-<view class="flex-row  text-center flex-center qqq " >
-<button class='text-center bg-primary txt-white flex-1' form-type='submit' bindtap='ydd' hover-class='bg-primary-1'  style='border-radius:10rpx;'>预定明天订单</button>
+<view class=' qqq'>
+  <view class='padding'>
+    <view class="flex-row  text-center flex-center  ">
+      <view class='flex-1'>
 
-<button class='text-center margin-left-20 bg-primary txt-white  flex-1' bindtap='ssxd' form-type='submit' hover-class='bg-primary-1'  style='border-radius:10rpx;'>我要实时下单</button>
+        <button class='text-center txt-bold bg-primary txt-white' form-type='submit' bindtap='ydd' hover-class='bg-primary-1' style='border-radius:10rpx;'>预定明天订单</button>
+      </view>
+      <view class='flex-1'>
 
+        <button class='text-center txt-bold margin-left-20 bg-primary txt-white ' bindtap='ssxd' form-type='submit' hover-class='bg-primary-1' style='border-radius:10rpx;'>我要实时下单</button>
+      </view>
+    </view>
+  </view>
 </view>

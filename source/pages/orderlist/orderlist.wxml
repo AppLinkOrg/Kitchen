@@ -58,9 +58,9 @@
 
 
   <view wx:if="{{item.status=='P'}}" class="padding-20 bg  ">
-    <view class="flex-row">
-      <view class="txt-black flex-3">{{item.shop_name}}</view>
-      <view class="h7 flex-1">{{item.submit_time_formatting}}</view>
+    <view class="flex-row flex-bottom">
+      <view class="txt-black flex-1">{{item.shop_name}}</view>
+      <view class="h7 ">{{item.submit_time_formatting}}</view>
     </view>
     <view class="flex-row margin-top-10">
       <view class="h5">{{item.goodssummary}}</view>

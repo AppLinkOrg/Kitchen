@@ -74,12 +74,37 @@ export class ApiUtil {
     toast.present();
   }
 
-  static FormatDateTime(val) {
-    return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
-      " " + val.getHours() + ":" + val.getMinutes() ;
+  static FormatDateTime(date){
+    var year = ApiUtil.ten2(date.getFullYear());
+    var month = ApiUtil.ten2(date.getMonth() + 1);
+    var datec = ApiUtil.ten2(date.getDate());
+    var hour = ApiUtil.ten2(date.getHours());
+    var minute = ApiUtil.ten2(date.getMinutes());
+    var second = ApiUtil.ten2(date.getSeconds());
+
+    return year + "-" + month + "-" + datec+" "+hour+":"+minute+":"+second;
   }
+
+  static ten2(i){
+    i=parseInt(i);
+    if(i>9){
+      return i.toString();
+    }else{
+      return "0"+i.toString();
+    }
+  }
+
   static FormatDate(val) {
-    return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
+    var date=ApiUtil.FormatDateTime(val);
+    return date.substring(0,12);
+  }
+  static FormatTime(val) {
+    var date = ApiUtil.FormatDateTime(val);
+    return date.substring(11, 19);
+  }
+  static FormatTime2(val) {
+    var date = ApiUtil.FormatDateTime(val);
+    return date.substring(11, 16);
   }
 
 //判断当前时间是否在制定时间内

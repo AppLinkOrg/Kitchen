@@ -18,6 +18,11 @@ class Content extends AppBase {
     super.onLoad(options);
     this.Base.setMyData({ SHOPID: AppBase.SHOPID});
   }
+  setPageTitle(){
+    wx.setNavigationBarTitle({
+      title: "外卖",
+    })
+  }
   onMyShow() {
     var that = this;
     this.Base.getAddress((location) => {

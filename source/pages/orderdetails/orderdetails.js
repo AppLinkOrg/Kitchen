@@ -16,11 +16,17 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    //options = {  shop_id: "2", menu_id: "2", orderids: "8" };
+    //options = {  shop_id: "4", menu_id: "2", orderids: "8" };
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "" });
+
+    var zitiname = wx.getStorageSync("zitiname");
+    console.log({ zitiname});
+    var zitimobile = wx.getStorageSync("zitimobile");
+    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
+
+
   }
   onMyShow() {
     var that = this;
@@ -28,31 +34,39 @@ class Content extends AppBase {
     shopapi.shopinfo({ id: this.Base.options.shop_id }, (shop) => {
 
 
+      var date = new Date();
+      date = new Date(date.getTime() + parseInt(shop.ziti_minute)*1000*60);
+      console.log("ziti_start" + date);
+      var ziti_start = ApiUtil.FormatTime2(date);
+      console.log("ziti_start"+ziti_start);
+
+      var openning = shop.openning.split("-");
+      if (ziti_start > openning[1]){
+        ziti_start=openning[1];
+      }
+      this.Base.setMyData({ zititime: ziti_start, zitistarttime: ziti_start, zitiendtime: openning[1]})
+
       var ydd = this.Base.options.ydd;
 
 
-      if (ydd != "undefined") {
+      if (ydd != undefined) {
         var ydd = new Date(ydd);
 
         var ziti_time = new Date((ydd).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
-
         var songhuo_time = new Date((ydd).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
-        var sondasj = this.Base.util.FormatDateTime(songhuo_time);
-        var zitisj = this.Base.util.FormatDateTime(ziti_time);
       }
       else {
-
+        
 
         var ziti_time = new Date((new Date()).getTime() + parseInt(shop.ziti_minute) * 60 * 1000);
-        var songhuo_time = new Date((new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000);
-        var sondasj = this.Base.util.FormatDateTime(songhuo_time);
-        var zitisj = this.Base.util.FormatDateTime(ziti_time);
+        var songhuo_time = new Date((new Date()).getTime() + parseInt(shop.songhuo_minute) * 60 * 1000); 
 
       }
-      shop.ziti = ziti_time.getHours() + ":" + (ziti_time.getMinutes() > 9 ? ziti_time.getMinutes() : "0" + ziti_time.getMinutes());
-      shop.songhuo = songhuo_time.getHours() + ":" + (songhuo_time.getMinutes() > 9 ? songhuo_time.getMinutes() : "0" + songhuo_time.getMinutes());
+      console.log("ziti_time"+ziti_time);
+      shop.ziti = ApiUtil.FormatTime2(ziti_time);
+      shop.songhuo = ApiUtil.FormatTime2(songhuo_time);
 
-      this.Base.setMyData({ shop, zitisj: zitisj, sondasj: sondasj });
+      this.Base.setMyData({ shop });
       //GetDistance
     });
     this.setCurrent();
@@ -164,41 +178,25 @@ class Content extends AppBase {
       data.delivery_time = sdata.sondasj;
       if (data.address_id == 0) {
 
-        this.Base.info("请选择送货地址");
+        this.Base.info("请选择送餐地址");
         return;
       } else {
         var meter = this.Base.util.GetDistance(sdata.shop.lat, sdata.shop.lng, sdata.addressinfo.lat, sdata.addressinfo.lng);
         console.log(meter);
         if (meter > parseInt(sdata.shop.deliverymeter)) {
-          this.Base.info("送货地址超出了范围");
+          this.Base.info("送餐地址超出了范围");
           return;
         }
       }
     }
     else {
-      if (data.address_id == 0) {
-        wx.showModal({
-          title: '提示',
-          content: '请选择一个默认地址',
-          success: function (res) {
-            if (res.confirm) {
-              wx.navigateTo({
-                url: '/pages/addressmgr/addressmgr',
-              })
-            } else {
-              
-            }
-          }
-        })
-
-        
-       
-        return;
-      }
+      
       data.delivery_time = sdata.zitisj;
     }
 
-
+    data.zititime=sdata.zititime;
+    data.zitiname=sdata.zitiname;
+    data.zitimobile=sdata.zitimobile;
 
     api.prepay(data, (ret) => {
       console.log(ret);
@@ -216,6 +214,25 @@ class Content extends AppBase {
 
     this.Base.setMyData({ beizhu: e.detail.value })
   }
+  bindZitiTimeChange(e){
+    console.log(e);
+    var zititime=e.detail.value;
+    this.Base.setMyData({zititime});
+  }
+  bindZitName(e){
+    var zitiname=e.detail.value;
+    wx.setStorage({
+      key: 'zitiname',
+      data: zitiname,
+    })
+  }
+  bindZitMobile(e) {
+    var zitimobile = e.detail.value;
+    wx.setStorage({
+      key: 'zitimobile',
+      data: zitimobile,
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -225,6 +242,9 @@ body.calc = content.calc;
 body.setCurrent = content.setCurrent;
 body.payment = content.payment;
 body.changeExpress = content.changeExpress;
-body.selecteat = content.selecteat;
-body.bindremark = content.bindremark;
+body.selecteat = content.selecteat; 
+body.bindremark = content.bindremark; 
+body.bindZitiTimeChange = content.bindZitiTimeChange;
+body.bindZitName = content.bindZitName;
+body.bindZitMobile = content.bindZitMobile;
 Page(body)
