@@ -189,7 +189,7 @@ var tjdzzzz=[];
     var sdata = this.Base.getMyData();
   
     data.eat = sdata.eat;
-    if (sdata.tjdz == "" || sdata.tjdz == null || sdata.tjdz==undefined)
+    if (sdata.tjdz == "" || sdata.tjdz == null || sdata.tjdz == undefined || sdata.tjdz==-1)
     {
       data.address_id = sdata.address_id;
       console.log(1);

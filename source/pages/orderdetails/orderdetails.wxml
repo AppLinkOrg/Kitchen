@@ -1,5 +1,5 @@
 <!-- 顶部 -->
-<view class="flex-center flex-row padding-20 bg" wx:if="{{shop!=undefined}}" >
+<view class="flex-center flex-row padding-20 bg" wx:if="{{shop!=undefined}}">
   <view class="">
     <view class="flex-bottom flex-row flex-center text-right">
       {{expresstype=='A'?'立即可取':'送出时间'}}
@@ -23,30 +23,33 @@
 <!-- 配送信息部分 -->
 <view class="padding-20 margin-top-5 bg" wx:if="{{expresstype=='B'}}">
   <view class="h5 txt-bold">配送信息</view>
+  <view class="flex-row" style='width:100%'>
+    <image class='icon margin-top-20   ' id="-1" bindtap='tjdz' wx:if="{{-1!=tjdz}}" src='{{uploadpath}}resource/{{res.buxuanzhonghui}}'></image>
+     <image class='icon margin-top-20   ' id="-1" bindtap='tjdz' wx:if="{{-1==tjdz}}" src='{{uploadpath}}resource/{{res.xuanzhonghui}}'></image>
+    <navigator url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-row flex-1 margin-top-10 flex-center'>
+      <view class='flex-1' wx:if="{{address_id>0}}">
+        <view class='h5'>
+          {{addressinfo.address}} {{addressinfo.menpai}}
+        </view>
+        <view class='h6 txt-gray'>
+          {{addressinfo.mobile}} {{addressinfo.name}}
+        </view>
+      </view>
+      <view url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-1 h5 txt-gray' wx:if="{{address_id==0}}">
+        请选择送餐地址
+      </view>
+      <view url='/pages/addressmgr/addressmgr?needreturn=Y' class='margin-left'>
+        <image class='icon ' src='{{uploadpath}}resource/{{res.you}}'></image>
+      </view>
+    </navigator>
+  </view>
+  <view class="h6 txt-orange">选择推荐送餐点立免配送费</view>
+  <view bindtap='tjdz' id="{{item.id}}" wx:for="{{tjdizhi}}" class="flex-row " wx:key="k" wx:for-index='idx'>
+    <image class='icon ' wx:if="{{item.id!=tjdz}}" src='{{uploadpath}}resource/{{res.buxuanzhonghui}}'></image>
+    <image class='icon ' wx:if="{{item.id==tjdz}}" src='{{uploadpath}}resource/{{res.xuanzhonghui}}'></image>
+    <view>推荐地址{{idx+1}}:{{item.address}}</view>
 
-  <navigator url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-row margin-top-10 flex-center'>
-     <view class='flex-1' wx:if="{{address_id>0}}">
-      <view class='h5'>
-        {{addressinfo.address}} {{addressinfo.menpai}}
-      </view>
-      <view class='h6 txt-gray'>
-        {{addressinfo.mobile}} {{addressinfo.name}}
-      </view>
-    </view>
-    <view url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-1 h5 txt-gray' wx:if="{{address_id==0}}">
-      请选择送餐地址
-    </view>
-    <view url='/pages/addressmgr/addressmgr?needreturn=Y' class='margin-left'>
-      <image class='icon ' src='{{uploadpath}}resource/{{res.you}}'></image>
-    </view>
-  </navigator>
- <view class="h6 txt-orange">选择推荐送餐点立免配送费</view>
- <view bindtap='tjdz' id="{{item.id}}" wx:for="{{tjdizhi}}" class="flex-row " wx:key="k" wx:for-index='idx' >
-  <image  class='icon ' wx:if="{{item.id!=tjdz}}" src='{{uploadpath}}resource/{{item.cansales=="Y"?res.buxuanzhong:res.buxuanzhonghui}}'></image>
-  <image  class='icon ' wx:if="{{item.id==tjdz}}" src='{{uploadpath}}resource/{{item.cansales=="Y"?res.buxuanzhong:res.xuanzhonghui}}'></image>
-  <view>推荐地址{{idx+1}}:{{item.address}}</view>
- 
- </view>
+  </view>
 </view>
 
 <!-- 配送信息部分 -->
@@ -147,7 +150,7 @@
         <view class="h6 txt-orange">价格满{{instinfo.expressfreeup}}元免配送费</view>
       </view>
       <view class="flex-1"></view>
-      <view class="flex-1 text-right">￥{{totalprice>=instinfo.expressfreeup||tjdz!=''?0:instinfo.expressfee}}</view>
+      <view class="flex-1 text-right">￥{{totalprice>=instinfo.expressfreeup||(tjdz!=''&&tjdz!=-1)?0:instinfo.expressfee}}</view>
     </view>
 
   </view>
@@ -158,7 +161,8 @@
       合计
     </view>
     <view class="txt-bold">
-      ￥{{totalprice+(((expresstype=='B'&&totalprice< instinfo.expressfreeup)&&tjdz=='')?instinfo.expressfee:0)}} </view>
+      ￥{{totalprice+(((expresstype=='B'&&totalprice
+        < instinfo.expressfreeup)&&(tjdz==''||tjdz==-1))?instinfo.expressfee:0)}} </view>
     </view>
 
   </view>
@@ -178,7 +182,8 @@
   <view class="flex-row flex-center jiesuan">
     <view class="flex-row  flex-3 bg  xm ">
       <view class="flex-1 margin-left-20 ">还需支付</view>
-      <view class="flex-2 txt-bold bg">￥{{totalprice+(((expresstype=='B'&&totalprice< instinfo.expressfreeup)&&tjdz=='')?instinfo.expressfee:0)}}</view>
+      <view class="flex-2 txt-bold bg">￥{{totalprice+(((expresstype=='B'&&totalprice
+        < instinfo.expressfreeup)&&(tjdz==''||tjdz==-1))?instinfo.expressfee:0)}}</view>
       </view>
       <view wx:if="{{shop.theamount<=totalprice}}" class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
       <view wx:if="{{shop.theamount>totalprice}}" class="flex-2 text-center  txt-white xm" style='background-color:#B3B3B3'>去支付</view>
