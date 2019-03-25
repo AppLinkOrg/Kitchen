@@ -86,7 +86,7 @@
                   <view class='flex-1'>
                     <view class=' txt-bold'>{{goods.goods_name}}</view>
 
-                    <view style='' class='h5 txt-gray margin-top-10 margin-bottom-10'>月销量:{{goods.sales}}</view>
+                    <view style='' class='h6 txt-gray margin-top-10 margin-bottom-10'>月销量:{{goods.sales}} <block wx:if='{{goods.dailyreset>0}}'>剩余:{{goods.dailyreset-goods.dailysalesqty}}</block></view>
 
                     <view class='flex-row flex-center'>
                       <view class='flex-1 txt-bold'>¥{{goods.goods_price}}
