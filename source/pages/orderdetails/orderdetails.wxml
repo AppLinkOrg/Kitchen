@@ -25,7 +25,7 @@
   <view class="h5 txt-bold">配送信息</view>
 
   <navigator url='/pages/addressmgr/addressmgr?needreturn=Y' class='flex-row margin-top-10 flex-center'>
-    <view class='flex-1' wx:if="{{address_id>0}}">
+     <view class='flex-1' wx:if="{{address_id>0}}">
       <view class='h5'>
         {{addressinfo.address}} {{addressinfo.menpai}}
       </view>
@@ -41,6 +41,12 @@
     </view>
   </navigator>
  <view class="h6 txt-orange">选择推荐送餐点立免配送费</view>
+ <view bindtap='tjdz' id="{{item.id}}" wx:for="{{tjdizhi}}" class="flex-row " wx:key="k" wx:for-index='idx' >
+  <image  class='icon ' wx:if="{{item.id!=tjdz}}" src='{{uploadpath}}resource/{{item.cansales=="Y"?res.buxuanzhong:res.buxuanzhonghui}}'></image>
+  <image  class='icon ' wx:if="{{item.id==tjdz}}" src='{{uploadpath}}resource/{{item.cansales=="Y"?res.buxuanzhong:res.xuanzhonghui}}'></image>
+  <view>推荐地址{{idx+1}}:{{item.address}}</view>
+ 
+ </view>
 </view>
 
 <!-- 配送信息部分 -->
@@ -141,7 +147,7 @@
         <view class="h6 txt-orange">价格满{{instinfo.expressfreeup}}元免配送费</view>
       </view>
       <view class="flex-1"></view>
-      <view class="flex-1 text-right">￥{{totalprice>=instinfo.expressfreeup?0:instinfo.expressfee}}</view>
+      <view class="flex-1 text-right">￥{{totalprice>=instinfo.expressfreeup||tjdz!=''?0:instinfo.expressfee}}</view>
     </view>
 
   </view>
@@ -152,8 +158,7 @@
       合计
     </view>
     <view class="txt-bold">
-      ￥{{totalprice+((expresstype=='B'&&totalprice
-      <instinfo.expressfreeup)?instinfo.expressfee:0)}} </view>
+      ￥{{totalprice+(((expresstype=='B'&&totalprice< instinfo.expressfreeup)&&tjdz=='')?instinfo.expressfee:0)}} </view>
     </view>
 
   </view>
@@ -173,8 +178,7 @@
   <view class="flex-row flex-center jiesuan">
     <view class="flex-row  flex-3 bg  xm ">
       <view class="flex-1 margin-left-20 ">还需支付</view>
-      <view class="flex-2 txt-bold bg">￥{{totalprice+((expresstype=='B'&&totalprice
-        <instinfo.expressfreeup)?instinfo.expressfee:0)}}</view>
+      <view class="flex-2 txt-bold bg">￥{{totalprice+(((expresstype=='B'&&totalprice< instinfo.expressfreeup)&&tjdz=='')?instinfo.expressfee:0)}}</view>
       </view>
       <view wx:if="{{shop.theamount<=totalprice}}" class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
       <view wx:if="{{shop.theamount>totalprice}}" class="flex-2 text-center  txt-white xm" style='background-color:#B3B3B3'>去支付</view>

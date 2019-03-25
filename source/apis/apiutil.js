@@ -118,13 +118,15 @@ export class ApiUtil {
     mydate = mydate.getHours() + ":" + mydate.getMinutes();
     var sj = opening.split(",");
     for (var i = 0; i < sj.length; i++) {
-      sj[i] = sj[i].split("~");
+      sj[i] = sj[i].split("-");
       console.log(sj[i][0]);
       console.log(sj[i][1]);
       if (sj[i][0] < mydate && sj[i][1] > mydate) {
         whedate = true;
       }
       }
+      console.log(1111);
+    console.log(whedate);
     return whedate;
 }
 

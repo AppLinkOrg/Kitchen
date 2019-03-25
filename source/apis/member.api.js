@@ -105,6 +105,70 @@ export class MemberApi{
         })
     }
 
+    qianbaoxfall(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'member/qianbaoxfall',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
+    rideraccount(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'member/rideraccount',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     setvalue(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -115,6 +179,38 @@ export class MemberApi{
         console.log(json);
         wx.request({
             url: ApiConfig.GetApiUrl() + 'member/setvalue',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
+    updatastatus(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'member/updatastatus',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -211,38 +307,6 @@ export class MemberApi{
         console.log(json);
         wx.request({
             url: ApiConfig.GetApiUrl() + 'member/updatemobile',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    qianbaoxfall(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'member/qianbaoxfall',
             data: json,
             method: 'POST',
             dataType: 'json',

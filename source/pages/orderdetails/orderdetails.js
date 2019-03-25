@@ -24,13 +24,32 @@ class Content extends AppBase {
     var zitiname = wx.getStorageSync("zitiname");
     console.log({ zitiname});
     var zitimobile = wx.getStorageSync("zitimobile");
-    this.Base.setMyData({ totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
+    this.Base.setMyData({ tjdz:"", totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
 
 
   }
   onMyShow() {
+
+
     var that = this;
     var shopapi = new ShopApi();
+    
+var tjdzzzz=[];
+    shopapi.tjaddresslist({ shop_id: this.Base.options.shop_id},(tjdizhi)=>{
+
+      for(var i=0;i<tjdizhi.length;i++)
+      {
+        if(ApiUtil.checkInOpen(tjdizhi[i].tb_sj))
+        {
+          tjdzzzz.push(tjdizhi[i]);
+
+        }
+      }
+      console.log(tjdzzzz);
+      this.Base.setMyData({ tjdizhi: tjdzzzz})
+    })
+
+
     shopapi.shopinfo({ id: this.Base.options.shop_id }, (shop) => {
 
 
@@ -168,9 +187,22 @@ class Content extends AppBase {
     var api = new WechatApi();
     var data = this.Base.options;
     var sdata = this.Base.getMyData();
+  
     data.eat = sdata.eat;
-    data.expresstype = sdata.expresstype;
-    data.address_id = sdata.address_id;
+    if (sdata.tjdz == "" || sdata.tjdz == null || sdata.tjdz==undefined)
+    {
+      data.address_id = sdata.address_id;
+      console.log(1);
+      console.log(sdata.address_id);
+    }
+    else{
+      data.myf=true;
+      data.address_id = sdata.tjdz;
+      console.log(2);
+      console.log(sdata.tjdz);
+    }
+  
+   
     data.beizhu = sdata.beizhu;
     data.delivery_time = sdata.delivery_time;
     console.log(data);
@@ -179,7 +211,7 @@ class Content extends AppBase {
     if (data.expresstype == "B") {
       data.delivery_time = sdata.sondasj;
       if (data.address_id == 0) {
-
+ 
         this.Base.info("请选择送餐地址");
         return;
       } else {
@@ -235,6 +267,10 @@ class Content extends AppBase {
       data: zitimobile,
     })
   }
+  tjdz(e){
+  this.Base.setMyData({tjdz:e.currentTarget.id});
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -249,4 +285,5 @@ body.bindremark = content.bindremark;
 body.bindZitiTimeChange = content.bindZitiTimeChange;
 body.bindZitName = content.bindZitName;
 body.bindZitMobile = content.bindZitMobile;
+body.tjdz = content.tjdz;
 Page(body)
