@@ -40,6 +40,7 @@
       <image class='icon ' src='{{uploadpath}}resource/{{res.you}}'></image>
     </view>
   </navigator>
+ <view class="h6 txt-orange">选择推荐送餐点立免配送费</view>
 </view>
 
 <!-- 配送信息部分 -->

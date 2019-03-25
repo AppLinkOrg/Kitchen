@@ -43,7 +43,7 @@ var orderb= this.Base.getMyData().tab;
         console.log(shoplist);
         for (var i = 0; i < shoplist.length; i++) {
           shoplist[i].mile = this.Base.util.GetDistance(mylat, mylng, shoplist[i].lat, shoplist[i].lng);
-          
+          shoplist[i].sales = parseInt(shoplist[i].sales) + parseInt(shoplist[i].count1);
           shoplist[i].shop_score = (parseFloat(shoplist[i].shop_score).toFixed(1)); 
           shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
         }
@@ -77,7 +77,8 @@ var orderb= this.Base.getMyData().tab;
       }, (shoplist) => {
         for (var i = 0; i < shoplist.length; i++) {
           shoplist[i].mile = this.Base.util.GetDistance(mylat, mylng, shoplist[i].lat, shoplist[i].lng);
-
+          shoplist[i].sales = parseInt(shoplist[i].sales) + parseInt(shoplist[i].count1);
+          shoplist[i].shop_score = (parseFloat(shoplist[i].shop_score).toFixed(1)); 
           shoplist[i].miletxt = this.Base.util.GetMileTxt(shoplist[i].mile);
         }
         this.Base.setMyData({ shoplist });
