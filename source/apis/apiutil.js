@@ -108,7 +108,7 @@ export class ApiUtil {
   }
   static FormatTime2(val) {
     var date = ApiUtil.FormatDateTime(val);
-    return date.substring(9, 14);
+    return date.substring(11, 16);
   }
 
 //判断当前时间是否在制定时间内

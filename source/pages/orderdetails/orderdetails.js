@@ -24,7 +24,7 @@ class Content extends AppBase {
     var zitiname = wx.getStorageSync("zitiname");
     console.log({ zitiname});
     var zitimobile = wx.getStorageSync("zitimobile");
-    this.Base.setMyData({ tjdz:"", totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
+    this.Base.setMyData({ tjdz:"-1", totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
 
 
   }
@@ -59,9 +59,13 @@ var tjdzzzz=[];
       var ziti_start = ApiUtil.FormatTime2(date);
       console.log("ziti_start"+ziti_start);
 
+
       var openning = shop.openning.split("-");
       if (ziti_start > openning[1]){
         ziti_start=openning[1];
+      }
+      if (this.Base.options.ydd != undefined) {
+        ziti_start = openning[0];
       }
       this.Base.setMyData({ zititime: ziti_start, zitistarttime: ziti_start, zitiendtime: openning[1]})
 
@@ -189,7 +193,7 @@ var tjdzzzz=[];
     var sdata = this.Base.getMyData();
   
     data.eat = sdata.eat;
-    if (sdata.tjdz == "" || sdata.tjdz == null || sdata.tjdz == undefined || sdata.tjdz==-1)
+    if (sdata.tjdz == "-1" || sdata.tjdz == null || sdata.tjdz == undefined || sdata.tjdz=="-1")
     {
       data.address_id = sdata.address_id;
       console.log(1);
@@ -198,6 +202,7 @@ var tjdzzzz=[];
     else{
       data.myf=true;
       data.address_id = sdata.tjdz;
+      sdata.address_id = sdata.tjdz;
       console.log(2);
       console.log(sdata.tjdz);
     }
@@ -208,18 +213,23 @@ var tjdzzzz=[];
     console.log(data);
     console.log(sdata);
     console.log("牛逼");
-    if (data.expresstype == "B") {
+    console.log("牛逼");
+    console.log(sdata.expresstype);
+    console.log(sdata.address_id);
+    if (sdata.expresstype == "B") {
       data.delivery_time = sdata.sondasj;
-      if (data.address_id == 0) {
- 
+      if (sdata.address_id == "0") {
         this.Base.info("请选择送餐地址");
         return;
       } else {
-        var meter = this.Base.util.GetDistance(sdata.shop.lat, sdata.shop.lng, sdata.addressinfo.lat, sdata.addressinfo.lng);
-        console.log(meter);
-        if (meter > parseInt(sdata.shop.deliverymeter)) {
-          this.Base.info("送餐地址超出了范围");
-          return;
+        if(sdata.tjdz=="-1"){
+
+          var meter = this.Base.util.GetDistance(sdata.shop.lat, sdata.shop.lng, sdata.addressinfo.lat, sdata.addressinfo.lng);
+          console.log(meter);
+          if (meter > parseInt(sdata.shop.deliverymeter)) {
+            this.Base.info("送餐地址超出了范围");
+            return;
+          }
         }
       }
     }
