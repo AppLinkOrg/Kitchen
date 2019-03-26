@@ -6,7 +6,7 @@
     </view>
     <view class="margin-top-10 flex-bottom flex-row flex-center">
       <view class="h5">约</view>
-      <view class="h4" style='color:#5FE0A3'>{{expresstype=='A'?shop.ziti: shop.songhuo}}</view>
+      <view class="h4" style='color:#5FE0A3'>{{expresstype=='A'?shop.ziti_minute: shop.songhuo_minute}}分钟后</view>
       <view class="h5">{{expresstype=='A'?'可取':'送达'}}</view>
     </view>
   </view>
@@ -22,7 +22,17 @@
 </view>
 <!-- 配送信息部分 -->
 <view class="padding-20 margin-top-5 bg" wx:if="{{expresstype=='B'}}">
-  <view class="h5 txt-bold">配送信息</view>
+  <view class="h5 txt-bold">配送信息</view><view class='flex-row flex-center margin-top-10'>
+    <view class=' txt-gray'>送餐时间</view>
+    <view class='flex-1'></view>
+    <view style='width:200px' class='text-right'>
+      <picker mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
+        <view class="picker  txt-primary">
+          {{zititime}}
+        </view>
+      </picker>
+    </view>
+  </view>
   <view class="flex-row" style='width:100%'>
     <image class='icon margin-top-20   ' id="-1" bindtap='tjdz' wx:if="{{-1!=tjdz}}" src='{{uploadpath}}resource/{{res.buxuanzhonghui}}'></image>
     <image class='icon margin-top-20   ' id="-1" bindtap='tjdz' wx:if="{{-1==tjdz}}" src='{{uploadpath}}resource/{{res.xuanzhonghui}}'></image>
