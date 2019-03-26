@@ -234,7 +234,14 @@ var tjdzzzz=[];
       }
     }
     else {
-      
+      if (sdata.zitiname == "") {
+        this.Base.info("请输入自提姓名");
+        return;
+      }
+      if (sdata.zitimobile == "") {
+        this.Base.info("请输入自提电话");
+        return;
+      }
       data.delivery_time = sdata.zitisj;
     }
 
