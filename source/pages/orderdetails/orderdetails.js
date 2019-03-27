@@ -276,6 +276,7 @@ var tjdzzzz=[];
       key: 'zitiname',
       data: zitiname,
     })
+    this.Base.setMyData({ zitiname: zitiname})
   }
   bindZitMobile(e) {
     var zitimobile = e.detail.value;
@@ -283,6 +284,7 @@ var tjdzzzz=[];
       key: 'zitimobile',
       data: zitimobile,
     })
+    this.Base.setMyData({ zitimobile: zitimobile })
   }
   tjdz(e){
   this.Base.setMyData({tjdz:e.currentTarget.id});
