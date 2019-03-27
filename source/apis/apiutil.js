@@ -100,7 +100,7 @@ export class ApiUtil {
 
   static FormatDate(val) {
     var date=ApiUtil.FormatDateTime(val);
-    return date.substring(0,12);
+    return date.substring(0,10);
   }
   static FormatTime(val) {
     var date = ApiUtil.FormatDateTime(val);

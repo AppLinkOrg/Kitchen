@@ -1,8 +1,8 @@
 <!-- 顶部 -->
 <view class="flex-center flex-row padding-20 bg" wx:if="{{shop!=undefined}}">
-  <view class="">
+  <view class="" wx:if="{{ydd!='1'}}">
     <view class="flex-bottom flex-row flex-center text-right">
-      {{expresstype=='A'?'立即可取':'送出时间'}}
+      {{expresstype=='A'?'下单后':'下单后'}}
     </view>
     <view class="margin-top-10 flex-bottom flex-row flex-center">
       <view class="h5">约</view>
@@ -25,8 +25,15 @@
   <view class="h5 txt-bold">配送信息</view><view class='flex-row flex-center margin-top-10'>
     <view class=' txt-gray'>送餐时间</view>
     <view class='flex-1'></view>
-    <view style='width:200px' class='text-right'>
-      <picker mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
+    <view  class='text-right margin-right'>
+      <picker  disabled='{{ydd!="1"}}' mode="date" value="{{zitidate}}" start="{{zitidate}}"  bindchange="bindZitiDateChange">
+        <view class="picker  txt-primary">
+          {{zitidate}}
+        </view>
+      </picker>
+    </view>
+    <view class='text-right'>
+      <picker disabled='{{ydd!="1"}}' mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
         <view class="picker  txt-primary">
           {{zititime}}
         </view>
@@ -70,8 +77,15 @@
   <view class='flex-row flex-center margin-top-10'>
     <view class=' txt-gray'>自取时间</view>
     <view class='flex-1'></view>
-    <view style='width:200px' class='text-right'>
-      <picker mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
+    <view  class='text-right margin-right'>
+      <picker  disabled='{{ydd!="1"}}' mode="date" value="{{zitidate}}" start="{{zitidate}}"  bindchange="bindZitiDateChange">
+        <view class="picker  txt-primary">
+          {{zitidate}}
+        </view>
+      </picker>
+    </view>
+    <view  class='text-right'>
+      <picker  disabled='{{ydd!="1"}}' mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
         <view class="picker  txt-primary">
           {{zititime}}
         </view>
