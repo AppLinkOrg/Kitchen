@@ -24,7 +24,7 @@ class Content extends AppBase {
     var zitiname = wx.getStorageSync("zitiname");
     console.log({ zitiname});
     var zitimobile = wx.getStorageSync("zitimobile");
-    this.Base.setMyData({ tjdz:"-1", totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
+    this.Base.setMyData({ydd:options.ydd, tjdz:"-1", totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
 
 
   }
@@ -67,7 +67,12 @@ var tjdzzzz=[];
       if (this.Base.options.ydd != undefined) {
         ziti_start = openning[0];
       }
-      this.Base.setMyData({ zititime: ziti_start, zitistarttime: ziti_start, zitiendtime: openning[1]})
+      var cd=new Date();
+      cd=cd.getTime()+24*3600*1000;
+      cd=new Date(cd);
+      cd=ApiUtil.FormatDate(cd);
+
+      this.Base.setMyData({ zitidate: cd, zititime: ziti_start, zitistarttime: ziti_start, zitiendtime: openning[1]})
 
       var ydd = this.Base.options.ydd;
 
@@ -245,9 +250,14 @@ var tjdzzzz=[];
       data.delivery_time = sdata.zitisj;
     }
 
+    data.zitidate = sdata.zitidate;
     data.zititime=sdata.zititime;
     data.zitiname=sdata.zitiname;
     data.zitimobile=sdata.zitimobile;
+
+    if(data.ydd=="1"){
+      data.delivery_time = sdata.zitidate + " " + data.zititime;
+    }
 
     api.prepay(data, (ret) => {
       console.log(ret);
@@ -290,6 +300,15 @@ var tjdzzzz=[];
   this.Base.setMyData({tjdz:e.currentTarget.id});
 
   }
+
+  bindZitiDateChange(e){
+
+    var zitidate = e.detail.value;
+    wx.setStorage({
+      key: 'zitidate',
+      data: zitidate,
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -302,7 +321,8 @@ body.changeExpress = content.changeExpress;
 body.selecteat = content.selecteat; 
 body.bindremark = content.bindremark; 
 body.bindZitiTimeChange = content.bindZitiTimeChange;
-body.bindZitName = content.bindZitName;
+body.bindZitName = content.bindZitName; 
 body.bindZitMobile = content.bindZitMobile;
+body.bindZitiDateChange = content.bindZitiDateChange;
 body.tjdz = content.tjdz;
 Page(body)
