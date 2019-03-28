@@ -68,13 +68,21 @@ var tjdzzzz=[];
         ziti_start = openning[0];
       }
       var cd=new Date();
+      var ydd = this.Base.options.ydd;
+      if (ydd != undefined && ydd != 'undefined')
+      {
       cd=cd.getTime()+24*3600*1000;
+      }
+      else{
+
+        cd = cd.getTime();
+      }
       cd=new Date(cd);
       cd=ApiUtil.FormatDate(cd);
 
       this.Base.setMyData({ zitidate: cd, zititime: ziti_start, zitistarttime: ziti_start, zitiendtime: openning[1]})
 
-      var ydd = this.Base.options.ydd;
+      
 
 
       if (ydd != undefined&&ydd!='undefined') {
@@ -254,7 +262,7 @@ var tjdzzzz=[];
     data.zititime=sdata.zititime;
     data.zitiname=sdata.zitiname;
     data.zitimobile=sdata.zitimobile;
-
+  
     if(data.ydd=="1"){
       data.delivery_time = sdata.zitidate + " " + data.zititime;
     }
