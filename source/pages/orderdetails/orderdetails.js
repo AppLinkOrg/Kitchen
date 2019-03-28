@@ -64,17 +64,17 @@ var tjdzzzz=[];
       if (ziti_start > openning[1]){
         ziti_start=openning[1];
       }
-      if (this.Base.options.ydd != undefined) {
+      var ydd = this.Base.options.ydd;
+      if (ydd != undefined && ydd != 'undefined') {
+        console.log("panduan ydd");
         ziti_start = openning[0];
       }
       var cd=new Date();
-      var ydd = this.Base.options.ydd;
       if (ydd != undefined && ydd != 'undefined')
       {
-      cd=cd.getTime()+24*3600*1000;
+        cd=cd.getTime()+24*3600*1000;
       }
       else{
-
         cd = cd.getTime();
       }
       cd=new Date(cd);
@@ -223,6 +223,7 @@ var tjdzzzz=[];
    
     data.beizhu = sdata.beizhu;
     data.delivery_time = sdata.delivery_time;
+    data.expresstype=sdata.expresstype;
     console.log(data);
     console.log(sdata);
     console.log("牛逼");
@@ -263,10 +264,10 @@ var tjdzzzz=[];
     data.zitiname=sdata.zitiname;
     data.zitimobile=sdata.zitimobile;
   
-    if(data.ydd=="1"){
-      data.delivery_time = sdata.zitidate + " " + data.zititime;
-    }
-
+    data.delivery_time = sdata.zitidate + " " + data.zititime;
+    
+    //console.log(data);
+    //return;
     api.prepay(data, (ret) => {
       console.log(ret);
       ret.complete = function (e) {

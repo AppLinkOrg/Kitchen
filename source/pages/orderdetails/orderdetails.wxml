@@ -33,7 +33,7 @@
       </picker>
     </view>
     <view class='text-right'>
-      <picker disabled='{{ydd!="1"}}' mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
+      <picker  mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
         <view class="picker  txt-primary">
           {{zititime}}
         </view>
@@ -85,7 +85,7 @@
       </picker>
     </view>
     <view  class='text-right'>
-      <picker  disabled='{{ydd!="1"}}' mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
+      <picker   mode="time" value="{{zititime}}" start="{{zitistarttime}}" end="{{zitiendtime}}" bindchange="bindZitiTimeChange">
         <view class="picker  txt-primary">
           {{zititime}}
         </view>
