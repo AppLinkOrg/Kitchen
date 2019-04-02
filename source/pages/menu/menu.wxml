@@ -35,7 +35,7 @@
         <view class="flex-row flex-center margin-left   ">
           <view class="gwccc" bindtap='bindclosedetails2' wx:if="{{caipinzonshu!=0&&caipinzonshu!=''&&caipinzonshu!=undefind}}">{{caipinzonshu}}</view>
           <view class="margin-left" bindtap='bindclosedetails2'>
-            <image  class='icon-40 {{tiaodon==1?"tiaodon":""}}' bindtap='tiaodon' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:10rpx'></image>
+            <image class='icon-40 {{tiaodon==1?"tiaodon":""}}' bindtap='tiaodon' src='{{uploadpath}}resource/{{res.gouwuche1}}' style='margin-top:10rpx'></image>
           </view>
           <view class="margin-left-50    " style=''>
             <view class="h4 txt-white">￥{{totalprice1}}</view>
@@ -86,7 +86,9 @@
                   <view class='flex-1'>
                     <view class=' txt-bold'>{{goods.goods_name}}</view>
 
-                    <view style='' class='h6 txt-gray margin-top-10 margin-bottom-10'>月销量:{{goods.sales}} <block wx:if='{{goods.dailyreset>0}}'>剩余:{{goods.dailyreset-goods.dailysalesqty}}</block></view>
+                    <view style='' class='h6 txt-gray margin-top-10 margin-bottom-10'>月销量:{{goods.sales}}
+                      <block wx:if='{{goods.dailyreset>0}}'>剩余:{{goods.dailyreset-goods.dailysalesqty}}</block>
+                    </view>
 
                     <view class='flex-row flex-center'>
                       <view class='flex-1 txt-bold'>¥{{goods.goods_price}}
@@ -115,7 +117,7 @@
                       <view wx:if="{{goods.haveattr!=0&&goods.shelves_value!='Y'}}" class="guige1 h5" bindtap='selectgoods' id="{{goods.goods_id}}">
                         规格
                       </view>
-                    <view wx:if="{{goods.shelves_value=='Y'}}" class="guqin h5">估清</view>
+                      <view wx:if="{{goods.shelves_value=='Y'}}" class="guqin h5">估清</view>
 
                     </view>
                   </view>
@@ -191,72 +193,73 @@
 
 
   <swiper-item>
-<scroll-view  scroll-y style="height: 100%;">
-    <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:400rpx;'>
-      <swiper-item wx:key="k" wx:for="{{shoplist[0].imgs}}" wx:for-item="imgs" wx:key="k">
-        <view>
-      
-          <image bindtap='viewPhoto' id="{{uploadpath}}shopimg/{{imgs.img}}" src='{{uploadpath}}shopimg/{{imgs.img}}' style='width:100vw;height:400rpx;' mode=""></image>
+    <scroll-view scroll-y style="height: 100%;">
+      <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:400rpx;'>
+        <swiper-item wx:key="k" wx:for="{{shoplist[0].imgs}}" wx:for-item="imgs" wx:key="k">
+          <view>
+
+            <image bindtap='viewPhoto' id="{{uploadpath}}shopimg/{{imgs.img}}" src='{{uploadpath}}shopimg/{{imgs.img}}' style='width:100vw;height:400rpx;' mode=""></image>
+          </view>
+        </swiper-item>
+      </swiper>
+
+
+
+
+      <view class="padding-20" style='border-bottom:4rpx solid #bbbbbb '>
+        <view class="flex-row flex-center ">
+          <view style='width:60rpx;'>
+            <image class='icon-25   ' src='{{uploadpath}}resource/{{res.dizhi}}'></image>
+          </view>
+          <view class="padding-top-20 h5 padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.address}}</view>
         </view>
-      </swiper-item>
-    </swiper>
-
-
-
-
-    <view class="padding-20" style='border-bottom:4rpx solid #bbbbbb '>
-      <view class="flex-row flex-center ">
-        <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.dizhi}}'></image>
+        <view class="flex-row flex-center ">
+          <view style='width:60rpx;'>
+            <image class='icon-25 ' src='{{uploadpath}}resource/{{res.dianhua}}'></image>
+          </view>
+          <view id="{{currentshop.tel}}" bindtap='dadianhua' class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.tel}}</view>
         </view>
-        <view class="padding-top-20 h5 padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.address}}</view>
+        <view class="flex-row flex-center ">
+          <view style='width:60rpx;'>
+            <image class='icon-25   ' src='{{uploadpath}}resource/{{res.yingye}}'></image>
+          </view>
+          <view class="padding-top-20  h5 padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>
+            营业时间:{{currentshop.openning}}</view>
+        </view>
+        <view class="flex-row flex-center ">
+          <view style='width:60rpx;'>
+            <image class='icon-25   ' src='{{uploadpath}}resource/{{res.peison}}'></image>
+          </view>
+          <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%'>
+            <text class="h5">{{currentshop.service}}</text>
+          </view>
+        </view>
+
+
       </view>
-      <view class="flex-row flex-center ">
-        <view style='width:60rpx;'>
-          <image class='icon-25 '  src='{{uploadpath}}resource/{{res.dianhua}}'></image>
+      <view class="padding-20">
+        <view class="txt-bold ">商家活动</view>
+        <view class="flex-row flex-center margin-top-20 ">
+          <view style='width:60rpx;'>
+            <image class='icon-25   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
+          </view>
+          <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.activity}}</view>
         </view>
-        <view  id="{{currentshop.tel}}" bindtap='dadianhua' class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.tel}}</view>
-      </view>
-      <view class="flex-row flex-center ">
-        <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.yingye}}'></image>
+        <view class="flex-row flex-center ">
+          <view style='width:60rpx;'>
+            <image class='icon-25   ' src='{{uploadpath}}resource/{{res.hui}}'></image>
+          </view>
+          <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>暂无优惠卷</view>
         </view>
-        <view class="padding-top-20  h5 padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>
-          营业时间:{{currentshop.openning}}</view>
-      </view>
-      <view class="flex-row flex-center ">
-        <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.peison}}'></image>
-        </view>
-        <view class="padding-top-20  padding-bottom-20 margin-left-10 " style='width:100%'>
-          <text class="h5">{{currentshop.service}}</text></view>
-      </view>
 
-
-    </view>
-    <view class="padding-20">
-      <view class="txt-bold ">商家活动</view>
-      <view class="flex-row flex-center margin-top-20 ">
-        <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.zhe}}'></image>
+        <view class="flex-row flex-center ">
+          <view style='width:60rpx;'>
+            <image class='icon-25   ' src='{{uploadpath}}resource/{{res.jian}}'></image>
+          </view>
+          <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%'>暂无满减</view>
         </view>
-        <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>{{currentshop.activity}}</view>
-      </view>
-      <view class="flex-row flex-center ">
-        <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.hui}}'></image>
-        </view>
-        <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>暂无优惠卷</view>
-      </view>
 
-      <view class="flex-row flex-center ">
-        <view style='width:60rpx;'>
-          <image class='icon-25   ' src='{{uploadpath}}resource/{{res.jian}}'></image>
-        </view>
-        <view class="padding-top-20 h5  padding-bottom-20 margin-left-10 " style='width:100%'>暂无满减</view>
       </view>
-
-    </view>
     </scroll-view>
   </swiper-item>
 

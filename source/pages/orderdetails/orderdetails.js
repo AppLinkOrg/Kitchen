@@ -24,7 +24,7 @@ class Content extends AppBase {
     var zitiname = wx.getStorageSync("zitiname");
     console.log({ zitiname});
     var zitimobile = wx.getStorageSync("zitimobile");
-    this.Base.setMyData({ydd:options.ydd, tjdz:"-1", totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
+    this.Base.setMyData({ydd:options.ydd, tjdz:"-1", zhifu:true, totalprice: 0, expresstype: "A", eat: 1, beizhu: "", delivery_time: "", zitiname: zitiname, zitimobile: zitimobile});
 
 
   }
@@ -200,7 +200,7 @@ var tjdzzzz=[];
     });
   }
   payment(e) {
-
+   
     var api = new WechatApi();
     var data = this.Base.options;
     var sdata = this.Base.getMyData();
@@ -262,11 +262,13 @@ var tjdzzzz=[];
     data.zititime=sdata.zititime;
     data.zitiname=sdata.zitiname;
     data.zitimobile=sdata.zitimobile;
-  
+    data.expresstype = sdata.expresstype;
+  console.log(data);
+
     if(data.ydd=="1"){
       data.delivery_time = sdata.zitidate + " " + data.zititime;
     }
-
+    this.Base.setMyData({ zhifu: false })
     api.prepay(data, (ret) => {
       console.log(ret);
       ret.complete = function (e) {
