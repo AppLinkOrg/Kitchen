@@ -256,6 +256,23 @@ var tjdzzzz=[];
         this.Base.info("请输入自提电话");
         return;
       }
+      console.log(!(/^1[34578]\d{9}$/.test(sdata.zitimobile)));
+     
+      if (!(/^1[34578]\d{9}$/.test(sdata.zitimobile))) {
+        console.log(1);
+        wx.showToast({
+          title: '手机号格式错误',
+          icon: 'none',
+          duration: 2000
+        })
+
+             return
+      
+      } else {
+      
+        
+      }
+   
       data.delivery_time = sdata.zitisj;
     }
 
