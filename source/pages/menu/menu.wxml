@@ -271,7 +271,7 @@
   </view>
   <view class=' under guige'>
     <view class="height:350rpx " style='width:100%'>
-      <image style='width:100%;height:540rpx' bindtap='viewPhoto' class="" id="{{uploadpath}}goodsattrval/{{attr_img}}" src='{{uploadpath}}goodsattrval/{{attr_img}}'></image>
+      <image style='width:100%;height:500rpx' bindtap='viewPhoto' class="" id="{{uploadpath}}goodsattrval/{{attr_img}}" src='{{uploadpath}}goodsattrval/{{attr_img}}'></image>
 
     </view>
     <view class="text-center margin-top-10  txt-blod">{{name}}</view>
@@ -304,7 +304,7 @@
     </view>
     <view class=' under guige'>
       <view class="height:350rpx " style='width:100%'>
-        <image style='width:100%;height:540rpx' bindtap='viewPhoto' id="{{uploadpath}}goods/{{topbanner}}" class="" src='{{uploadpath}}goods/{{topbanner}}'></image>
+        <image style='width:100%;height:500rpx' bindtap='viewPhoto' id="{{uploadpath}}goods/{{topbanner}}" class="" src='{{uploadpath}}goods/{{topbanner}}'></image>
 
       </view>
 

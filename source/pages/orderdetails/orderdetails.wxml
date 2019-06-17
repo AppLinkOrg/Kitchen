@@ -92,14 +92,14 @@
       </picker>
     </view>
   </view>
-  <view class='flex-row flex-center'>
+  <view class='flex-row flex-center margin-top-10'>
     <view class=' txt-gray'>自提姓名</view>
     <view class='flex-1'></view>
     <view style='width:200px' class='text-right'>
       <input class=' txt-primary' placeholder='输入姓名' bindinput='bindZitName' maxlength='10' value='{{zitiname}}'></input>
     </view>
   </view>
-  <view class='flex-row flex-center'>
+  <view class='flex-row flex-center margin-top-10'>
     <view class=' txt-gray'>自提电话</view>
     <view class='flex-1'></view>
     <view style='width:200px' class='text-right'>
@@ -133,7 +133,7 @@
     </view>
   </view>
 
-  <!-- <view class='flex-row margin-top'>
+   <view class='flex-row margin-top'>
     <view class='flex-1 flex-row flex-center'>
       <view class='flex-1'></view>
       <view class='margin-right' bindtap='selecteat' id="1">
@@ -150,7 +150,7 @@
       <view class='f1 h5'>打包带走</view>
       <view class='flex-1'></view>
     </view>
-  </view> -->
+  </view> 
 
 
 
@@ -211,6 +211,6 @@
       <view class="flex-2 txt-bold bg">￥{{totalprice+(((expresstype=='B'&&totalprice
         < instinfo.expressfreeup)&&(tjdz=='' ||tjdz==-1))?instinfo.expressfee:0)}}</view>
       </view>
-      <view wx:if="{{shop.theamount<=totalprice&&zhifu}}" class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
-      <view wx:if="{{shop.theamount>totalprice||!zhifu}}" class="flex-2 text-center  txt-white xm" style='background-color:#B3B3B3'>去支付</view>
+      <view wx:if="{{(shop.theamount<=totalprice||expresstype=='A')&&zhifu}}" class="flex-2 text-center  txt-white xm" style='background-color:#5FE0A3' bindtap='payment'>去支付</view>
+      <view wx:if="{{(shop.theamount>totalprice&&expresstype=='B')||!zhifu}}" class="flex-2 text-center  txt-white xm" style='background-color:#B3B3B3'>去支付</view>
     </view>

@@ -61,5 +61,6 @@
         "selectedIconPath": "images/icons/我的.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

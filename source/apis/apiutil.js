@@ -125,7 +125,7 @@ export class ApiUtil {
         whedate = true;
       }
       }
-      console.log(1111);
+      console.log("判断时间");
     console.log(whedate);
     return whedate;
 }
@@ -239,6 +239,8 @@ export class ApiUtil {
     s = Math.round(s * 10000) / 10000; //输出为公里
     s = Math.round(s * 1000) / 1; //单位修改为米,取整
     //s=s.toFixed(4);
+    console.log("计算地址");
+    console.log(s);
     return s;
   }
   static GetMileTxt(mile){

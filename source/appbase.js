@@ -151,8 +151,12 @@ export class AppBase {
 
           })
         } else {
+          console.log("取消了");
           that.gotoOpenUserInfoSetting();
         }
+      },
+      fail: function () {
+        console.log("取消了");
       }
     })
   }
@@ -431,6 +435,7 @@ export class AppBase {
             success: function(res) {
               //that.setMyData({ addressinfo:res.result });
               callback(res.result);
+              console.log(res);
             },
             fail: function(res) {
               console.log("fail get location");

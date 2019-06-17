@@ -9,7 +9,7 @@
 </view>
 <!-- 切换模块 -->
 <view class="flex-row flex-center padding-20">
-  <view class="flex-2  {{tab=='null'?'xz':'wxz'}} "  id="null" bindtap='changetab'>综合排序</view>
+  <view class="flex-2  {{tab=='null'?'xz':'wxz'}} " id="null" bindtap='changetab'>综合排序</view>
   <view class="flex-1"></view>
   <view class="flex-2  {{tab=='distance'?'xz':'wxz'}}" id="distance" bindtap='changetab'>距离最近</view>
   <view class="flex-1 "></view>
@@ -19,21 +19,21 @@
 </view>
 
 <!-- 店铺列表 -->
-
-<view  bindtap='chooseShop' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" class="padding-20 margin-top-20  flex-row border-bottom  ">
+<view class="h5" wx:if="{{mylocation==''}}">为正常使用小程序，请打开GPS定位和授权获取地理位置</view>
+<view bindtap='chooseShop' wx:for="{{shoplist}}" wx:key="k" id="{{item.id}}" class="padding-20 margin-top-20  flex-row border-bottom  ">
 
   <image class="yr" style='width:150rpx;height:120rpx' mode="aspectFill" src='{{uploadpath}}shop/{{item.img}}'></image>
 
   <view class="margin-left-20 " style='width:100%'>
-  <view class="flex-row ">
-    <view class=" flex-1 txt-black txt-bold">
-      {{item.name}}
-    </view>
-    <view class="h5">{{item.miletxt}}</view>
+    <view class="flex-row ">
+      <view class=" flex-1 txt-black txt-bold">
+        {{item.name}}
+      </view>
+      <view class="h5">{{item.miletxt}}</view>
     </view>
     <view class=" flex-row margin-top-10">
-      <view class="h5 " >评分:{{item.shop_score}}</view>
-      
+      <view class="h5 ">评分:{{item.shop_score}}</view>
+
       <view class="h5  margin-left-20">月销量:{{item.sales}}</view>
       <view class="h5  margin-left-20">人均消费:{{item.avgxf}}元</view>
     </view>
@@ -41,8 +41,8 @@
       <view class="h5 ">
         <image class="icon" mode="aspectFill" src='{{uploadpath}}resource/{{res.img1}}'></image>
       </view>
-      <view class="h5 flex-1 margin-left-20">{{item.cat}}  </view>
-      
+      <view class="h5 flex-1 margin-left-20">{{item.cat}} </view>
+
     </view>
   </view>
 

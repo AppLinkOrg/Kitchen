@@ -247,27 +247,28 @@ class Content extends AppBase {
       var shop = this.Base.getMyData().shop;
 
       var cd = new Date();
+   
+      console.log(shop.openning);
+      
+     
+      // var openning = shop.openning.split("-");
 
-      var openning = shop.openning.split("-");
-
-      var ziti_start = openning[0].split(":");
-      ziti_start = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate(), ziti_start[0], ziti_start[1], 0);
-      ziti_start = ziti_start.getTime();
+      // var ziti_start = openning[0].split(":");
+      // ziti_start = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate(), ziti_start[0], ziti_start[1], 0);
+      // ziti_start = ziti_start.getTime();
 
 
-      var ziti_end = openning[1].split(":");
-      ziti_end = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate(), ziti_end[0], ziti_end[1], 0);
-      ziti_end = ziti_end.getTime();
-      cd=cd.getTime();
-      console.log(cd);
-      console.log(ziti_start);
-      if(cd<ziti_start){
-        this.Base.info("我们还没上班呢");
+      // var ziti_end = openning[1].split(":");
+      // ziti_end = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate(), ziti_end[0], ziti_end[1], 0);
+      // ziti_end = ziti_end.getTime();
+      // cd=cd.getTime();
+      // console.log(cd);
+      // console.log(ziti_start);
+      if (!ApiUtil.checkInOpen(shop.openning)){
+        this.Base.info("现在不在营业时间");
+      
        return ;
-      } if (cd > ziti_end) {
-        this.Base.info("我们已经下班了");
-        return;
-      }
+      } 
     }
 
 
@@ -300,6 +301,7 @@ class Content extends AppBase {
     console.log(sdata.expresstype);
     console.log(sdata.address_id);
     if (sdata.expresstype == "B") {
+      data.eat = 0;
       data.delivery_time = sdata.sondasj;
       if (sdata.address_id == "0") {
         this.Base.info("请选择送餐地址");
@@ -309,10 +311,12 @@ class Content extends AppBase {
 
           var meter = this.Base.util.GetDistance(sdata.shop.lat, sdata.shop.lng, sdata.addressinfo.lat, sdata.addressinfo.lng);
           console.log(meter);
+          console.log(sdata);
           if (meter > parseInt(sdata.shop.deliverymeter)) {
             this.Base.info("送餐地址超出了范围");
             return;
           }
+         
         }
       }
     } else {
