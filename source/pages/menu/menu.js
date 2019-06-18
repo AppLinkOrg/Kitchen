@@ -22,7 +22,7 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    this.Base.needauth = true;
+   // this.Base.needauth = true;
     this.Base.Page = this;
     //options.id=5;
     this.Base.setMyData({ num: 1, xz: 0,istrue: true, istrue1: true, istrue2: true, qweqwe: true, })
@@ -166,6 +166,13 @@ class Content extends AppBase {
     this.Base.setMyData({ "intocat_id": "cat_" + id, selectcat_id: id, isgoto: true });
   }
   selectgoods(e) {
+    if (this.Base.getMyData().memberinfo == undefined) {
+      wx.navigateTo({
+        url: '/pages/auth/auth',
+      })
+      return
+    }
+
     var id = e.currentTarget.id;
     var shopapi = new ShopApi();
     shopapi.goodsinfo({
@@ -317,6 +324,12 @@ class Content extends AppBase {
 
   }
   addToCart() {
+    if (this.Base.getMyData().memberinfo == undefined) {
+      wx.navigateTo({
+        url: '/pages/auth/auth',
+      })
+      return
+    }
 
 
     var data = this.Base.getMyData();
@@ -341,6 +354,12 @@ class Content extends AppBase {
 
   }
   addToCart1() {
+    if (this.Base.getMyData().memberinfo == undefined) {
+      wx.navigateTo({
+        url: '/pages/auth/auth',
+      })
+      return
+    }
 
 this.tiaodon();
     var data = this.Base.getMyData();
@@ -570,6 +589,16 @@ this.tiaodon();
     }
   }
   gotoConfirm(e) {
+   
+ 
+    if (this.Base.getMyData().memberinfo == undefined) {
+      wx.navigateTo({
+        url: '/pages/auth/auth',
+      })
+      return
+    }
+     
+
     if (this.Base.getMyData().totalprice1 > 0) {
 
       var cartorder = this.Base.getMyData().cartorder;
