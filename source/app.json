@@ -23,7 +23,8 @@
     "pages/goods/goods",
     "pages/home/home",
     "pages/content/content",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",

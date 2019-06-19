@@ -1,3 +1,4 @@
+// pages/coupon/coupon.js
 // pages/content/content.js
 import {
   AppBase
@@ -27,5 +28,4 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.gotowallet = content.gotowallet;
 Page(body)

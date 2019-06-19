@@ -1,7 +1,13 @@
 // pages/content/content.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -14,16 +20,16 @@ class Content extends AppBase {
     super.onLoad(options);
   }
   onMyShow() {
-  
+
     var that = this;
   }
-  gotowallet(){
-// wx.navigateTo({
-//   url: '/pages/wallet/wallet',
-// })
-
-    this.Base.info("暂未开放");
+  gotowallet() {
+    wx.navigateTo({
+      url: '/pages/wallet/wallet',
+    })
+    // this.Base.info("暂未开放");
   }
+  
 }
 var content = new Content();
 var body = content.generateBodyJson();

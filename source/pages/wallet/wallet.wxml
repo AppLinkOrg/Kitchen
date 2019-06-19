@@ -1,11 +1,21 @@
 <view class="padding-40 txt-black">我的余额</view>
 <view class="text-center txt-black h1 padding-40">
-{{memberinfo.balance}}元
+  {{memberinfo.balance}}元
 </view>
 
 <view class=' padding-40'>
   <view>
-    <navigator url='/pages/customerd/customerd'  class='flex-row flex-center  ' hover-class="none">
+    <navigator url='/pages/coupon/coupon' class='flex-row flex-center  ' hover-class="none">
+      <view class='margin-right line-height-0'>
+        <image class='icon' src='{{uploadpath}}resource/{{res.	address}}'></image>
+      </view>
+      <view class='flex-1 txt-black '>优惠券</view>
+      <view class='line-height-0'>
+        <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
+      </view>
+    </navigator>
+
+    <navigator url='/pages/customerd/customerd' class='flex-row flex-center  margin-top-60' hover-class="none">
       <view class='margin-right line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	address}}'></image>
       </view>
@@ -16,9 +26,9 @@
     </navigator>
 
     <!-- <button class=' clear-contact ceshi  ' style='width:750rpx;height:100rpx;' open-type='contact'></button> -->
-    <navigator url="/pages/recharge/recharge" hover-class='none' class='flex-row flex-center margin-top-60' >
+    <navigator url="/pages/recharge/recharge" hover-class='none' class='flex-row flex-center margin-top-60'>
       <view class='margin-right line-height-0'>
-        <image class='icon'  src='{{uploadpath}}resource/{{res.service}}'></image>
+        <image class='icon' src='{{uploadpath}}resource/{{res.service}}'></image>
       </view>
       <view class='flex-1 txt-black'>充值</view>
       <view class='line-height-0'>

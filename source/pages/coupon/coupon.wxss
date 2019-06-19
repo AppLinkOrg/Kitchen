@@ -1,0 +1,22 @@
+/* pages/coupon/coupon.wxss */
+/* page {
+  background-color: #e7e7e7;
+} */
+
+.hezi{
+  margin: 20rpx;
+  padding: 10rpx;
+  background-color:#E5E5E5; 
+  border-radius: 10rpx;
+}
+.yellow{
+  color: #FFE91F;
+}
+
+.bold{
+  font-size: 100rpx;
+}
+
+.h18{
+  font-size: 36rpx;
+}

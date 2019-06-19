@@ -1,0 +1,34 @@
+<!--pages/coupon/coupon.wxml-->
+
+
+<view>
+  <view class='_center'>
+      <image class='icon-150 margin-top-150' src='{{uploadpath}}resource/{{res.yhnull}}'></image>
+  </view>
+  <view class='_center txt-gray'>暂无优惠券</view>
+</view>
+
+
+<!-- <view>
+  <view class='hezi '>
+    <view class='flex-row flex-center' style='height:230rpx;background-image:url({{uploadpath}}resource/{{res.yhbg}});background-size:100% 100%;'>
+      <view style='width:4.2vw'></view>
+      <view class='yellow'>
+        <text class='yellow bold'>9.9</text>元
+      </view>
+      <view class='flex-1'></view>
+
+      <view>
+        <view class='yellow h18'>新注册用户专享</view>
+        <view class='h6 txt-white margin-top-20'>有效期至2019.10.10</view>
+      </view>
+      <view class='flex-1'></view>
+
+      <view>
+        <image class='icon-50' src='{{uploadpath}}resource/{{res.yhfp}}'></image>
+      </view>
+      <view style='width:4.2vw'></view>
+
+    </view>
+  </view>
+</view> -->
