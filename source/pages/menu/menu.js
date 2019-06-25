@@ -404,7 +404,7 @@ this.tiaodon();
           var totalprice1 = 0;
           var totalnum = 0;
           var cansales = [];
-      var shuzu =new Array(menu.length).fill(0);
+      var shuzu =[{}];
           for (var i = 0; i < cartorder.length; i++) {
             
             for (var q = 0; q < menu.length; q++) {
