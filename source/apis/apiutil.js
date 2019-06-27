@@ -114,19 +114,32 @@ export class ApiUtil {
 //判断当前时间是否在制定时间内
   static checkInOpen(opening) {
     var whedate = false;
-    var mydate = new Date();
+    try{
+    var mydate = new Date(2019,5,25,9,10);
     mydate = mydate.getHours() + ":" + mydate.getMinutes();
     var sj = opening.split(",");
     for (var i = 0; i < sj.length; i++) {
       sj[i] = sj[i].split("-");
+      console.log(mydate);
       console.log(sj[i][0]);
       console.log(sj[i][1]);
-      if (sj[i][0] < mydate && sj[i][1] > mydate) {
+      
+      var s = parseInt(sj[i][0].replace(":",""));
+      var m = parseInt(mydate.replace(":", ""));
+      var e = parseInt(sj[i][1].replace(":", ""));
+
+      console.log(s);
+      console.log(m);
+      console.log(e);
+      if (s < m && e > m) {
         whedate = true;
       }
       }
       console.log("判断时间");
-    console.log(whedate);
+      console.log(whedate);
+    }catch(e){
+
+    }
     return whedate;
 }
 
