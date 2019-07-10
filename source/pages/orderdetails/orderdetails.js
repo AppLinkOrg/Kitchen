@@ -312,7 +312,7 @@ class Content extends AppBase {
 
           var meter = this.Base.util.GetDistance(sdata.shop.lat, sdata.shop.lng, sdata.addressinfo.lat, sdata.addressinfo.lng);
           console.log(meter);
-          console.log(sdata);
+          console.log(sdata.shop.deliverymeter);
           if (meter > parseInt(sdata.shop.deliverymeter)) {
             this.Base.info("送餐地址超出了范围");
             return;
