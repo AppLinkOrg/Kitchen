@@ -23,7 +23,7 @@
     </navigator>
 
     <!-- <button class=' clear-contact ceshi  ' style='width:750rpx;height:100rpx;' open-type='contact'></button> -->
-    <view class='flex-row flex-center margin-top-60' bindtap='gotowallet'>
+    <!-- <view class='flex-row flex-center margin-top-60' bindtap='gotowallet'>
       <view class='margin-right line-height-0'>
         <image class='icon'  src='{{uploadpath}}resource/{{res.service}}'></image>
       </view>
@@ -31,7 +31,7 @@
       <view class='line-height-0'>
         <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
       </view>
-    </view>
+    </view> -->
 
 
     <navigator url='/pages/feedback/feedback' class='flex-row flex-center margin-top-60 ' hover-class="none">
