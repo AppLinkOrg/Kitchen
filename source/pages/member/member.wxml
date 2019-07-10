@@ -7,7 +7,7 @@
     {{memberinfo.nickName}}({{memberinfo.memberlevel_name}})
   </view>
   <view class='margin-left' hidden='1'>
-    <image class='icon' src='{{uploadpath}}resource/{{res.	you}}'></image>
+    <image class='icon' src='{{uploadpath}}resource/{{res.you}}'></image>
   </view>
 </view>
 <view class=' padding-40'>
