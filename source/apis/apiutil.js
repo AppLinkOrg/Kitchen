@@ -115,22 +115,23 @@ export class ApiUtil {
   static checkInOpen(opening) {
     var whedate = false;
     try{
-    var mydate = new Date(2019,5,25,9,10);
+    var mydate = new Date();
     mydate = mydate.getHours() + ":" + mydate.getMinutes();
+    console.log("mmmopenning" + opening);
     var sj = opening.split(",");
     for (var i = 0; i < sj.length; i++) {
       sj[i] = sj[i].split("-");
-      console.log(mydate);
-      console.log(sj[i][0]);
-      console.log(sj[i][1]);
-      
-      var s = parseInt(sj[i][0].replace(":",""));
+      console.log("mmmms" + sj[i][0]);
+      console.log("mmmm" + mydate);
+      console.log("mmmme" +sj[i][1]);
+
       var m = parseInt(mydate.replace(":", ""));
+      var s = parseInt(sj[i][0].replace(":",""));
       var e = parseInt(sj[i][1].replace(":", ""));
 
-      console.log(s);
-      console.log(m);
-      console.log(e);
+      console.log("mmmms2" +s);
+      console.log("mmmm2" +m);
+      console.log("mmmme2" +e);
       if (s < m && e > m) {
         whedate = true;
       }

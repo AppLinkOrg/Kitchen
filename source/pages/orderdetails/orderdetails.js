@@ -264,6 +264,7 @@ class Content extends AppBase {
       // cd=cd.getTime();
       // console.log(cd);
       // console.log(ziti_start);
+      console.log("mmmmk"+shop.openning);
       if (!ApiUtil.checkInOpen(shop.openning)){
         this.Base.info("现在不在营业时间");
       

@@ -224,7 +224,7 @@
             <image class='icon-25   ' src='{{uploadpath}}resource/{{res.yingye}}'></image>
           </view>
           <view class="padding-top-20  h5 padding-bottom-20 margin-left-10 " style='width:100%;border-bottom:1px solid #bbbbbb'>
-            营业时间:{{currentshop.openning}}</view>
+            营业时间:{{currentshop.openningstr}}</view>
         </view>
         <view class="flex-row flex-center ">
           <view style='width:60rpx;'>
