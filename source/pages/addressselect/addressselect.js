@@ -10,7 +10,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
-    
+
     super.onLoad(options);
     this.Base.setMyData({
       inputShowed: false,
@@ -22,7 +22,7 @@ class Content extends AppBase {
     var that = this;
     this.Base.getAddress((location) => {
       console.log(location);
-      that.Base.setMyData({ inputVal: location.address, inputShowed:true});
+      that.Base.setMyData({ inputVal: location.address, inputShowed: true });
       that.search();
     });
   }
@@ -67,7 +67,7 @@ class Content extends AppBase {
       keyword: inputVal,
       region: routesearcharea,
       region_fix: 1,
-      //policy:1,
+      policy:1,
       success: function (res) {
         console.log(res);
 

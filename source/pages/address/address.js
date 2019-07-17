@@ -44,8 +44,9 @@ class Content extends AppBase {
     });
   }
   dataReturnCallback(callbackid, data) {
+    console.log("那真的牛批");
     console.log(data);
-    this.Base.setMyData({ address: data.address,lat:data.location.lat,lng:data.location.lng });
+    this.Base.setMyData({ address: data.title,lat:data.location.lat,lng:data.location.lng });
   }
   save(e){
     console.log(e.detail.value);
